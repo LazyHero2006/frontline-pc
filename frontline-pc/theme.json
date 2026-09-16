@@ -1,0 +1,1100 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "settings": {
+    "appearanceTools": true,
+    "useRootPaddingAwareAlignments": true,
+    "layout": {
+      "contentSize": "1200px",
+      "wideSize": "1440px"
+    },
+    "color": {
+      "defaultPalette": false,
+      "defaultGradients": false,
+      "defaultDuotone": false,
+      "customDuotone": false,
+      "palette": [
+        {
+          "name": "Navy 950",
+          "slug": "navy-950",
+          "color": "#060c24"
+        },
+        {
+          "name": "Navy 900",
+          "slug": "navy-900",
+          "color": "#0a1336"
+        },
+        {
+          "name": "Navy 800 (Primary)",
+          "slug": "navy-800",
+          "color": "#0e1b4d"
+        },
+        {
+          "name": "Navy 700",
+          "slug": "navy-700",
+          "color": "#16265f"
+        },
+        {
+          "name": "Navy 600",
+          "slug": "navy-600",
+          "color": "#1f3478"
+        },
+        {
+          "name": "Navy 500",
+          "slug": "navy-500",
+          "color": "#294397"
+        },
+        {
+          "name": "Blue 700",
+          "slug": "blue-700",
+          "color": "#2643a8"
+        },
+        {
+          "name": "Blue 600",
+          "slug": "blue-600",
+          "color": "#2f55c4"
+        },
+        {
+          "name": "Blue 500 (Secondary)",
+          "slug": "blue-500",
+          "color": "#4770db"
+        },
+        {
+          "name": "Blue 400",
+          "slug": "blue-400",
+          "color": "#6b8ce6"
+        },
+        {
+          "name": "Blue 300",
+          "slug": "blue-300",
+          "color": "#9db4ee"
+        },
+        {
+          "name": "Blue 200",
+          "slug": "blue-200",
+          "color": "#c6d4f6"
+        },
+        {
+          "name": "Blue 100",
+          "slug": "blue-100",
+          "color": "#e4ebfb"
+        },
+        {
+          "name": "Blue 50",
+          "slug": "blue-50",
+          "color": "#f1f5fd"
+        },
+        {
+          "name": "White",
+          "slug": "white",
+          "color": "#ffffff"
+        },
+        {
+          "name": "Gray 50 (Canvas)",
+          "slug": "gray-50",
+          "color": "#f4f4f4"
+        },
+        {
+          "name": "Gray 100",
+          "slug": "gray-100",
+          "color": "#ececef"
+        },
+        {
+          "name": "Gray 200",
+          "slug": "gray-200",
+          "color": "#dfe1e7"
+        },
+        {
+          "name": "Gray 300",
+          "slug": "gray-300",
+          "color": "#c8ccd6"
+        },
+        {
+          "name": "Gray 400",
+          "slug": "gray-400",
+          "color": "#a4aab9"
+        },
+        {
+          "name": "Gray 500",
+          "slug": "gray-500",
+          "color": "#6a7080"
+        },
+        {
+          "name": "Gray 600",
+          "slug": "gray-600",
+          "color": "#565d6e"
+        },
+        {
+          "name": "Gray 700",
+          "slug": "gray-700",
+          "color": "#3a4051"
+        },
+        {
+          "name": "Gray 800",
+          "slug": "gray-800",
+          "color": "#232838"
+        },
+        {
+          "name": "Gray 900",
+          "slug": "gray-900",
+          "color": "#141826"
+        },
+        {
+          "name": "Success 700",
+          "slug": "success-700",
+          "color": "#1d7f4e"
+        },
+        {
+          "name": "Success 600",
+          "slug": "success-600",
+          "color": "#1f8a54"
+        },
+        {
+          "name": "Success 500",
+          "slug": "success-500",
+          "color": "#2ea66b"
+        },
+        {
+          "name": "Success 100",
+          "slug": "success-100",
+          "color": "#d8f1e3"
+        },
+        {
+          "name": "Warning 700",
+          "slug": "warning-700",
+          "color": "#976606"
+        },
+        {
+          "name": "Warning 600",
+          "slug": "warning-600",
+          "color": "#c08208"
+        },
+        {
+          "name": "Warning 500",
+          "slug": "warning-500",
+          "color": "#e0a008"
+        },
+        {
+          "name": "Warning 100",
+          "slug": "warning-100",
+          "color": "#fbedcb"
+        },
+        {
+          "name": "Danger 600",
+          "slug": "danger-600",
+          "color": "#c5392f"
+        },
+        {
+          "name": "Danger 500",
+          "slug": "danger-500",
+          "color": "#e0483d"
+        },
+        {
+          "name": "Danger 100",
+          "slug": "danger-100",
+          "color": "#fadcd9"
+        },
+        {
+          "name": "Info 500",
+          "slug": "info-500",
+          "color": "#4770db"
+        },
+        {
+          "name": "Info 100",
+          "slug": "info-100",
+          "color": "#e4ebfb"
+        }
+      ],
+      "gradients": [
+        {
+          "name": "Navy shell",
+          "slug": "navy-shell",
+          "gradient": "linear-gradient(135deg, #0a1336 0%, #16265f 100%)"
+        },
+        {
+          "name": "Accent glow radial",
+          "slug": "accent-glow",
+          "gradient": "radial-gradient(circle, rgba(71,112,219,0.55) 0%, rgba(71,112,219,0) 68%)"
+        },
+        {
+          "name": "Accent glow soft",
+          "slug": "accent-glow-soft",
+          "gradient": "radial-gradient(circle, rgba(71,112,219,0.28) 0%, rgba(71,112,219,0) 70%)"
+        }
+      ]
+    },
+    "typography": {
+      "fluid": false,
+      "defaultFontSizes": false,
+      "dropCap": false,
+      "fontStyle": true,
+      "fontWeight": true,
+      "letterSpacing": true,
+      "textTransform": true,
+      "textDecoration": true,
+      "lineHeight": true,
+      "fontFamilies": [
+        {
+          "name": "Chakra Petch (Display)",
+          "slug": "display",
+          "fontFamily": "'Chakra Petch', 'Segoe UI', system-ui, sans-serif",
+          "fontFace": [
+            {
+              "fontFamily": "Chakra Petch",
+              "fontStyle": "normal",
+              "fontWeight": "400",
+              "fontDisplay": "swap",
+              "unicodeRange": "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF",
+              "src": [
+                "file:./assets/fonts/ChakraPetch-400-latin-ext.woff2"
+              ]
+            },
+            {
+              "fontFamily": "Chakra Petch",
+              "fontStyle": "normal",
+              "fontWeight": "400",
+              "fontDisplay": "swap",
+              "unicodeRange": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+              "src": [
+                "file:./assets/fonts/ChakraPetch-400-latin.woff2"
+              ]
+            },
+            {
+              "fontFamily": "Chakra Petch",
+              "fontStyle": "normal",
+              "fontWeight": "500",
+              "fontDisplay": "swap",
+              "unicodeRange": "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF",
+              "src": [
+                "file:./assets/fonts/ChakraPetch-500-latin-ext.woff2"
+              ]
+            },
+            {
+              "fontFamily": "Chakra Petch",
+              "fontStyle": "normal",
+              "fontWeight": "500",
+              "fontDisplay": "swap",
+              "unicodeRange": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+              "src": [
+                "file:./assets/fonts/ChakraPetch-500-latin.woff2"
+              ]
+            },
+            {
+              "fontFamily": "Chakra Petch",
+              "fontStyle": "normal",
+              "fontWeight": "600",
+              "fontDisplay": "swap",
+              "unicodeRange": "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF",
+              "src": [
+                "file:./assets/fonts/ChakraPetch-600-latin-ext.woff2"
+              ]
+            },
+            {
+              "fontFamily": "Chakra Petch",
+              "fontStyle": "normal",
+              "fontWeight": "600",
+              "fontDisplay": "swap",
+              "unicodeRange": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+              "src": [
+                "file:./assets/fonts/ChakraPetch-600-latin.woff2"
+              ]
+            },
+            {
+              "fontFamily": "Chakra Petch",
+              "fontStyle": "normal",
+              "fontWeight": "700",
+              "fontDisplay": "swap",
+              "unicodeRange": "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF",
+              "src": [
+                "file:./assets/fonts/ChakraPetch-700-latin-ext.woff2"
+              ]
+            },
+            {
+              "fontFamily": "Chakra Petch",
+              "fontStyle": "normal",
+              "fontWeight": "700",
+              "fontDisplay": "swap",
+              "unicodeRange": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+              "src": [
+                "file:./assets/fonts/ChakraPetch-700-latin.woff2"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Space Grotesk (Body)",
+          "slug": "body",
+          "fontFamily": "'Space Grotesk', system-ui, -apple-system, sans-serif",
+          "fontFace": [
+            {
+              "fontFamily": "Space Grotesk",
+              "fontStyle": "normal",
+              "fontWeight": "400",
+              "fontDisplay": "swap",
+              "unicodeRange": "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF",
+              "src": [
+                "file:./assets/fonts/SpaceGrotesk-400-latin-ext.woff2"
+              ]
+            },
+            {
+              "fontFamily": "Space Grotesk",
+              "fontStyle": "normal",
+              "fontWeight": "400",
+              "fontDisplay": "swap",
+              "unicodeRange": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+              "src": [
+                "file:./assets/fonts/SpaceGrotesk-400-latin.woff2"
+              ]
+            },
+            {
+              "fontFamily": "Space Grotesk",
+              "fontStyle": "normal",
+              "fontWeight": "500",
+              "fontDisplay": "swap",
+              "unicodeRange": "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF",
+              "src": [
+                "file:./assets/fonts/SpaceGrotesk-500-latin-ext.woff2"
+              ]
+            },
+            {
+              "fontFamily": "Space Grotesk",
+              "fontStyle": "normal",
+              "fontWeight": "500",
+              "fontDisplay": "swap",
+              "unicodeRange": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+              "src": [
+                "file:./assets/fonts/SpaceGrotesk-500-latin.woff2"
+              ]
+            },
+            {
+              "fontFamily": "Space Grotesk",
+              "fontStyle": "normal",
+              "fontWeight": "600",
+              "fontDisplay": "swap",
+              "unicodeRange": "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF",
+              "src": [
+                "file:./assets/fonts/SpaceGrotesk-600-latin-ext.woff2"
+              ]
+            },
+            {
+              "fontFamily": "Space Grotesk",
+              "fontStyle": "normal",
+              "fontWeight": "600",
+              "fontDisplay": "swap",
+              "unicodeRange": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+              "src": [
+                "file:./assets/fonts/SpaceGrotesk-600-latin.woff2"
+              ]
+            },
+            {
+              "fontFamily": "Space Grotesk",
+              "fontStyle": "normal",
+              "fontWeight": "700",
+              "fontDisplay": "swap",
+              "unicodeRange": "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF",
+              "src": [
+                "file:./assets/fonts/SpaceGrotesk-700-latin-ext.woff2"
+              ]
+            },
+            {
+              "fontFamily": "Space Grotesk",
+              "fontStyle": "normal",
+              "fontWeight": "700",
+              "fontDisplay": "swap",
+              "unicodeRange": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+              "src": [
+                "file:./assets/fonts/SpaceGrotesk-700-latin.woff2"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "JetBrains Mono (Data)",
+          "slug": "mono",
+          "fontFamily": "'JetBrains Mono', ui-monospace, 'SF Mono', monospace",
+          "fontFace": [
+            {
+              "fontFamily": "JetBrains Mono",
+              "fontStyle": "normal",
+              "fontWeight": "400",
+              "fontDisplay": "swap",
+              "unicodeRange": "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF",
+              "src": [
+                "file:./assets/fonts/JetBrainsMono-400-latin-ext.woff2"
+              ]
+            },
+            {
+              "fontFamily": "JetBrains Mono",
+              "fontStyle": "normal",
+              "fontWeight": "400",
+              "fontDisplay": "swap",
+              "unicodeRange": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+              "src": [
+                "file:./assets/fonts/JetBrainsMono-400-latin.woff2"
+              ]
+            },
+            {
+              "fontFamily": "JetBrains Mono",
+              "fontStyle": "normal",
+              "fontWeight": "500",
+              "fontDisplay": "swap",
+              "unicodeRange": "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF",
+              "src": [
+                "file:./assets/fonts/JetBrainsMono-500-latin-ext.woff2"
+              ]
+            },
+            {
+              "fontFamily": "JetBrains Mono",
+              "fontStyle": "normal",
+              "fontWeight": "500",
+              "fontDisplay": "swap",
+              "unicodeRange": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+              "src": [
+                "file:./assets/fonts/JetBrainsMono-500-latin.woff2"
+              ]
+            },
+            {
+              "fontFamily": "JetBrains Mono",
+              "fontStyle": "normal",
+              "fontWeight": "600",
+              "fontDisplay": "swap",
+              "unicodeRange": "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF",
+              "src": [
+                "file:./assets/fonts/JetBrainsMono-600-latin-ext.woff2"
+              ]
+            },
+            {
+              "fontFamily": "JetBrains Mono",
+              "fontStyle": "normal",
+              "fontWeight": "600",
+              "fontDisplay": "swap",
+              "unicodeRange": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+              "src": [
+                "file:./assets/fonts/JetBrainsMono-600-latin.woff2"
+              ]
+            }
+          ]
+        }
+      ],
+      "fontSizes": [
+        {
+          "name": "2XS",
+          "slug": "2xs",
+          "size": "11px"
+        },
+        {
+          "name": "XS",
+          "slug": "xs",
+          "size": "12px"
+        },
+        {
+          "name": "SM",
+          "slug": "sm",
+          "size": "13px"
+        },
+        {
+          "name": "MD (base)",
+          "slug": "md",
+          "size": "15px"
+        },
+        {
+          "name": "LG",
+          "slug": "lg",
+          "size": "17px"
+        },
+        {
+          "name": "XL",
+          "slug": "xl",
+          "size": "20px"
+        },
+        {
+          "name": "2XL",
+          "slug": "2xl",
+          "size": "25px"
+        },
+        {
+          "name": "3XL",
+          "slug": "3xl",
+          "size": "32px"
+        },
+        {
+          "name": "4XL",
+          "slug": "4xl",
+          "size": "42px"
+        },
+        {
+          "name": "5XL",
+          "slug": "5xl",
+          "size": "56px"
+        },
+        {
+          "name": "6XL",
+          "slug": "6xl",
+          "size": "72px"
+        },
+        {
+          "name": "Display Hero",
+          "slug": "display-hero",
+          "size": "clamp(38px, 5.2vw, 62px)"
+        },
+        {
+          "name": "Display Section",
+          "slug": "display-section",
+          "size": "clamp(28px, 3.4vw, 40px)"
+        },
+        {
+          "name": "Display Sub",
+          "slug": "display-sub",
+          "size": "clamp(26px, 3.2vw, 38px)"
+        },
+        {
+          "name": "Display Panel",
+          "slug": "display-panel",
+          "size": "clamp(24px, 3vw, 34px)"
+        }
+      ]
+    },
+    "spacing": {
+      "defaultSpacingSizes": false,
+      "padding": true,
+      "margin": true,
+      "blockGap": true,
+      "units": [
+        "px",
+        "em",
+        "rem",
+        "vh",
+        "vw",
+        "%"
+      ],
+      "spacingSizes": [
+        {
+          "name": "Space 0",
+          "slug": "space-0",
+          "size": "0"
+        },
+        {
+          "name": "Space 1",
+          "slug": "space-1",
+          "size": "4px"
+        },
+        {
+          "name": "Space 2",
+          "slug": "space-2",
+          "size": "8px"
+        },
+        {
+          "name": "Space 3",
+          "slug": "space-3",
+          "size": "12px"
+        },
+        {
+          "name": "Space 4",
+          "slug": "space-4",
+          "size": "16px"
+        },
+        {
+          "name": "Space 5",
+          "slug": "space-5",
+          "size": "20px"
+        },
+        {
+          "name": "Space 6",
+          "slug": "space-6",
+          "size": "24px"
+        },
+        {
+          "name": "Space 8",
+          "slug": "space-8",
+          "size": "32px"
+        },
+        {
+          "name": "Space 10",
+          "slug": "space-10",
+          "size": "40px"
+        },
+        {
+          "name": "Space 12",
+          "slug": "space-12",
+          "size": "48px"
+        },
+        {
+          "name": "Space 16",
+          "slug": "space-16",
+          "size": "64px"
+        },
+        {
+          "name": "Space 20",
+          "slug": "space-20",
+          "size": "80px"
+        },
+        {
+          "name": "Space 24",
+          "slug": "space-24",
+          "size": "96px"
+        }
+      ]
+    },
+    "shadow": {
+      "defaultPresets": false,
+      "presets": [
+        {
+          "name": "XS",
+          "slug": "shadow-xs",
+          "shadow": "0 1px 2px rgba(14, 27, 77, 0.06)"
+        },
+        {
+          "name": "SM",
+          "slug": "shadow-sm",
+          "shadow": "0 2px 6px rgba(14, 27, 77, 0.08)"
+        },
+        {
+          "name": "MD",
+          "slug": "shadow-md",
+          "shadow": "0 8px 20px -6px rgba(14, 27, 77, 0.14)"
+        },
+        {
+          "name": "LG",
+          "slug": "shadow-lg",
+          "shadow": "0 18px 40px -12px rgba(14, 27, 77, 0.20)"
+        },
+        {
+          "name": "XL",
+          "slug": "shadow-xl",
+          "shadow": "0 32px 64px -20px rgba(14, 27, 77, 0.28)"
+        },
+        {
+          "name": "Accent glow",
+          "slug": "glow-accent",
+          "shadow": "0 6px 22px -6px rgba(71, 112, 219, 0.55)"
+        },
+        {
+          "name": "Accent glow strong",
+          "slug": "glow-accent-strong",
+          "shadow": "0 8px 30px -4px rgba(71, 112, 219, 0.70)"
+        },
+        {
+          "name": "Hairline top",
+          "slug": "hairline-top",
+          "shadow": "inset 0 1px 0 rgba(255,255,255,0.10)"
+        },
+        {
+          "name": "Glass light",
+          "slug": "glass-light",
+          "shadow": "0 10px 30px -8px rgba(14,27,77,0.18), inset 0 1px 0 rgba(255,255,255,0.65)"
+        },
+        {
+          "name": "Glass dark",
+          "slug": "glass-dark",
+          "shadow": "0 14px 40px -10px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.10)"
+        }
+      ]
+    },
+    "border": {
+      "radius": true,
+      "color": true,
+      "style": true,
+      "width": true
+    },
+    "dimensions": {
+      "minHeight": true
+    },
+    "position": {
+      "sticky": true
+    },
+    "custom": {
+      "radius": {
+        "xs": "6px",
+        "sm": "10px",
+        "md": "14px",
+        "lg": "20px",
+        "xl": "28px",
+        "xxl": "36px",
+        "pill": "999px"
+      },
+      "blur": {
+        "sm": "8px",
+        "md": "18px",
+        "lg": "30px"
+      },
+      "duration": {
+        "fast": "120ms",
+        "base": "200ms",
+        "slow": "320ms"
+      },
+      "easing": {
+        "out": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "inOut": "cubic-bezier(0.65, 0, 0.35, 1)",
+        "spring": "cubic-bezier(0.34, 1.56, 0.64, 1)"
+      },
+      "tracking": {
+        "tight": "-0.02em",
+        "normal": "0",
+        "wide": "0.04em",
+        "label": "0.12em"
+      },
+      "leading": {
+        "tight": "1.05",
+        "snug": "1.2",
+        "normal": "1.45",
+        "relaxed": "1.6"
+      },
+      "container": {
+        "sm": "640px",
+        "md": "960px",
+        "lg": "1200px",
+        "xl": "1440px"
+      },
+      "glass": {
+        "lightBg": "rgba(255, 255, 255, 0.55)",
+        "lightBorder": "rgba(255, 255, 255, 0.70)",
+        "darkBg": "rgba(20, 33, 86, 0.45)",
+        "darkBorder": "rgba(120, 150, 230, 0.22)",
+        "accentBg": "rgba(71, 112, 219, 0.16)",
+        "accentBorder": "rgba(71, 112, 219, 0.40)"
+      },
+      "onDark": {
+        "text": "#eaf0ff",
+        "muted": "#aeb9da",
+        "border": "rgba(255,255,255,0.10)",
+        "surface": "rgba(255,255,255,0.05)",
+        "body": "#c9d4f0",
+        "soft": "#b9c6e8",
+        "faint": "#7f8fc4"
+      },
+      "semantic": {
+        "bgCanvas": "var(--wp--preset--color--gray-50)",
+        "bgCanvasDeep": "var(--wp--preset--color--navy-900)",
+        "surfaceCard": "var(--wp--preset--color--white)",
+        "surfaceSunken": "var(--wp--preset--color--gray-100)",
+        "surfaceInverse": "var(--wp--preset--color--navy-800)",
+        "brand": "var(--wp--preset--color--navy-800)",
+        "brandStrong": "var(--wp--preset--color--navy-900)",
+        "accent": "var(--wp--preset--color--blue-500)",
+        "accentStrong": "var(--wp--preset--color--blue-600)",
+        "textStrong": "var(--wp--preset--color--navy-900)",
+        "textBody": "var(--wp--preset--color--gray-800)",
+        "textMuted": "var(--wp--preset--color--gray-600)",
+        "textSubtle": "var(--wp--preset--color--gray-500)",
+        "textLink": "var(--wp--preset--color--blue-600)",
+        "borderSubtle": "var(--wp--preset--color--gray-200)",
+        "borderDefault": "var(--wp--preset--color--gray-300)",
+        "borderStrong": "var(--wp--preset--color--gray-400)",
+        "focusRing": "var(--wp--preset--color--blue-500)",
+        "statusInStock": "var(--wp--preset--color--success-700)",
+        "statusBackorder": "var(--wp--preset--color--warning-700)",
+        "statusOut": "var(--wp--preset--color--gray-600)"
+      }
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "var(--wp--preset--color--gray-50)",
+      "text": "var(--wp--preset--color--gray-800)"
+    },
+    "typography": {
+      "fontFamily": "var(--wp--preset--font-family--body)",
+      "fontSize": "var(--wp--preset--font-size--md)",
+      "lineHeight": "var(--wp--custom--leading--normal)"
+    },
+    "spacing": {
+      "padding": {
+        "top": "0",
+        "bottom": "0",
+        "left": "var(--wp--preset--spacing--space-6)",
+        "right": "var(--wp--preset--spacing--space-6)"
+      },
+      "blockGap": "var(--wp--preset--spacing--space-6)"
+    },
+    "elements": {
+      "link": {
+        "color": {
+          "text": "var(--wp--preset--color--blue-600)"
+        },
+        "typography": {
+          "textDecoration": "none"
+        },
+        ":hover": {
+          "typography": {
+            "textDecoration": "underline"
+          }
+        },
+        ":focus": {
+          "outline": {
+            "width": "0"
+          }
+        }
+      },
+      "heading": {
+        "color": {
+          "text": "var(--wp--preset--color--navy-900)"
+        },
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--display)",
+          "fontWeight": "700",
+          "letterSpacing": "var(--wp--custom--tracking--tight)",
+          "lineHeight": "var(--wp--custom--leading--snug)"
+        }
+      },
+      "h1": {
+        "typography": {
+          "fontSize": "var(--wp--preset--font-size--display-hero)",
+          "lineHeight": "var(--wp--custom--leading--tight)"
+        }
+      },
+      "h2": {
+        "typography": {
+          "fontSize": "var(--wp--preset--font-size--display-section)",
+          "lineHeight": "1.08"
+        }
+      },
+      "h3": {
+        "typography": {
+          "fontSize": "var(--wp--preset--font-size--2-xl)"
+        }
+      },
+      "h4": {
+        "typography": {
+          "fontSize": "var(--wp--preset--font-size--xl)"
+        }
+      },
+      "h5": {
+        "typography": {
+          "fontSize": "var(--wp--preset--font-size--lg)"
+        }
+      },
+      "h6": {
+        "typography": {
+          "fontSize": "var(--wp--preset--font-size--md)",
+          "letterSpacing": "var(--wp--custom--tracking--label)",
+          "textTransform": "uppercase"
+        }
+      },
+      "caption": {
+        "color": {
+          "text": "var(--wp--preset--color--gray-500)"
+        },
+        "typography": {
+          "fontSize": "var(--wp--preset--font-size--xs)"
+        }
+      },
+      "button": {
+        "color": {
+          "background": "var(--wp--preset--color--blue-500)",
+          "text": "var(--wp--preset--color--white)"
+        },
+        "border": {
+          "radius": "var(--wp--custom--radius--md)"
+        },
+        "shadow": "var(--wp--preset--shadow--glow-accent)",
+        "spacing": {
+          "padding": {
+            "top": "14px",
+            "bottom": "14px",
+            "left": "var(--wp--preset--spacing--space-6)",
+            "right": "var(--wp--preset--spacing--space-6)"
+          }
+        },
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--display)",
+          "fontSize": "var(--wp--preset--font-size--sm)",
+          "fontWeight": "600",
+          "letterSpacing": "0.08em",
+          "textTransform": "uppercase"
+        },
+        ":hover": {
+          "color": {
+            "background": "var(--wp--preset--color--blue-600)",
+            "text": "var(--wp--preset--color--white)"
+          },
+          "shadow": "var(--wp--preset--shadow--glow-accent-strong)"
+        },
+        ":active": {
+          "color": {
+            "background": "var(--wp--preset--color--blue-700)",
+            "text": "var(--wp--preset--color--white)"
+          }
+        },
+        ":focus": {
+          "color": {
+            "background": "var(--wp--preset--color--blue-600)",
+            "text": "var(--wp--preset--color--white)"
+          }
+        }
+      }
+    },
+    "blocks": {
+      "core/site-title": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--display)",
+          "fontWeight": "700",
+          "letterSpacing": "var(--wp--custom--tracking--tight)"
+        }
+      },
+      "core/navigation": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--display)",
+          "fontSize": "var(--wp--preset--font-size--sm)",
+          "letterSpacing": "var(--wp--custom--tracking--label)",
+          "textTransform": "uppercase"
+        }
+      },
+      "core/post-title": {
+        "typography": {
+          "fontSize": "var(--wp--preset--font-size--display-section)"
+        }
+      },
+      "core/quote": {
+        "typography": {
+          "fontSize": "var(--wp--preset--font-size--lg)",
+          "lineHeight": "var(--wp--custom--leading--relaxed)"
+        },
+        "color": {
+          "text": "var(--wp--preset--color--gray-800)"
+        }
+      },
+      "core/code": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--mono)",
+          "fontSize": "var(--wp--preset--font-size--sm)"
+        },
+        "color": {
+          "background": "var(--wp--preset--color--gray-100)"
+        },
+        "border": {
+          "radius": "var(--wp--custom--radius--sm)"
+        }
+      },
+      "core/separator": {
+        "color": {
+          "text": "var(--wp--preset--color--gray-200)"
+        }
+      },
+      "core/table": {
+        "typography": {
+          "fontSize": "var(--wp--preset--font-size--sm)"
+        },
+        "color": {
+          "text": "var(--wp--preset--color--gray-800)"
+        }
+      },
+      "core/search": {
+        "border": {
+          "radius": "var(--wp--custom--radius--md)"
+        }
+      },
+      "core/pullquote": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--display)"
+        }
+      },
+      "woocommerce/product-price": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--mono)",
+          "fontWeight": "600",
+          "letterSpacing": "var(--wp--custom--tracking--tight)"
+        },
+        "color": {
+          "text": "var(--wp--preset--color--navy-900)"
+        }
+      },
+      "woocommerce/product-sku": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--mono)",
+          "fontSize": "var(--wp--preset--font-size--xs)"
+        },
+        "color": {
+          "text": "var(--wp--preset--color--gray-500)"
+        }
+      },
+      "woocommerce/product-title": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--display)",
+          "fontWeight": "700",
+          "letterSpacing": "var(--wp--custom--tracking--tight)"
+        },
+        "color": {
+          "text": "var(--wp--preset--color--navy-900)"
+        }
+      },
+      "woocommerce/product-rating": {
+        "color": {
+          "text": "var(--wp--preset--color--blue-500)"
+        }
+      },
+      "woocommerce/product-button": {
+        "border": {
+          "radius": "var(--wp--custom--radius--md)"
+        },
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--display)",
+          "letterSpacing": "0.08em",
+          "textTransform": "uppercase"
+        }
+      },
+      "woocommerce/product-image": {
+        "border": {
+          "radius": "var(--wp--custom--radius--lg)"
+        }
+      },
+      "woocommerce/product-collection": {
+        "spacing": {
+          "blockGap": "var(--wp--preset--spacing--space-6)"
+        }
+      },
+      "woocommerce/mini-cart": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--mono)",
+          "fontSize": "var(--wp--preset--font-size--xs)"
+        }
+      },
+      "woocommerce/breadcrumbs": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--mono)",
+          "fontSize": "var(--wp--preset--font-size--xs)"
+        },
+        "color": {
+          "text": "var(--wp--preset--color--gray-500)"
+        }
+      },
+      "woocommerce/catalog-sorting": {
+        "typography": {
+          "fontSize": "var(--wp--preset--font-size--sm)"
+        },
+        "color": {
+          "text": "var(--wp--preset--color--gray-600)"
+        }
+      },
+      "woocommerce/product-results-count": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--mono)",
+          "fontSize": "var(--wp--preset--font-size--xs)"
+        },
+        "color": {
+          "text": "var(--wp--preset--color--gray-500)"
+        }
+      }
+    }
+  },
+  "templateParts": [
+    {
+      "name": "header",
+      "title": "Header",
+      "area": "header"
+    },
+    {
+      "name": "footer",
+      "title": "Footer",
+      "area": "footer"
+    }
+  ],
+  "customTemplates": [
+    {
+      "name": "page-full-width",
+      "title": "Full width page",
+      "postTypes": [
+        "page"
+      ]
+    }
+  ]
+}

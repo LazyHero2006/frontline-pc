@@ -1,0 +1,34 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "frontline-pc/product-installment",
+	"title": "Instalment estimate",
+	"category": "woo-commerce",
+	"description": "The design's monthly-payment line. An estimate only, filterable.",
+	"textdomain": "frontline-pc",
+	"usesContext": [
+		"postId",
+		"postType"
+	],
+	"supports": {
+		"html": false,
+		"reusable": false,
+		"inserter": false
+	},
+	"attributes": {
+		"months": {
+			"type": "number",
+			"default": 12
+		},
+		"fromLabel": {
+			"type": "string",
+			"default": ""
+		},
+		"perMonthLabel": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"render": "file:./render.php",
+	"editorScript": "frontline-pc-product-installment-editor"
+}

@@ -1,0 +1,33 @@
+/*
+Theme Name: Frontline PC
+Theme URI: https://frontlinepc.no/
+Author: Frontline PC
+Author URI: https://frontlinepc.no/
+Description: Block theme for the Frontline PC store, built from the Frontline PC design system. Deep-navy authority, electric-blue energy and frosted "liquid glass" accents on a soft light canvas. Norwegian (bokmal) WooCommerce storefront.
+Requires at least: 6.7
+Tested up to: 7.1
+Requires PHP: 8.2
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: frontline-pc
+Tags: e-commerce, full-site-editing, custom-logo, custom-menu, translation-ready, block-patterns, wide-blocks
+*/
+
+/*
+Frontline PC WordPress theme, (C) 2026 Frontline PC AS.
+Frontline PC is distributed under the terms of the GNU GPL v2 or later.
+
+Bundled resources:
+  Chakra Petch, Space Grotesk, JetBrains Mono (assets/fonts/)
+    (C) their respective authors, SIL Open Font License 1.1
+    https://scripts.sil.org/OFL
+  Lucide icons (inc/icons.php)
+    (C) Lucide Contributors, ISC License
+    https://github.com/lucide-icons/lucide/blob/main/LICENSE
+*/
+
+/*
+ * Presentation lives in theme.json and assets/css/frontline.css.
+ * This file carries the theme header only, as WordPress requires.
+ */

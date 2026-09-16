@@ -1,0 +1,120 @@
+{
+    "2297": {
+        "post": {
+            "ID": "2297",
+            "post_author": "1",
+            "post_date": "2026-09-15 18:17:17",
+            "post_date_gmt": "2026-09-15 18:17:17",
+            "post_content": "<a class=\"fl-skip-link screen-reader-text\" href=\"#fl-main\">Hopp til innhold</a>\n\n<!-- wp:group {\"tagName\":\"aside\",\"className\":\"fl-announce\",\"layout\":{\"type\":\"default\"}} -->\n<aside class=\"wp-block-group fl-announce\"><!-- wp:paragraph {\"className\":\"fl-announce__item\",\"style\":{\"spacing\":{\"margin\":{\"top\":\"0\",\"bottom\":\"0\"}}}} -->\n<p class=\"fl-announce__item\" style=\"margin-top:0;margin-bottom:0\">Fri frakt</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph {\"style\":{\"spacing\":{\"margin\":{\"top\":\"0\",\"bottom\":\"0\"}}}} -->\n<p style=\"margin-top:0;margin-bottom:0\"><p class=\"fl-announce__sep\" style=\"margin-top:0;margin-bottom:0\" aria-hidden=\"true\">·</p></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph {\"className\":\"fl-announce__item\",\"style\":{\"spacing\":{\"margin\":{\"top\":\"0\",\"bottom\":\"0\"}}}} -->\n<p class=\"fl-announce__item\" style=\"margin-top:0;margin-bottom:0\">Bygget og testet i Norge</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph {\"style\":{\"spacing\":{\"margin\":{\"top\":\"0\",\"bottom\":\"0\"}}}} -->\n<p style=\"margin-top:0;margin-bottom:0\"><p class=\"fl-announce__sep\" style=\"margin-top:0;margin-bottom:0\" aria-hidden=\"true\">·</p></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph {\"className\":\"fl-announce__item\",\"style\":{\"spacing\":{\"margin\":{\"top\":\"0\",\"bottom\":\"0\"}}}} -->\n<p class=\"fl-announce__item\" style=\"margin-top:0;margin-bottom:0\">Levering 5–7 dager</p>\n<!-- /wp:paragraph --></aside>\n<!-- /wp:group -->\n\n<!-- wp:group {\"tagName\":\"header\",\"className\":\"fl-header\",\"layout\":{\"type\":\"default\"}} -->\n<header class=\"wp-block-group fl-header\"><!-- wp:group {\"className\":\"fl-wrap fl-header__inner\",\"layout\":{\"type\":\"default\"}} -->\n<div class=\"wp-block-group fl-wrap fl-header__inner\"><!-- wp:site-logo {\"width\":335} /-->\n\n<!-- wp:navigation {\"ref\":10,\"icon\":\"menu\",\"overlayBackgroundColor\":\"navy-900\",\"overlayTextColor\":\"white\",\"metadata\":{\"ignoredHookedBlocks\":[\"woocommerce/customer-account\"]},\"className\":\"fl-header__nav\",\"layout\":{\"type\":\"flex\",\"justifyContent\":\"left\",\"flexWrap\":\"wrap\",\"orientation\":\"horizontal\"}} /-->\n\n<!-- wp:woocommerce/customer-account {\"displayStyle\":\"icon_only\",\"iconStyle\":\"line\",\"iconClass\":\"wc-block-customer-account__account-icon\",\"style\":{\"typography\":{\"fontSize\":\"var(\\u002d\\u002dwp\\u002d\\u002dpreset\\u002d\\u002dfont-size\\u002d\\u002dsm)\"}}} /-->\n\n<!-- wp:group {\"className\":\"fl-header__actions\",\"layout\":{\"type\":\"default\"}} -->\n<div class=\"wp-block-group fl-header__actions\"><!-- wp:search {\"label\":\"Søk\",\"showLabel\":false,\"placeholder\":\"Søk etter maskiner\",\"buttonText\":\"Søk\",\"buttonPosition\":\"button-only\",\"buttonUseIcon\":true,\"className\":\"fl-search\"} /-->\n\n<!-- wp:woocommerce/mini-cart /--></div>\n<!-- /wp:group --></div>\n<!-- /wp:group --></header>\n<!-- /wp:group -->",
+            "post_title": "Header",
+            "post_excerpt": "",
+            "post_status": "publish",
+            "comment_status": "closed",
+            "ping_status": "closed",
+            "post_password": "",
+            "post_name": "header",
+            "to_ping": "",
+            "pinged": "",
+            "post_modified": "2026-09-15 18:17:17",
+            "post_modified_gmt": "2026-09-15 18:17:17",
+            "post_content_filtered": "",
+            "post_parent": "0",
+            "guid": "https://frontlinepc.no/header/",
+            "menu_order": "0",
+            "post_type": "wp_template_part",
+            "post_mime_type": "",
+            "comment_count": "0"
+        },
+        "meta": [
+            {
+                "meta_key": "origin",
+                "meta_value": "theme"
+            }
+        ],
+        "terms": [
+            {
+                "term_id": 345,
+                "name": "frontline-pc",
+                "slug": "frontline-pc",
+                "term_group": 0,
+                "term_taxonomy_id": 345,
+                "taxonomy": "wp_theme",
+                "description": "",
+                "parent": 0,
+                "count": 3,
+                "filter": "raw"
+            },
+            {
+                "term_id": 346,
+                "name": "header",
+                "slug": "header",
+                "term_group": 0,
+                "term_taxonomy_id": 346,
+                "taxonomy": "wp_template_part_area",
+                "description": "",
+                "parent": 0,
+                "count": 1,
+                "filter": "raw"
+            }
+        ]
+    },
+    "2293": {
+        "post": {
+            "ID": "2293",
+            "post_author": "1",
+            "post_date": "2026-09-15 18:15:19",
+            "post_date_gmt": "2026-09-15 18:15:19",
+            "post_content": "<!-- wp:group {\"tagName\":\"footer\",\"className\":\"fl-footer\",\"layout\":{\"type\":\"default\"}} -->\n<footer class=\"wp-block-group fl-footer\"><!-- wp:group {\"className\":\"fl-wrap fl-footer__cols\",\"layout\":{\"type\":\"default\"}} -->\n<div class=\"wp-block-group fl-wrap fl-footer__cols\"><!-- wp:group {\"layout\":{\"type\":\"default\"}} -->\n<div class=\"wp-block-group\"><!-- wp:image {\"sizeSlug\":\"full\",\"align\":\"center\",\"className\":\"fl-footer__logo\"} -->\n<figure class=\"wp-block-image aligncenter size-full fl-footer__logo\"><img src=\"/wp-content/themes/frontline-pc/assets/images/logo-frontline-footer.png\" alt=\"Frontline PC\"/></figure>\n<!-- /wp:image -->\n\n<!-- wp:paragraph {\"className\":\"fl-footer__about\",\"style\":{\"typography\":{\"textAlign\":\"center\"}}} -->\n<p class=\"has-text-align-center fl-footer__about\">Frontline PC bygger driftssikre gaming-maskiner med høy ytelse. Håndbygget i Norge siden 2023.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:group -->\n\n<!-- wp:group {\"layout\":{\"type\":\"default\"}} -->\n<div class=\"wp-block-group\"><!-- wp:paragraph {\"className\":\"fl-footer__title\"} -->\n<p class=\"fl-footer__title\">Butikk</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:html -->\n<div class=\"fl-footer__links\">\n\t\t\t\t\t\t\t\t\t<a href=\"http://localhost:8090/product-category/frontline-fighter/\">Frontline Fighter</a>\n\t\t\t\t\t\t\t\t\t<a href=\"http://localhost:8090/product-category/frontline-ghost/\">Frontline Ghost</a>\n\t\t\t\t\t\t\t\t\t<a href=\"http://localhost:8090/product-category/frontline-titan/\">Frontline Titan</a>\n\t\t\t\t\t\t\t\t\t<a href=\"http://localhost:8090/product-category/frontline-elite/\">Frontline Elite</a>\n\t\t\t\t\t\t\t\t<a href=\"http://localhost:8090/products/\">Alle PC-er</a>\n\t\t\t</div>\n<!-- /wp:html --></div>\n<!-- /wp:group -->\n\n<!-- wp:group {\"layout\":{\"type\":\"default\"}} -->\n<div class=\"wp-block-group\"><!-- wp:paragraph {\"className\":\"fl-footer__title\"} -->\n<p class=\"fl-footer__title\">Kundeservice</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:html -->\n<div class=\"fl-footer__links\">\n\t\t\t\t\t\t\t\t\t<a href=\"http://localhost:8090/pc-service/\">Garanti &amp; service</a>\n\t\t\t\t\t\t\t\t\t<a href=\"http://localhost:8090/om-oss/\">Om oss</a>\n\t\t\t\t\t\t\t\t\t<a href=\"http://localhost:8090/3d-printing-lokalt/\">3D Printing lokalt</a>\n\t\t\t\t\t\t\t\t\t<a href=\"http://localhost:8090/contact-us/\">Kontakt oss</a>\n\t\t\t\t\t\t\t</div>\n<!-- /wp:html --></div>\n<!-- /wp:group -->\n\n<!-- wp:group {\"layout\":{\"type\":\"default\"}} -->\n<div class=\"wp-block-group\"><!-- wp:paragraph {\"className\":\"fl-footer__title\"} -->\n<p class=\"fl-footer__title\">Betaling</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:html -->\n<div class=\"fl-footer__pay\">\n\t\t\t\t\t\t\t\t\t<span class=\"fl-chip\">Vipps</span>\n\t\t\t\t\t\t\t\t\t<span class=\"fl-chip\">Klarna</span>\n\t\t\t\t\t\t\t\t\t<span class=\"fl-chip\">Visa</span>\n\t\t\t\t\t\t\t\t\t<span class=\"fl-chip\">Mastercard</span>\n\t\t\t\t\t\t\t</div>\n<!-- /wp:html --></div>\n<!-- /wp:group --></div>\n<!-- /wp:group -->\n\n<!-- wp:group {\"className\":\"fl-wrap fl-footer__legal\",\"layout\":{\"type\":\"default\"}} -->\n<div class=\"wp-block-group fl-wrap fl-footer__legal\"><!-- wp:paragraph {\"style\":{\"spacing\":{\"margin\":{\"top\":\"0\",\"bottom\":\"0\"}}}} -->\n<p style=\"margin-top:0;margin-bottom:0\">© 2026 Frontline PC AS</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph {\"style\":{\"spacing\":{\"margin\":{\"top\":\"0\",\"bottom\":\"0\"}}}} -->\n<p style=\"margin-top:0;margin-bottom:0\">Alle priser inkl. mva.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:group --></footer>\n<!-- /wp:group -->",
+            "post_title": "Footer",
+            "post_excerpt": "",
+            "post_status": "publish",
+            "comment_status": "closed",
+            "ping_status": "closed",
+            "post_password": "",
+            "post_name": "footer",
+            "to_ping": "",
+            "pinged": "",
+            "post_modified": "2026-09-15 18:15:19",
+            "post_modified_gmt": "2026-09-15 18:15:19",
+            "post_content_filtered": "",
+            "post_parent": "0",
+            "guid": "https://frontlinepc.no/footer/",
+            "menu_order": "0",
+            "post_type": "wp_template_part",
+            "post_mime_type": "",
+            "comment_count": "0"
+        },
+        "meta": [
+            {
+                "meta_key": "origin",
+                "meta_value": "theme"
+            }
+        ],
+        "terms": [
+            {
+                "term_id": 347,
+                "name": "footer",
+                "slug": "footer",
+                "term_group": 0,
+                "term_taxonomy_id": 347,
+                "taxonomy": "wp_template_part_area",
+                "description": "",
+                "parent": 0,
+                "count": 1,
+                "filter": "raw"
+            },
+            {
+                "term_id": 345,
+                "name": "frontline-pc",
+                "slug": "frontline-pc",
+                "term_group": 0,
+                "term_taxonomy_id": 345,
+                "taxonomy": "wp_theme",
+                "description": "",
+                "parent": 0,
+                "count": 3,
+                "filter": "raw"
+            }
+        ]
+    }
+}

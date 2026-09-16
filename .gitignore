@@ -1,0 +1,21 @@
+# Credentials never belong in this repository.
+# The remote's deploy token is stored outside the repo, in
+# ~/.config/frontline-pc-theme/git-credentials (see git config credential.helper).
+.env
+.env.*
+*.env
+secrets/
+*.token
+*.key
+*.pem
+git-credentials
+.git-credentials
+wp-config.php
+
+# Editor and OS clutter
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.vscode/
+.idea/

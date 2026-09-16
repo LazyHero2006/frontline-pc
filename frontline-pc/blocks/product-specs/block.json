@@ -1,0 +1,35 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "frontline-pc/product-specs",
+	"title": "Product specs",
+	"category": "woo-commerce",
+	"description": "The design's key/value spec rows, read from the product's own attributes.",
+	"textdomain": "frontline-pc",
+	"usesContext": [
+		"postId",
+		"postType"
+	],
+	"supports": {
+		"html": false,
+		"reusable": false,
+		"inserter": false
+	},
+	"attributes": {
+		"rows": {
+			"type": "array",
+			"default": [
+				"grafikkort",
+				"prosessor",
+				"minne-ram",
+				"lagringskapasitet"
+			]
+		},
+		"showSku": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"render": "file:./render.php",
+	"editorScript": "frontline-pc-product-specs-editor"
+}

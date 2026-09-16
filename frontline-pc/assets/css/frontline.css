@@ -1,0 +1,3648 @@
+/**
+ * Frontline PC — presentation that theme.json cannot express.
+ *
+ * Everything here resolves to a token: var(--wp--preset--*) for palette, type,
+ * spacing and shadow; var(--wp--custom--*) for radii, blur, motion and glass.
+ *
+ * Note: WordPress kebab-cases a slug at a letter/digit boundary, so the type
+ * scale's "2xs".."6xl" slugs emit as --wp--preset--font-size--2-xs .. --6-xl.
+ * The slugs in theme.json keep the design system's own names; the variables
+ * below use the names WordPress actually generates. Same reason radius 2xl is
+ * declared as custom.radius.xxl.
+ * No raw colour values except the on-dark tints the artboard itself introduces,
+ * which are declared once in theme.json under custom.onDark.
+ *
+ * @package Frontline_PC
+ */
+
+/* ─────────────────────────────────────────────────────────────
+   1. Foundations
+   ───────────────────────────────────────────────────────────── */
+
+:root {
+	--fl-shell:      var(--wp--preset--color--navy-900);
+	--fl-on-dark:    var(--wp--custom--on-dark--text);
+	--fl-on-dark-mu: var(--wp--custom--on-dark--muted);
+	--fl-on-dark-bo: var(--wp--custom--on-dark--border);
+	--fl-on-dark-su: var(--wp--custom--on-dark--surface);
+	--fl-on-dark-bd: var(--wp--custom--on-dark--body);
+	--fl-on-dark-sf: var(--wp--custom--on-dark--soft);
+	--fl-on-dark-fa: var(--wp--custom--on-dark--faint);
+	--fl-gutter:     var(--wp--preset--spacing--space-6);
+	--fl-max:        var(--wp--custom--container--lg);
+}
+
+/* tokens/base.css opens with this; without it every bordered control is two
+   pixels taller than its declared height. */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+/* Cool, slim scrollbars — tokens/base.css */
+* {
+	scrollbar-width: thin;
+	scrollbar-color: var(--wp--preset--color--gray-300) transparent;
+}
+
+*::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+	background: var(--wp--preset--color--gray-300);
+	border-radius: var(--wp--custom--radius--pill);
+	border: 2px solid transparent;
+	background-clip: padding-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+	background: var(--wp--preset--color--gray-400);
+	background-clip: padding-box;
+}
+
+::selection {
+	background: var(--wp--preset--color--blue-200);
+	color: var(--wp--preset--color--navy-900);
+}
+
+/* Focus: 1px blue border + 3px translucent ring (design system §Focus). */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+	outline: 1px solid var(--wp--preset--color--blue-500);
+	outline-offset: 1px;
+	box-shadow: 0 0 0 3px rgba(71, 112, 219, 0.18);
+	border-radius: var(--wp--custom--radius--xs);
+}
+
+.fl-skip-link {
+	position: absolute;
+	left: -9999px;
+	z-index: 999;
+	padding: var(--wp--preset--spacing--space-3) var(--wp--preset--spacing--space-5);
+	background: var(--wp--preset--color--blue-500);
+	color: var(--wp--preset--color--white);
+	font-family: var(--wp--preset--font-family--display);
+	font-size: var(--wp--preset--font-size--sm);
+	letter-spacing: var(--wp--custom--tracking--label);
+	text-transform: uppercase;
+	border-radius: 0 0 var(--wp--custom--radius--md) 0;
+}
+
+.fl-skip-link:focus {
+	left: 0;
+	top: 0;
+}
+
+.fl-shell {
+	width: 100%;
+	overflow-x: hidden;
+	background: var(--wp--preset--color--gray-50);
+}
+
+/* The design's sections butt straight up against each other. WordPress puts a
+   block-gap margin between top-level template blocks, which would show a strip
+   of canvas between the header, main and footer. */
+.wp-site-blocks > * + * {
+	margin-block-start: 0;
+}
+
+.fl-wrap {
+	max-width: var(--fl-max);
+	margin-inline: auto;
+	padding-inline: var(--fl-gutter);
+	width: 100%;
+}
+
+.fl-eyebrow {
+	font-family: var(--wp--preset--font-family--display);
+	font-size: var(--wp--preset--font-size--xs);
+	font-weight: 600;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: var(--wp--preset--color--blue-600);
+	margin: 0;
+}
+
+.fl-eyebrow--on-dark {
+	color: var(--wp--preset--color--blue-300);
+}
+
+.fl-mono {
+	font-family: var(--wp--preset--font-family--mono);
+	font-variant-numeric: tabular-nums;
+}
+
+.fl-icon {
+	flex: none;
+	display: inline-flex;
+	width: 19px;
+	height: 19px;
+	color: var(--wp--preset--color--blue-500);
+}
+
+.fl-icon svg {
+	width: 100%;
+	height: 100%;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   2. Announcement bar
+   ───────────────────────────────────────────────────────────── */
+
+.fl-announce {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 14px;
+	flex-wrap: wrap;
+	padding: 9px var(--wp--preset--spacing--space-5);
+	background: var(--wp--preset--color--blue-500);
+	color: var(--wp--preset--color--white);
+	font-family: var(--wp--preset--font-family--display);
+	font-size: var(--wp--preset--font-size--xs);
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	margin: 0;
+}
+
+.fl-announce__sep {
+	opacity: 0.5;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   3. Header
+   ───────────────────────────────────────────────────────────── */
+
+/* The translucent surface lives on ::before, not on the header itself.
+   backdrop-filter (like transform or filter) makes an element the containing
+   block for every position:fixed descendant, which trapped the Navigation
+   block's full-screen menu inside the 66px header box. On a pseudo-element
+   the look is identical and the header no longer captures fixed children. */
+.fl-header {
+	position: sticky;
+	top: 0;
+	z-index: 50;
+	border-bottom: 1px solid var(--fl-on-dark-bo);
+}
+
+.fl-header::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	background: rgba(10, 19, 54, 0.92);
+	-webkit-backdrop-filter: blur(14px) saturate(1.3);
+	backdrop-filter: blur(14px) saturate(1.3);
+	pointer-events: none;
+}
+
+.fl-header__inner {
+	display: flex;
+	align-items: center;
+	gap: 28px;
+	padding-block: 14px;
+}
+
+/* No fixed height: the Site Logo block writes its own width/height attributes
+   from the "Bildebredde" control, so the owner sets the size in the editor.
+   The cap only bites on narrow screens, where an oversized logo would crowd
+   the menu button and the cart. */
+.fl-header__logo {
+	margin: 0;
+	flex: none;
+	line-height: 0;
+}
+
+.fl-header__logo a {
+	display: block;
+}
+
+.fl-header__logo img,
+.fl-header .wp-block-site-logo img,
+.fl-header .custom-logo {
+	display: block;
+	width: auto;
+	height: auto;
+	max-width: 100%;
+}
+
+@media (max-width: 600px) {
+	.fl-header__logo img,
+	.fl-header .wp-block-site-logo img,
+	.fl-header .custom-logo {
+		max-width: 160px;
+	}
+}
+
+.fl-header__nav {
+	flex: 1;
+	min-width: 0;
+}
+
+.fl-header__nav .wp-block-navigation__container {
+	gap: 26px;
+}
+
+/* Core sets .wp-block-navigation-item__content { color: inherit } at a higher
+   specificity than a bare descendant selector, so match its weight. */
+.fl-header .fl-header__nav a,
+.fl-header .fl-header__nav .wp-block-navigation-item__content {
+	font-family: var(--wp--preset--font-family--display);
+	font-size: var(--wp--preset--font-size--sm);
+	letter-spacing: var(--wp--custom--tracking--label);
+	text-transform: uppercase;
+	color: var(--fl-on-dark-mu);
+	text-decoration: none;
+	transition: color var(--wp--custom--duration--fast) var(--wp--custom--easing--out);
+}
+
+.fl-header .fl-header__nav a:hover,
+.fl-header .fl-header__nav .wp-block-navigation-item__content:hover,
+.fl-header .fl-header__nav .current-menu-item > .wp-block-navigation-item__content,
+.fl-header .fl-header__nav .current_page_item > .wp-block-navigation-item__content {
+	color: var(--wp--preset--color--white);
+	text-decoration: none;
+}
+
+/* Submenu dropdown, on the dark shell */
+.fl-header .fl-header__nav .wp-block-navigation__submenu-container {
+	background: var(--wp--preset--color--navy-900);
+	border: 1px solid var(--fl-on-dark-bo);
+	border-radius: var(--wp--custom--radius--md);
+	box-shadow: var(--wp--preset--shadow--lg);
+	padding: var(--wp--preset--spacing--space-2);
+	min-width: 240px;
+}
+
+.fl-header .fl-header__nav .wp-block-navigation__submenu-container .wp-block-navigation-item__content {
+	padding: 9px 12px;
+	border-radius: var(--wp--custom--radius--xs);
+	width: 100%;
+}
+
+.fl-header .fl-header__nav .wp-block-navigation__submenu-container .wp-block-navigation-item__content:hover {
+	background: var(--fl-on-dark-su);
+}
+
+/* WordPress adds vertical block-gap margins to group children. In the flex and
+   grid rows below that shifts cells out of line, so it is zeroed per container. */
+.fl-announce > *,
+.fl-header__inner > *,
+.fl-header__actions > *,
+.fl-pill > *,
+.fl-hero__ctas > *,
+.fl-hero__strip > *,
+.fl-hero__stat > *,
+.fl-usp__inner > *,
+.fl-usp__item > *,
+.fl-steps > *,
+.fl-section-head > *,
+.fl-tiers__price-row > *,
+.fl-tiers__price-col > *,
+.fl-tiers__cta > *,
+.fl-support__panel > *,
+.fl-footer__cols > *,
+.fl-footer__legal > * {
+	margin-block: 0;
+}
+
+.fl-header__actions {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	flex: none;
+}
+
+/* Shared pill control used by search and cart */
+.fl-ctl {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	height: 38px;
+	border-radius: 12px;
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	background: var(--fl-on-dark-su);
+	color: var(--wp--preset--color--white);
+	cursor: pointer;
+	text-decoration: none;
+	transition: background var(--wp--custom--duration--fast) var(--wp--custom--easing--out);
+}
+
+.fl-ctl:hover {
+	background: rgba(255, 255, 255, 0.12);
+	color: var(--wp--preset--color--white);
+	text-decoration: none;
+}
+
+.fl-ctl--icon {
+	width: 38px;
+	padding: 0;
+}
+
+.fl-ctl--cart {
+	padding-inline: 14px;
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--xs);
+}
+
+.fl-ctl .fl-icon {
+	width: 17px;
+	height: 17px;
+	color: currentColor;
+}
+
+/* Woo mini-cart button, restyled to the design's cart control */
+.fl-header__actions .wc-block-mini-cart__button {
+	all: unset;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	height: 38px;
+	padding-inline: 14px;
+	border-radius: 12px;
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	background: var(--fl-on-dark-su);
+	color: var(--wp--preset--color--white);
+	cursor: pointer;
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--xs);
+}
+
+.fl-header__actions .wc-block-mini-cart__button:hover {
+	background: rgba(255, 255, 255, 0.12);
+}
+
+.fl-header__actions .wc-block-mini-cart__quantity-badge {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.fl-header__actions .wc-block-mini-cart__badge {
+	background: transparent;
+	color: var(--wp--preset--color--white);
+	font-family: var(--wp--preset--font-family--mono);
+	min-width: 0;
+	padding: 0;
+}
+
+.fl-header__actions .wc-block-mini-cart__icon {
+	width: 17px;
+	height: 17px;
+	fill: currentColor;
+}
+
+/* Navigation block overlay, restyled for the dark header. The artboard shows
+   no narrow state, so the breakpoint is extrapolated from the container scale. */
+.fl-header__nav .wp-block-navigation__responsive-container-open {
+	display: none;
+	align-items: center;
+	justify-content: center;
+	width: 38px;
+	height: 38px;
+	border-radius: 12px;
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	background: var(--fl-on-dark-su);
+	color: var(--wp--preset--color--white);
+}
+
+.fl-header__nav .wp-block-navigation__responsive-container-open:hover {
+	background: rgba(255, 255, 255, 0.12);
+}
+
+.fl-header__nav .wp-block-navigation__responsive-container-close {
+	color: var(--wp--preset--color--white);
+}
+
+.fl-header__nav .wp-block-navigation__responsive-container.is-menu-open {
+	background: var(--wp--preset--color--navy-900);
+	padding: var(--wp--preset--spacing--space-6);
+}
+
+.fl-header__nav .wp-block-navigation__responsive-container.is-menu-open a {
+	color: var(--wp--preset--color--white);
+	font-size: var(--wp--preset--font-size--lg);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   4. Hero
+   ───────────────────────────────────────────────────────────── */
+
+.fl-hero {
+	position: relative;
+	overflow: hidden;
+	background: var(--wp--preset--gradient--navy-shell);
+}
+
+.fl-hero__glow,
+.fl-section-dark__glow {
+	position: absolute;
+	border-radius: 50%;
+	pointer-events: none;
+}
+
+.fl-hero__glow--a {
+	top: -180px;
+	right: -120px;
+	width: 620px;
+	height: 620px;
+	background: var(--wp--preset--gradient--accent-glow);
+}
+
+.fl-hero__glow--b {
+	bottom: -260px;
+	left: -160px;
+	width: 560px;
+	height: 560px;
+	background: var(--wp--preset--gradient--accent-glow-soft);
+}
+
+.fl-hero__inner {
+	position: relative;
+	display: grid;
+	grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+	gap: 56px;
+	align-items: center;
+	padding-block: 76px 68px;
+}
+
+.fl-hero__copy {
+	min-width: 0;
+}
+
+.fl-pill {
+	display: inline-flex;
+	align-items: center;
+	gap: 9px;
+	padding: 7px 14px;
+	border-radius: var(--wp--custom--radius--pill);
+	border: 1px solid rgba(255, 255, 255, 0.14);
+	background: rgba(255, 255, 255, 0.06);
+	font-family: var(--wp--preset--font-family--display);
+	font-size: var(--wp--preset--font-size--xs);
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: var(--wp--preset--color--blue-200);
+	margin: 0;
+}
+
+.fl-pill .fl-icon {
+	width: 14px;
+	height: 14px;
+	color: var(--wp--preset--color--blue-400);
+}
+
+.fl-hero__title {
+	margin: 22px 0 0;
+	font-family: var(--wp--preset--font-family--display);
+	font-weight: 700;
+	font-size: var(--wp--preset--font-size--display-hero);
+	line-height: 1.02;
+	letter-spacing: var(--wp--custom--tracking--tight);
+	color: var(--wp--preset--color--white);
+	text-wrap: balance;
+}
+
+.fl-hero__lede {
+	margin: 20px 0 0;
+	max-width: 52ch;
+	font-size: var(--wp--preset--font-size--lg);
+	line-height: var(--wp--custom--leading--relaxed);
+	color: var(--fl-on-dark-bd);
+	text-wrap: pretty;
+}
+
+.fl-hero__ctas {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	margin-top: var(--wp--preset--spacing--space-8);
+}
+
+.fl-hero__media {
+	position: relative;
+	min-width: 0;
+}
+
+.fl-hero__frame {
+	position: relative;
+	border-radius: 24px;
+	overflow: hidden;
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	background:
+		radial-gradient(ellipse at 50% 62%, rgba(71, 112, 219, 0.30) 0%, rgba(71, 112, 219, 0) 68%),
+		rgba(255, 255, 255, 0.04);
+	aspect-ratio: 4 / 3;
+	max-width: 100%;
+}
+
+.fl-hero__frame img {
+	position: absolute;
+	inset: 18px;
+	width: calc(100% - 36px);
+	height: calc(100% - 36px);
+	object-fit: contain;
+	filter: drop-shadow(0 24px 46px rgba(6, 12, 36, 0.55));
+}
+
+.fl-hero__strip {
+	position: absolute;
+	bottom: -24px;
+	left: 22px;
+	right: 22px;
+	display: flex;
+	overflow: hidden;
+	border-radius: 18px;
+	background: var(--wp--custom--glass--dark-bg);
+	border: 1px solid var(--wp--custom--glass--dark-border);
+	box-shadow: var(--wp--preset--shadow--glass-dark);
+	-webkit-backdrop-filter: blur(var(--wp--custom--blur--lg)) saturate(140%);
+	backdrop-filter: blur(var(--wp--custom--blur--lg)) saturate(140%);
+}
+
+.fl-hero__stat {
+	flex: 1;
+	padding: 14px 16px;
+	border-right: 1px solid rgba(255, 255, 255, 0.12);
+	min-width: 0;
+}
+
+.fl-hero__stat:last-child {
+	border-right: 0;
+}
+
+.fl-hero__stat-k {
+	font-family: var(--wp--preset--font-family--display);
+	font-size: 10px;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	color: var(--wp--preset--color--blue-200);
+}
+
+.fl-hero__stat-v {
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: 18px;
+	color: var(--wp--preset--color--white);
+	margin-top: 3px;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   5. Buttons
+   ───────────────────────────────────────────────────────────── */
+
+.fl-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 9px;
+	height: 52px;
+	padding-inline: var(--wp--preset--spacing--space-6);
+	border: 1px solid transparent;
+	border-radius: var(--wp--custom--radius--md);
+	font-family: var(--wp--preset--font-family--display);
+	font-size: var(--wp--preset--font-size--sm);
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	text-decoration: none;
+	cursor: pointer;
+	transition:
+		background var(--wp--custom--duration--base) var(--wp--custom--easing--out),
+		box-shadow var(--wp--custom--duration--base) var(--wp--custom--easing--out),
+		transform var(--wp--custom--duration--fast) var(--wp--custom--easing--out);
+}
+
+.fl-btn:hover {
+	text-decoration: none;
+}
+
+.fl-btn:active {
+	transform: scale(0.97);
+}
+
+.fl-btn--md {
+	height: 42px;
+	font-size: var(--wp--preset--font-size--xs);
+}
+
+.fl-btn--accent {
+	background: var(--wp--preset--color--blue-500);
+	color: var(--wp--preset--color--white);
+	box-shadow: var(--wp--preset--shadow--glow-accent);
+}
+
+.fl-btn--accent:hover {
+	background: var(--wp--preset--color--blue-600);
+	color: var(--wp--preset--color--white);
+	box-shadow: var(--wp--preset--shadow--glow-accent-strong);
+}
+
+.fl-btn--primary {
+	background: var(--wp--preset--color--navy-800);
+	color: var(--wp--preset--color--white);
+}
+
+.fl-btn--primary:hover {
+	background: var(--wp--preset--color--navy-900);
+	color: var(--wp--preset--color--white);
+}
+
+.fl-btn--secondary {
+	background: var(--wp--preset--color--white);
+	color: var(--wp--preset--color--navy-900);
+	border-color: var(--wp--preset--color--gray-300);
+}
+
+.fl-btn--secondary:hover {
+	background: var(--wp--preset--color--blue-50);
+	border-color: var(--wp--preset--color--blue-300);
+	color: var(--wp--preset--color--navy-900);
+}
+
+.fl-btn--dark-ghost {
+	background: rgba(255, 255, 255, 0.06);
+	color: var(--wp--preset--color--white);
+	border-color: rgba(255, 255, 255, 0.20);
+}
+
+.fl-btn--dark-ghost:hover {
+	background: rgba(255, 255, 255, 0.12);
+	color: var(--wp--preset--color--white);
+}
+
+.fl-btn--dark-outline {
+	background: transparent;
+	color: var(--wp--preset--color--white);
+	border-color: rgba(255, 255, 255, 0.22);
+	font-family: var(--wp--preset--font-family--mono);
+	text-transform: none;
+	letter-spacing: 0;
+}
+
+.fl-btn--dark-outline:hover {
+	background: rgba(255, 255, 255, 0.08);
+	color: var(--wp--preset--color--white);
+}
+
+.fl-btn .fl-icon {
+	width: 16px;
+	height: 16px;
+	color: currentColor;
+}
+
+.fl-link-arrow {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	font-family: var(--wp--preset--font-family--display);
+	font-size: var(--wp--preset--font-size--sm);
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: var(--wp--preset--color--blue-600);
+	text-decoration: none;
+}
+
+.fl-link-arrow .fl-icon {
+	width: 15px;
+	height: 15px;
+	color: currentColor;
+}
+
+.fl-link-arrow:hover {
+	color: var(--wp--preset--color--blue-500);
+	text-decoration: none;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   6. USP strip
+   ───────────────────────────────────────────────────────────── */
+
+.fl-usp {
+	background: var(--wp--preset--color--white);
+	border-bottom: 1px solid var(--wp--preset--color--gray-200);
+}
+
+.fl-usp__inner {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+	gap: 18px;
+	padding-block: 26px;
+}
+
+.fl-usp__item {
+	display: flex;
+	align-items: center;
+	gap: 11px;
+	font-size: 14px;
+	color: var(--wp--preset--color--navy-900);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   7. Section headers
+   ───────────────────────────────────────────────────────────── */
+
+.fl-section-head {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	gap: var(--wp--preset--spacing--space-6);
+	flex-wrap: wrap;
+}
+
+.fl-section-head__copy {
+	min-width: 0;
+}
+
+.fl-section-head h2 {
+	margin: 12px 0 0;
+	font-size: var(--wp--preset--font-size--display-section);
+	line-height: 1.08;
+	letter-spacing: -0.01em;
+}
+
+.fl-section-head p {
+	margin: 12px 0 0;
+	max-width: 56ch;
+	font-size: 16px;
+	line-height: var(--wp--custom--leading--relaxed);
+	color: var(--wp--preset--color--gray-600);
+	text-wrap: pretty;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   8. Product grid — WooCommerce Product Collection
+   ───────────────────────────────────────────────────────────── */
+
+.fl-tiers {
+	padding-block: 34px 76px;
+}
+
+.fl-tiers .wp-block-post-template,
+.fl-tiers .wc-block-product-template {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: 22px;
+	align-items: start;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.fl-tiers .wc-block-product,
+.fl-tiers .wp-block-post {
+	display: flex;
+	flex-direction: column;
+	background: var(--wp--preset--color--white);
+	border: 1px solid var(--wp--preset--color--gray-200);
+	border-radius: var(--wp--custom--radius--lg);
+	overflow: hidden;
+	box-shadow: var(--wp--preset--shadow--xs);
+	transition:
+		transform var(--wp--custom--duration--base) var(--wp--custom--easing--out),
+		box-shadow var(--wp--custom--duration--base) var(--wp--custom--easing--out);
+}
+
+.fl-tiers .wc-block-product:hover,
+.fl-tiers .wp-block-post:hover {
+	transform: translateY(-2px);
+	box-shadow: var(--wp--preset--shadow--md);
+}
+
+/* Media panel: a fixed 4/3 box the photo fits inside, never fills.
+   Catalogue photos vary in aspect ratio and background — portrait cut-outs on
+   white, landscape shots on dark — so `contain` with padding letterboxes them
+   rather than cropping cases off at the top and bottom. The artboard's
+   drop-shadow is dropped here: it suited transparent cut-outs, but outlines the
+   photo's rectangle on the real (opaque) product shots. */
+.fl-tiers .wc-block-components-product-image,
+.fl-tiers .wp-block-woocommerce-product-image {
+	position: relative;
+	display: block;
+	margin: 0;
+	aspect-ratio: 4 / 3;
+	padding: var(--wp--preset--spacing--space-4);
+	background: var(--wp--preset--color--white);
+	border-bottom: 1px solid var(--wp--preset--color--gray-200);
+	border-radius: 0;
+	overflow: hidden;
+}
+
+.fl-tiers .wc-block-components-product-image a,
+.fl-tiers .wp-block-woocommerce-product-image a {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.fl-tiers .wc-block-components-product-image img,
+.fl-tiers .wp-block-woocommerce-product-image img {
+	width: 100%;
+	height: 100%;
+	max-width: 100%;
+	object-fit: contain;
+	object-position: center;
+	border-radius: 0;
+	display: block;
+}
+
+.fl-tiers .wc-block-components-product-sale-badge,
+.fl-tiers .wc-block-product-sale-badge {
+	position: absolute;
+	top: 14px;
+	left: 14px;
+	z-index: 2;
+	padding: 5px 11px;
+	border-radius: var(--wp--custom--radius--pill);
+	background: var(--wp--preset--color--blue-500);
+	color: var(--wp--preset--color--white);
+	border: 0;
+	font-family: var(--wp--preset--font-family--display);
+	font-size: 11px;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+}
+
+.fl-tiers__body {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	padding: 22px 22px 24px;
+	gap: 0;
+}
+
+.fl-tiers__body .fl-tier-cat {
+	font-family: var(--wp--preset--font-family--display);
+	font-size: 11px;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: var(--wp--preset--color--blue-600);
+	margin: 0;
+}
+
+.fl-tiers__body .fl-tier-cat a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.fl-tiers .wc-block-components-product-title,
+.fl-tiers .wp-block-post-title {
+	margin: 8px 0 0;
+	font-family: var(--wp--preset--font-family--display);
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 1.15;
+	letter-spacing: -0.01em;
+	color: var(--wp--preset--color--navy-900);
+}
+
+.fl-tiers .wc-block-components-product-title a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.fl-tiers .wc-block-components-product-summary,
+.fl-tiers .wp-block-post-excerpt {
+	margin: 8px 0 0;
+	font-size: 14px;
+	line-height: 1.55;
+	color: var(--wp--preset--color--gray-600);
+}
+
+.fl-tiers .wp-block-post-excerpt__more-text {
+	display: none;
+}
+
+/* Spec rows rendered from product attributes */
+.fl-specs {
+	margin: 18px 0 0;
+	border-top: 1px solid var(--wp--preset--color--gray-200);
+}
+
+.fl-specs__row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	padding: 9px 0;
+	border-bottom: 1px solid var(--wp--preset--color--gray-100);
+}
+
+.fl-specs__k {
+	flex: 0 0 auto;
+	/* Uppercase + wide tracking makes these narrow enough for the browser to
+	   break "LAGRING" mid-word; both guards are needed. */
+	hyphens: none;
+	-webkit-hyphens: none;
+	word-break: normal;
+	overflow-wrap: normal;
+	white-space: nowrap;
+	font-family: var(--wp--preset--font-family--display);
+	font-size: 11px;
+	letter-spacing: var(--wp--custom--tracking--label);
+	text-transform: uppercase;
+	color: var(--wp--preset--color--gray-500);
+}
+
+.fl-specs__v {
+	flex: 1 1 auto;
+	min-width: 0;
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: 12.5px;
+	color: var(--wp--preset--color--navy-900);
+	text-align: right;
+}
+
+.fl-tiers__price-row {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	gap: 12px;
+	margin-top: 20px;
+}
+
+.fl-tiers .wc-block-components-product-price {
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: 26px;
+	font-weight: 600;
+	letter-spacing: -0.01em;
+	color: var(--wp--preset--color--navy-900);
+	line-height: 1.1;
+}
+
+.fl-tiers .wc-block-components-product-price del {
+	font-size: 14px;
+	color: var(--wp--preset--color--gray-500);
+	margin-right: 6px;
+}
+
+.fl-tiers .wc-block-components-product-price ins {
+	text-decoration: none;
+}
+
+.fl-tiers__vat {
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: 11.5px;
+	color: var(--wp--preset--color--gray-600);
+	margin-top: 4px;
+}
+
+.fl-tiers__cta {
+	display: flex;
+	gap: 10px;
+	margin-top: 18px;
+}
+
+.fl-tiers .wp-block-button__link,
+.fl-tiers .wc-block-components-product-button__button {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 52px;
+	padding-inline: var(--wp--preset--spacing--space-5);
+	border: 0;
+	border-radius: var(--wp--custom--radius--md);
+	background: var(--wp--preset--color--blue-500);
+	color: var(--wp--preset--color--white);
+	font-family: var(--wp--preset--font-family--display);
+	font-size: var(--wp--preset--font-size--sm);
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	box-shadow: var(--wp--preset--shadow--glow-accent);
+	transition:
+		background var(--wp--custom--duration--base) var(--wp--custom--easing--out),
+		box-shadow var(--wp--custom--duration--base) var(--wp--custom--easing--out);
+}
+
+.fl-tiers .wc-block-components-product-button__button:hover {
+	background: var(--wp--preset--color--blue-600);
+	box-shadow: var(--wp--preset--shadow--glow-accent-strong);
+}
+
+.fl-tiers .wc-block-components-product-button {
+	flex: 1;
+	margin: 0;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   9. Dark sections (process, telemetry)
+   ───────────────────────────────────────────────────────────── */
+
+.fl-section-dark {
+	position: relative;
+	overflow: hidden;
+	background: var(--wp--preset--gradient--navy-shell);
+	color: var(--wp--preset--color--white);
+}
+
+.fl-section-dark__glow {
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 760px;
+	height: 520px;
+	max-width: 140%;
+	border-radius: 50%;
+	background: radial-gradient(ellipse, rgba(71, 112, 219, 0.30) 0%, rgba(71, 112, 219, 0) 70%);
+}
+
+.fl-section-dark__inner {
+	position: relative;
+	padding-block: 74px;
+}
+
+.fl-section-dark h2 {
+	margin: 12px 0 0;
+	font-size: var(--wp--preset--font-size--display-sub);
+	line-height: 1.1;
+	color: var(--wp--preset--color--white);
+	text-wrap: balance;
+	max-width: 60ch;
+}
+
+.fl-steps {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+	gap: 18px;
+	margin-top: 38px;
+}
+
+.fl-glass-tile {
+	padding: var(--wp--preset--spacing--space-6);
+	border-radius: 18px;
+	background: var(--wp--custom--glass--dark-bg);
+	border: 1px solid var(--wp--custom--glass--dark-border);
+	box-shadow: var(--wp--preset--shadow--glass-dark);
+	-webkit-backdrop-filter: blur(var(--wp--custom--blur--md)) saturate(140%);
+	backdrop-filter: blur(var(--wp--custom--blur--md)) saturate(140%);
+}
+
+.fl-glass-tile__top {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.fl-glass-tile__top .fl-icon {
+	width: 22px;
+	height: 22px;
+	color: var(--wp--preset--color--blue-400);
+}
+
+.fl-glass-tile__nr {
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--xs);
+	color: var(--wp--preset--color--blue-300);
+}
+
+.fl-glass-tile h3 {
+	margin: 18px 0 0;
+	font-family: var(--wp--preset--font-family--display);
+	font-weight: 600;
+	font-size: 17px;
+	letter-spacing: 0.01em;
+	color: var(--wp--preset--color--white);
+}
+
+.fl-glass-tile p {
+	margin: 8px 0 0;
+	font-size: 14px;
+	line-height: 1.55;
+	color: var(--fl-on-dark-sf);
+	text-wrap: pretty;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   11. Support + newsletter
+   ───────────────────────────────────────────────────────────── */
+
+.fl-support {
+	padding-bottom: 78px;
+}
+
+.fl-support__panel {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+	border-radius: 22px;
+	overflow: hidden;
+	border: 1px solid var(--wp--preset--color--gray-200);
+	background: var(--wp--preset--color--white);
+}
+
+.fl-support__left {
+	padding: var(--wp--preset--spacing--space-10);
+	background: var(--wp--preset--color--navy-800);
+	color: var(--wp--preset--color--white);
+}
+
+.fl-support__left h2 {
+	margin: 0;
+	font-size: 28px;
+	line-height: 1.15;
+	color: var(--wp--preset--color--white);
+	text-wrap: balance;
+	letter-spacing: 0;
+}
+
+.fl-support__left p {
+	margin: 14px 0 0;
+	font-size: 15.5px;
+	line-height: var(--wp--custom--leading--relaxed);
+	color: var(--fl-on-dark-bd);
+	text-wrap: pretty;
+}
+
+.fl-support__ctas {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-top: 26px;
+}
+
+.fl-support__right {
+	padding: var(--wp--preset--spacing--space-10);
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+}
+
+.fl-support__right p {
+	margin: 0;
+	font-size: 15.5px;
+	line-height: var(--wp--custom--leading--relaxed);
+	color: var(--wp--preset--color--gray-600);
+	text-wrap: pretty;
+}
+
+.fl-newsletter {
+	display: flex;
+	gap: 10px;
+	flex-wrap: wrap;
+}
+
+.fl-newsletter__field {
+	position: relative;
+	flex: 1;
+	min-width: 180px;
+	display: flex;
+	align-items: center;
+}
+
+.fl-newsletter__field .fl-icon {
+	position: absolute;
+	left: 13px;
+	width: 16px;
+	height: 16px;
+	color: var(--wp--preset--color--gray-500);
+	pointer-events: none;
+}
+
+.fl-newsletter input[type="email"] {
+	width: 100%;
+	height: 42px;
+	padding: 0 14px 0 38px;
+	border-radius: var(--wp--custom--radius--md);
+	border: 1px solid var(--wp--preset--color--gray-300);
+	background: var(--wp--preset--color--white);
+	font-family: var(--wp--preset--font-family--body);
+	font-size: 14px;
+	color: var(--wp--preset--color--gray-800);
+}
+
+.fl-newsletter input[type="email"]::placeholder {
+	color: var(--wp--preset--color--gray-400);
+}
+
+.fl-newsletter input[type="email"]:focus {
+	border-color: var(--wp--preset--color--blue-500);
+	outline: none;
+	box-shadow: 0 0 0 3px rgba(71, 112, 219, 0.18);
+}
+
+.fl-note {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: var(--wp--preset--font-size--sm);
+	color: var(--wp--preset--color--gray-500);
+}
+
+.fl-note .fl-icon {
+	width: 14px;
+	height: 14px;
+	color: currentColor;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   12. Footer
+   ───────────────────────────────────────────────────────────── */
+
+.fl-footer {
+	background: var(--wp--preset--color--navy-900);
+	color: var(--wp--preset--color--white);
+}
+
+.fl-footer__cols {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+	gap: 36px;
+	padding-block: 52px 22px;
+}
+
+/* Scoped to the logo so the owner can add other images to the footer without
+   them being forced to logo height. Size comes from the Image block's own
+   width control; the cap keeps a large value inside the column on mobile. */
+.fl-footer__logo {
+	margin: 0;
+}
+
+.fl-footer__logo img {
+	display: block;
+	width: auto;
+	height: auto;
+	max-width: 100%;
+}
+
+.fl-footer__about {
+	margin: 16px 0 0;
+	font-size: 14px;
+	line-height: var(--wp--custom--leading--relaxed);
+	color: var(--wp--preset--color--blue-300);
+	max-width: 34ch;
+}
+
+.fl-footer__title {
+	font-family: var(--wp--preset--font-family--display);
+	font-size: 11px;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: var(--wp--preset--color--blue-200);
+	margin: 0;
+}
+
+.fl-footer__links {
+	display: flex;
+	flex-direction: column;
+	gap: 9px;
+	margin-top: 14px;
+	font-size: 14px;
+}
+
+.fl-footer__links a,
+.fl-footer__links .wp-block-navigation-item__content {
+	color: var(--wp--preset--color--blue-300);
+	text-decoration: none;
+}
+
+.fl-footer__links a:hover {
+	color: var(--wp--preset--color--white);
+	text-decoration: underline;
+}
+
+.fl-footer__pay {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin-top: 14px;
+}
+
+.fl-chip {
+	padding: 7px 12px;
+	border-radius: var(--wp--custom--radius--sm);
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	background: var(--fl-on-dark-su);
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: 11.5px;
+	color: var(--fl-on-dark);
+}
+
+.fl-footer__legal {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 14px;
+	justify-content: space-between;
+	padding-block: 18px var(--wp--preset--spacing--space-10);
+	border-top: 1px solid var(--fl-on-dark-bo);
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: 11.5px;
+	color: var(--fl-on-dark-fa);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   13. Shop templates
+   ───────────────────────────────────────────────────────────── */
+
+.fl-page {
+	padding-block: var(--wp--preset--spacing--space-12);
+}
+
+.fl-page__head {
+	padding-block: var(--wp--preset--spacing--space-10) var(--wp--preset--spacing--space-6);
+}
+
+.fl-prose {
+	font-size: 16px;
+	line-height: var(--wp--custom--leading--relaxed);
+	color: var(--wp--preset--color--gray-800);
+}
+
+.fl-card {
+	background: var(--wp--preset--color--white);
+	border: 1px solid var(--wp--preset--color--gray-200);
+	border-radius: var(--wp--custom--radius--lg);
+	box-shadow: var(--wp--preset--shadow--xs);
+	padding: var(--wp--preset--spacing--space-6);
+}
+
+/* WooCommerce shortcode cart/checkout pages, styled from the same tokens */
+.woocommerce table.shop_table,
+.woocommerce-cart table.cart,
+.woocommerce-checkout .woocommerce-checkout-review-order-table {
+	border-radius: var(--wp--custom--radius--lg);
+	border: 1px solid var(--wp--preset--color--gray-200);
+	border-collapse: separate;
+	border-spacing: 0;
+	background: var(--wp--preset--color--white);
+	font-size: 14px;
+}
+
+.woocommerce table.shop_table th {
+	font-family: var(--wp--preset--font-family--display);
+	font-size: 11px;
+	letter-spacing: var(--wp--custom--tracking--label);
+	text-transform: uppercase;
+	color: var(--wp--preset--color--gray-500);
+}
+
+.woocommerce .amount,
+.woocommerce-Price-amount {
+	font-family: var(--wp--preset--font-family--mono);
+	font-variant-numeric: tabular-nums;
+	color: var(--wp--preset--color--navy-900);
+}
+
+.woocommerce #respond input#submit,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button,
+.woocommerce .checkout-button,
+.woocommerce #place_order {
+	height: 48px;
+	padding-inline: var(--wp--preset--spacing--space-6);
+	border: 0;
+	border-radius: var(--wp--custom--radius--md);
+	background: var(--wp--preset--color--blue-500);
+	color: var(--wp--preset--color--white);
+	font-family: var(--wp--preset--font-family--display);
+	font-size: var(--wp--preset--font-size--sm);
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	box-shadow: var(--wp--preset--shadow--glow-accent);
+}
+
+.woocommerce #respond input#submit:hover,
+.woocommerce a.button:hover,
+.woocommerce button.button:hover,
+.woocommerce input.button:hover,
+.woocommerce .checkout-button:hover,
+.woocommerce #place_order:hover {
+	background: var(--wp--preset--color--blue-600);
+	color: var(--wp--preset--color--white);
+	box-shadow: var(--wp--preset--shadow--glow-accent-strong);
+}
+
+.woocommerce form .form-row input.input-text,
+.woocommerce form .form-row textarea,
+.woocommerce form .form-row select,
+.woocommerce .select2-container .select2-selection--single {
+	height: 44px;
+	padding: 0 14px;
+	border-radius: var(--wp--custom--radius--md);
+	border: 1px solid var(--wp--preset--color--gray-300);
+	background: var(--wp--preset--color--white);
+	font-family: var(--wp--preset--font-family--body);
+	font-size: 14px;
+	color: var(--wp--preset--color--gray-800);
+}
+
+.woocommerce form .form-row textarea {
+	height: auto;
+	padding: 12px 14px;
+}
+
+.woocommerce-message,
+.woocommerce-info,
+.woocommerce-error {
+	border-top-color: var(--wp--preset--color--blue-500);
+	border-radius: var(--wp--custom--radius--md);
+	background: var(--wp--preset--color--blue-50);
+	font-size: 14px;
+}
+
+.woocommerce-error {
+	border-top-color: var(--wp--preset--color--danger-500);
+	background: var(--wp--preset--color--danger-100);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   14. Breakpoints — extrapolated from the token container scale
+   ───────────────────────────────────────────────────────────── */
+
+@media (max-width: 1024px) {
+	.fl-hero__inner {
+		grid-template-columns: 1fr;
+		gap: var(--wp--preset--spacing--space-10);
+		padding-block: 56px 64px;
+	}
+
+	.fl-hero__lede {
+		max-width: none;
+	}
+}
+
+/* The Navigation block collapses to its overlay at 600px by default. The
+   header needs it earlier, so core's own breakpoint rules are moved out to
+   1200px rather than a second toggle being bolted on beside them. 1200 is
+   measured, not guessed: logo (335) + one-line menu (663) + three controls
+   (114) + gaps (40) + gutters (48). Any narrower and the menu wraps. */
+@media (max-width: 1199px) {
+	.fl-header__inner {
+		gap: 14px;
+	}
+
+	.fl-header__nav {
+		flex: 0 0 auto;
+		min-width: 0;
+	}
+
+	.fl-header__nav .wp-block-navigation__responsive-container-open:not(.always-shown) {
+		display: flex;
+	}
+
+	.fl-header__nav .wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) {
+		display: none;
+	}
+
+	.fl-header__nav .wp-block-navigation__responsive-container.is-menu-open {
+		display: flex;
+	}
+}
+
+@media (max-width: 782px) {
+	.fl-section-dark__inner {
+		padding-block: 56px;
+	}
+
+	.fl-tiers {
+		padding-block: 28px 56px;
+	}
+
+	.fl-support__left,
+	.fl-support__right {
+		padding: var(--wp--preset--spacing--space-8);
+	}
+}
+
+@media (max-width: 600px) {
+	:root {
+		--fl-gutter: var(--wp--preset--spacing--space-4);
+	}
+
+	.fl-announce {
+		gap: 4px 10px;
+		font-size: var(--wp--preset--font-size--2-xs);
+		padding-block: 8px;
+	}
+
+	/* The three promises cannot share one line at phone width. Rather than hide
+	   the separators (the phrases then read as one run-on line), the break is
+	   fixed after the second promise: the second separator becomes a full-width
+	   line break, so a dot only ever sits between two phrases on the same line.
+	   Order in the part: item, sep, item, sep, item. */
+	.fl-announce > .fl-announce__item {
+		white-space: nowrap;
+	}
+
+	.fl-announce > .fl-announce__sep:nth-child(4) {
+		flex-basis: 100%;
+		height: 0;
+		overflow: hidden;
+		font-size: 0;
+		line-height: 0;
+	}
+
+	.fl-hero__inner {
+		padding-block: 40px 56px;
+	}
+
+	.fl-hero__strip {
+		position: static;
+		margin-top: 14px;
+		left: auto;
+		right: auto;
+	}
+
+	.fl-hero__ctas .fl-btn {
+		width: 100%;
+	}
+
+	.fl-footer__cols {
+		gap: var(--wp--preset--spacing--space-6);
+		padding-block: 40px 18px;
+	}
+
+	.fl-support__left h2 {
+		font-size: var(--wp--preset--font-size--2-xl);
+	}
+}
+
+@media (max-width: 400px) {
+	.fl-hero__strip {
+		flex-wrap: wrap;
+	}
+
+	.fl-hero__stat {
+		flex-basis: 100%;
+		border-right: 0;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+	}
+
+	.fl-hero__stat:last-child {
+		border-bottom: 0;
+	}
+
+	.fl-tiers__cta {
+		flex-wrap: wrap;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+.fl-tiers__price-col {
+	min-width: 0;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   16. Single product
+   ───────────────────────────────────────────────────────────── */
+
+.fl-product {
+	padding-block: var(--wp--preset--spacing--space-6) var(--wp--preset--spacing--space-12);
+}
+
+.fl-product__top {
+	gap: var(--wp--preset--spacing--space-8);
+}
+
+.fl-product__gallery img {
+	border-radius: var(--wp--custom--radius--lg);
+}
+
+.fl-product__panel {
+	position: sticky;
+	top: 88px;
+	padding: var(--wp--preset--spacing--space-6);
+	box-shadow: var(--wp--preset--shadow--md);
+}
+
+.fl-product__panel .wp-block-post-title {
+	margin: 8px 0 0;
+	font-size: var(--wp--preset--font-size--3-xl);
+	line-height: 1.08;
+}
+
+.fl-product__panel .wc-block-components-product-price {
+	display: block;
+	margin-top: 18px;
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--3-xl);
+	font-weight: 600;
+	color: var(--wp--preset--color--navy-900);
+}
+
+.fl-product__panel form.cart {
+	margin-top: 18px;
+}
+
+.fl-product__panel .single_add_to_cart_button {
+	width: 100%;
+	height: 52px;
+	margin-top: 10px;
+}
+
+.fl-product__details {
+	margin-top: var(--wp--preset--spacing--space-10);
+}
+
+.fl-shop-toolbar {
+	align-items: center;
+	padding-bottom: var(--wp--preset--spacing--space-5);
+	border-bottom: 1px solid var(--wp--preset--color--gray-200);
+	margin-bottom: var(--wp--preset--spacing--space-6);
+}
+
+@media (max-width: 782px) {
+	.fl-product__panel {
+		position: static;
+	}
+}
+
+/* ─────────────────────────────────────────────────────────────
+   17. WooCommerce customer-account block
+   WooCommerce hooks this into the header template part via the core Block
+   Hooks API. The artboard shows only search and cart, so it is styled to match
+   the other header controls rather than left looking foreign. To drop it:
+   add_filter( 'hooked_block_types', fn( $t ) => array_diff( $t, array( 'woocommerce/customer-account' ) ) );
+   ───────────────────────────────────────────────────────────── */
+
+.fl-header .wp-block-woocommerce-customer-account {
+	flex: none;
+	order: 5;
+}
+
+.fl-header .wc-block-customer-account__link {
+	display: grid;
+	place-items: center;
+	width: 38px;
+	height: 38px;
+	border-radius: 12px;
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	background: var(--fl-on-dark-su);
+	color: var(--wp--preset--color--white);
+	transition: background var(--wp--custom--duration--fast) var(--wp--custom--easing--out);
+}
+
+.fl-header .wc-block-customer-account__link:hover {
+	background: rgba(255, 255, 255, 0.12);
+}
+
+.fl-header .wc-block-customer-account__account-icon {
+	width: 19px;
+	height: 19px;
+}
+
+/* Search block, restyled to the design's icon control */
+.fl-header .fl-search .wp-block-search__button {
+	display: grid;
+	place-items: center;
+	width: 38px;
+	height: 38px;
+	min-width: 0;
+	padding: 0;
+	border-radius: 12px;
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	background: var(--fl-on-dark-su);
+	color: var(--wp--preset--color--white);
+	box-shadow: none;
+}
+
+.fl-header .fl-search .wp-block-search__button:hover {
+	background: rgba(255, 255, 255, 0.12);
+}
+
+.fl-header .fl-search .wp-block-search__button svg {
+	width: 19px;
+	height: 19px;
+	fill: currentColor;
+}
+
+.fl-header .fl-search .wp-block-search__input {
+	height: 38px;
+	border-radius: 12px;
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	background: var(--fl-on-dark-su);
+	color: var(--wp--preset--color--white);
+	padding-inline: 12px;
+}
+
+.fl-header .fl-search .wp-block-search__input::placeholder {
+	color: var(--fl-on-dark-mu);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   18. Equal-height product cards
+   The artboard's three cards carry identical copy lengths, so they line up on
+   their own. Real catalogue names and spec strings vary, so the cards stretch
+   and the price/CTA block is pushed to the bottom to keep the row aligned.
+   ───────────────────────────────────────────────────────────── */
+
+.fl-tiers .wp-block-post-template,
+.fl-tiers .wc-block-product-template {
+	align-items: stretch;
+}
+
+.fl-tiers .wc-block-product,
+.fl-tiers .wp-block-post {
+	height: 100%;
+}
+
+.fl-tiers__price-row {
+	margin-top: auto;
+}
+
+.fl-tiers .wc-block-components-product-title {
+	text-wrap: balance;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   19. Price presentation
+   ───────────────────────────────────────────────────────────── */
+
+/* "fra" prefix on a variable product's starting price. */
+.fl-price-from {
+	font-family: var(--wp--preset--font-family--display);
+	font-size: 0.5em;
+	font-weight: 600;
+	letter-spacing: var(--wp--custom--tracking--label);
+	text-transform: uppercase;
+	color: var(--wp--preset--color--gray-600);
+	vertical-align: 0.35em;
+	margin-right: 0.25em;
+}
+
+/* The configured price is the real one, so it carries the largest treatment
+   on the page — above the button, below the "fra" headline. */
+.fl-product__panel .fl-variation-label {
+	display: none;
+	margin: var(--wp--preset--spacing--space-5) 0 0;
+	font-family: var(--wp--preset--font-family--display);
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: var(--wp--custom--tracking--label);
+	text-transform: uppercase;
+	color: var(--wp--preset--color--gray-600);
+}
+
+/* Revealed only when WooCommerce has actually rendered a variation price, not
+   merely filled the box with availability text. Core only populates price_html
+   when the chosen variation costs more than the product minimum, so on first
+   load — where the cheapest variation is preselected and the "fra" headline is
+   already correct — this stays hidden and the number is not printed twice.
+   No JavaScript is authored by the theme. */
+/* Woo's JS template always renders the .woocommerce-variation-price wrapper,
+   empty or not, so the inner .price span is what indicates a real price. */
+.fl-product__panel .fl-variation-label:has( + .single_variation .woocommerce-variation-price .price ) {
+	display: block;
+}
+
+.fl-product__panel .woocommerce-variation-price:empty {
+	display: none;
+}
+
+.fl-product__panel .single_variation {
+	margin-top: var(--wp--preset--spacing--space-1);
+}
+
+.fl-product__panel .woocommerce-variation-price .price,
+.fl-product__panel .woocommerce-variation-price .amount {
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--4-xl);
+	font-weight: 600;
+	line-height: 1.05;
+	letter-spacing: -0.01em;
+	color: var(--wp--preset--color--navy-900);
+}
+
+.fl-product__panel .woocommerce-variation-availability {
+	margin-top: var(--wp--preset--spacing--space-2);
+	font-size: var(--wp--preset--font-size--sm);
+	color: var(--wp--preset--color--gray-600);
+}
+
+/* With the configured price promoted, the headline above it steps back. */
+.fl-product__panel > .fl-product-price,
+.fl-product__panel > .wc-block-components-product-price,
+.fl-product__panel > .wp-block-woocommerce-product-price {
+	display: block;
+	margin-top: var(--wp--preset--spacing--space-5);
+	font-size: var(--wp--preset--font-size--2-xl);
+	color: var(--wp--preset--color--gray-600);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   20. Variation controls
+   The artboard has no variable-product state, so these are extrapolated from
+   the token scale. Flat, typographic, same weight as every other control —
+   deliberately no gradient, translucency, blur, glow or large radius.
+   ───────────────────────────────────────────────────────────── */
+
+/* Stack label above control: the default table layout is what forces the
+   long Lagringskapasitet value to overflow its column. */
+.fl-product__panel .variations,
+.fl-product__panel .variations tbody,
+.fl-product__panel .variations tr,
+.fl-product__panel .variations th,
+.fl-product__panel .variations td {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	padding: 0;
+	border: 0;
+	text-align: left;
+}
+
+.fl-product__panel .variations tr + tr {
+	margin-top: var(--wp--preset--spacing--space-4);
+}
+
+.fl-product__panel .variations th.label label {
+	display: block;
+	margin-bottom: var(--wp--preset--spacing--space-2);
+	font-family: var(--wp--preset--font-family--display);
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: var(--wp--custom--tracking--label);
+	text-transform: uppercase;
+	color: var(--wp--preset--color--gray-600);
+}
+
+.fl-product__panel .reset_variations {
+	display: inline-block;
+	margin-top: var(--wp--preset--spacing--space-2);
+	font-size: var(--wp--preset--font-size--sm);
+	color: var(--wp--preset--color--blue-600);
+}
+
+/* ── Quantity + add to cart as one row of equal height ── */
+.fl-product__panel .woocommerce-variation-add-to-cart,
+.fl-product__panel form.cart:not(.variations_form) {
+	display: flex;
+	align-items: stretch;
+	gap: var(--wp--preset--spacing--space-3);
+	flex-wrap: wrap;
+	margin-top: var(--wp--preset--spacing--space-4);
+}
+
+.fl-product__panel .quantity {
+	flex: 0 0 auto;
+	margin: 0;
+}
+
+.fl-product__panel .quantity input[type="number"] {
+	/* An inline WooCommerce rule forces content-box on .qty, which would make
+	   this two pixels taller than the button beside it. */
+	box-sizing: border-box;
+	width: 84px;
+	height: 52px;
+	margin: 0;
+	padding: 0 var(--wp--preset--spacing--space-2);
+	border: 1px solid var(--wp--preset--color--gray-300);
+	border-radius: var(--wp--custom--radius--md);
+	background: var(--wp--preset--color--white);
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--lg);
+	font-variant-numeric: tabular-nums;
+	text-align: center;
+	color: var(--wp--preset--color--navy-900);
+	appearance: textfield;
+	-moz-appearance: textfield;
+}
+
+/* Native spinners are what push the value off centre. */
+.fl-product__panel .quantity input[type="number"]::-webkit-outer-spin-button,
+.fl-product__panel .quantity input[type="number"]::-webkit-inner-spin-button {
+	appearance: none;
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.fl-product__panel .single_add_to_cart_button {
+	flex: 1 1 200px;
+	width: auto;
+	min-height: 52px;
+	margin: 0;
+}
+
+/* ── Express payment buttons (Stripe) ──
+   Secondary to "Legg i handlekurv": separated by a quiet rule and held to the
+   panel width. Styling only — markup, order and checkout hooks untouched. */
+#wc-stripe-express-checkout-element {
+	max-width: 100%;
+	margin-top: var(--wp--preset--spacing--space-4);
+}
+
+#wc-stripe-express-checkout-button-separator {
+	display: flex;
+	align-items: center;
+	gap: var(--wp--preset--spacing--space-3);
+	margin: var(--wp--preset--spacing--space-5) 0;
+	font-family: var(--wp--preset--font-family--display);
+	font-size: 11px;
+	letter-spacing: var(--wp--custom--tracking--label);
+	text-transform: uppercase;
+	color: var(--wp--preset--color--gray-500);
+	border: 0;
+}
+
+#wc-stripe-express-checkout-button-separator::before,
+#wc-stripe-express-checkout-button-separator::after {
+	content: "";
+	flex: 1;
+	height: 1px;
+	background: var(--wp--preset--color--gray-200);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   21. Product tabs — flat underline, core decoration removed
+   ───────────────────────────────────────────────────────────── */
+
+.woocommerce div.product .fl-product__details .woocommerce-tabs ul.tabs {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--wp--preset--spacing--space-6);
+	margin: 0 0 var(--wp--preset--spacing--space-6);
+	padding: 0;
+	list-style: none;
+	border-bottom: 1px solid var(--wp--preset--color--gray-200);
+}
+
+/* Core draws the bevelled tab shape with pseudo-elements; they have to be
+   switched off explicitly or they survive every other override. */
+.woocommerce div.product .fl-product__details .woocommerce-tabs ul.tabs::before,
+.woocommerce div.product .fl-product__details .woocommerce-tabs ul.tabs::after,
+.woocommerce div.product .fl-product__details .woocommerce-tabs ul.tabs li::before,
+.woocommerce div.product .fl-product__details .woocommerce-tabs ul.tabs li::after {
+	content: none !important;
+	display: none !important;
+	border: 0 !important;
+	box-shadow: none !important;
+}
+
+.woocommerce div.product .fl-product__details .woocommerce-tabs ul.tabs li {
+	margin: 0;
+	padding: 0;
+	background: transparent;
+	border: 0;
+	border-radius: 0;
+	box-shadow: none;
+}
+
+.woocommerce div.product .fl-product__details .woocommerce-tabs ul.tabs li a {
+	display: block;
+	padding: 0 0 var(--wp--preset--spacing--space-3);
+	border-bottom: 2px solid transparent;
+	font-family: var(--wp--preset--font-family--display);
+	font-size: var(--wp--preset--font-size--sm);
+	font-weight: 600;
+	letter-spacing: var(--wp--custom--tracking--label);
+	text-transform: uppercase;
+	color: var(--wp--preset--color--gray-600);
+	text-decoration: none;
+}
+
+.woocommerce div.product .fl-product__details .woocommerce-tabs ul.tabs li a:hover {
+	color: var(--wp--preset--color--navy-900);
+	text-decoration: none;
+}
+
+.woocommerce div.product .fl-product__details .woocommerce-tabs ul.tabs li.active a {
+	color: var(--wp--preset--color--navy-900);
+	border-bottom-color: var(--wp--preset--color--blue-500);
+}
+
+.woocommerce-tabs .panel > h2:first-child {
+	display: none;
+}
+
+.woocommerce-tabs .panel {
+	font-size: 16px;
+	line-height: var(--wp--custom--leading--relaxed);
+	color: var(--wp--preset--color--gray-800);
+}
+
+.woocommerce-tabs table.shop_attributes th {
+	font-family: var(--wp--preset--font-family--display);
+	font-size: 11px;
+	letter-spacing: var(--wp--custom--tracking--label);
+	text-transform: uppercase;
+	color: var(--wp--preset--color--gray-600);
+}
+
+.woocommerce-tabs table.shop_attributes td {
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: 13px;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   22. Fine print
+   ───────────────────────────────────────────────────────────── */
+
+.fl-fineprint {
+	margin-top: var(--wp--preset--spacing--space-8);
+	padding-top: var(--wp--preset--spacing--space-5);
+	border-top: 1px solid var(--wp--preset--color--gray-200);
+	font-size: var(--wp--preset--font-size--2-xs);
+	line-height: var(--wp--custom--leading--normal);
+	color: var(--wp--preset--color--gray-600);
+}
+
+.fl-fineprint .wp-block-post-excerpt__more-text {
+	display: none;
+}
+
+/* ═════════════════════════════════════════════════════════════
+   23. ONE SELECT CONTROL
+   Every <select> in the theme — catalogue sorting, variation pickers,
+   checkout country/state — is styled by this single rule. The long selector
+   list exists so one set of declarations covers them all; the
+   ".fl-card.fl-product__panel table.variations tr td select" entry is only
+   there to outrank woocommerce-blocktheme.css, which sets height and padding
+   at (0,2,4). Flat: 1px border, the shared radius token, drawn chevron, no
+   shadow, no gradient, no translucency.
+   ═════════════════════════════════════════════════════════════ */
+
+.fl-select,
+.woocommerce-ordering select.orderby,
+.woocommerce .woocommerce-ordering select,
+.fl-card.fl-product__panel table.variations tr td select,
+.wc-block-components-form select,
+.wc-blocks-components-select .wc-blocks-components-select__select,
+.wc-block-components-country-input select,
+.wc-block-components-state-input select {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 100%;
+	min-width: 0;
+	height: 48px;
+	margin: 0;
+	padding: 0 40px 0 14px;
+	border: 1px solid var(--wp--preset--color--gray-300);
+	border-radius: var(--wp--custom--radius--md);
+	background-color: var(--wp--preset--color--white);
+	/* The design system sanctions the chevron as the one permitted glyph. */
+	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23565d6e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>');
+	background-repeat: no-repeat;
+	background-position: right 13px center;
+	background-size: 16px 16px;
+	box-shadow: none;
+	font-family: var(--wp--preset--font-family--body);
+	font-size: 14px;
+	line-height: 1.3;
+	color: var(--wp--preset--color--gray-800);
+	text-overflow: ellipsis;
+	cursor: pointer;
+}
+
+.fl-select:hover,
+.woocommerce-ordering select.orderby:hover,
+.fl-card.fl-product__panel table.variations tr td select:hover,
+.wc-blocks-components-select .wc-blocks-components-select__select:hover {
+	border-color: var(--wp--preset--color--blue-300);
+}
+
+.fl-select:focus-visible,
+.woocommerce-ordering select.orderby:focus-visible,
+.fl-card.fl-product__panel table.variations tr td select:focus-visible,
+.wc-blocks-components-select .wc-blocks-components-select__select:focus-visible {
+	border-color: var(--wp--preset--color--blue-500);
+	outline: none;
+	box-shadow: 0 0 0 3px rgba(71, 112, 219, 0.18);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   24. Shop / category archive toolbar
+   ───────────────────────────────────────────────────────────── */
+
+.fl-page__head {
+	padding-block: var(--wp--preset--spacing--space-8) var(--wp--preset--spacing--space-4);
+}
+
+.fl-page__head .wp-block-query-title {
+	margin: var(--wp--preset--spacing--space-3) 0 0;
+}
+
+.fl-shop-toolbar {
+	align-items: center;
+	gap: var(--wp--preset--spacing--space-4);
+	padding-bottom: var(--wp--preset--spacing--space-4);
+	margin-bottom: var(--wp--preset--spacing--space-6);
+	border-bottom: 1px solid var(--wp--preset--color--gray-200);
+}
+
+.fl-shop-toolbar > * {
+	margin-block: 0;
+}
+
+.fl-shop-toolbar .woocommerce-result-count,
+.fl-shop-toolbar .wc-block-product-results-count {
+	margin: 0;
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--xs);
+	color: var(--wp--preset--color--gray-600);
+}
+
+.fl-shop-toolbar .woocommerce-ordering,
+.fl-shop-toolbar .wc-block-catalog-sorting {
+	margin: 0;
+}
+
+.fl-shop-toolbar .woocommerce-ordering select.orderby {
+	width: auto;
+	min-width: 240px;
+	height: 44px;
+}
+
+@media (max-width: 600px) {
+	.fl-shop-toolbar {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.fl-shop-toolbar .woocommerce-ordering select.orderby {
+		width: 100%;
+		min-width: 0;
+	}
+}
+
+/* ─────────────────────────────────────────────────────────────
+   25. Stock status — plain label, no pill, no dot
+   ───────────────────────────────────────────────────────────── */
+
+.fl-stock {
+	display: inline-block;
+	font-family: var(--wp--preset--font-family--display);
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: var(--wp--custom--tracking--label);
+	text-transform: uppercase;
+	background: none;
+	border: 0;
+	padding: 0;
+	border-radius: 0;
+}
+
+.fl-stock--in {
+	color: var(--wp--preset--color--success-700);
+}
+
+.fl-stock--backorder {
+	color: var(--wp--preset--color--warning-700);
+}
+
+.fl-stock--out {
+	color: var(--wp--preset--color--gray-600);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   26. Product card — one full-width action
+   ───────────────────────────────────────────────────────────── */
+
+.fl-tiers__cta {
+	display: block;
+	margin-top: 18px;
+}
+
+.fl-tiers .wc-block-components-product-button {
+	display: block;
+	width: 100%;
+	margin: 0;
+}
+
+.fl-tiers .wc-block-components-product-button__button,
+.fl-tiers .wp-block-button__link {
+	display: flex;
+	width: 100%;
+	flex: none;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   27. Variation rows — label bound to its control
+   ───────────────────────────────────────────────────────────── */
+
+.fl-product__panel .variations tr + tr {
+	margin-top: var(--wp--preset--spacing--space-6);
+}
+
+.fl-product__panel .variations th.label label {
+	margin-bottom: var(--wp--preset--spacing--space-1);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   28. Product gallery
+   Arrows overlay the image; the magnifier trigger is gone (clicking the image
+   opens WooCommerce's own PhotoSwipe lightbox — core script, not theme JS).
+   ───────────────────────────────────────────────────────────── */
+
+.woocommerce-product-gallery {
+	position: relative;
+}
+
+/* Click-to-open, using WooCommerce's own behaviour rather than theme JS.
+   single-product.js creates the magnifier trigger only when zoom is enabled;
+   with zoom off it instead binds PhotoSwipe directly to the gallery image
+   link. So disabling zoom (see functions.php) both removes the floating
+   magnifier and makes clicking the image open the lightbox — no override
+   needed here, and no script authored by the theme.
+
+   Grid stacks the image viewport and the arrows in one cell, thumbnails below. */
+.woocommerce-product-gallery {
+	display: grid;
+	grid-template-columns: 1fr;
+}
+
+.woocommerce-product-gallery .flex-viewport,
+.woocommerce-product-gallery > .woocommerce-product-gallery__wrapper {
+	grid-area: 1 / 1;
+}
+
+.woocommerce-product-gallery__image a {
+	cursor: zoom-in;
+}
+
+.woocommerce-product-gallery__image a:focus-visible {
+	outline: 2px solid var(--wp--preset--color--blue-500);
+	outline-offset: 2px;
+}
+
+.woocommerce-product-gallery .flex-control-thumbs {
+	grid-area: 2 / 1;
+}
+
+/* FlexSlider ships these as a bare <ul>; give them a real control treatment. */
+.woocommerce-product-gallery .flex-direction-nav {
+	grid-area: 1 / 1;
+	z-index: 4;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 0;
+	padding-inline: var(--wp--preset--spacing--space-3);
+	list-style: none;
+	pointer-events: none;
+}
+
+.woocommerce-product-gallery .flex-direction-nav li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	pointer-events: auto;
+}
+
+.woocommerce-product-gallery .flex-direction-nav a {
+	position: static;
+	display: grid;
+	place-items: center;
+	width: 44px;
+	height: 44px;
+	border: 1px solid var(--wp--preset--color--gray-200);
+	border-radius: var(--wp--custom--radius--md);
+	background-color: var(--wp--preset--color--white);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 18px 18px;
+	color: transparent;
+	font-size: 0;
+	line-height: 0;
+	overflow: hidden;
+	opacity: 0;
+	transition: opacity var(--wp--custom--duration--base) var(--wp--custom--easing--out),
+		border-color var(--wp--custom--duration--fast) var(--wp--custom--easing--out);
+}
+
+.woocommerce-product-gallery:hover .flex-direction-nav a,
+.woocommerce-product-gallery .flex-direction-nav a:focus-visible {
+	opacity: 1;
+}
+
+.woocommerce-product-gallery .flex-direction-nav a:hover {
+	border-color: var(--wp--preset--color--blue-300);
+}
+
+.woocommerce-product-gallery .flex-direction-nav .flex-prev {
+	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%230a1336" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>');
+}
+
+.woocommerce-product-gallery .flex-direction-nav .flex-next {
+	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%230a1336" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>');
+}
+
+/* Keep the label for assistive tech rather than display:none. */
+.woocommerce-product-gallery .flex-direction-nav a::before {
+	content: none;
+}
+
+.woocommerce-product-gallery .flex-control-thumbs {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--wp--preset--spacing--space-2);
+	margin: var(--wp--preset--spacing--space-3) 0 0;
+	padding: 0;
+	list-style: none;
+}
+
+.woocommerce-product-gallery .flex-control-thumbs li {
+	width: auto;
+	margin: 0;
+	float: none;
+}
+
+.woocommerce-product-gallery .flex-control-thumbs img {
+	width: 72px;
+	height: 72px;
+	object-fit: contain;
+	padding: var(--wp--preset--spacing--space-1);
+	border: 1px solid var(--wp--preset--color--gray-200);
+	border-radius: var(--wp--custom--radius--sm);
+	background: var(--wp--preset--color--white);
+	opacity: 1;
+}
+
+.woocommerce-product-gallery .flex-control-thumbs img.flex-active,
+.woocommerce-product-gallery .flex-control-thumbs img:hover {
+	border-color: var(--wp--preset--color--blue-500);
+}
+
+/* PhotoSwipe (WooCommerce core) — styled, not authored. */
+.pswp__bg {
+	background: rgba(10, 19, 54, 0.92);
+}
+
+.pswp__caption__center {
+	font-family: var(--wp--preset--font-family--body);
+	font-size: var(--wp--preset--font-size--sm);
+	text-align: center;
+}
+
+.pswp__button {
+	border-radius: var(--wp--custom--radius--sm);
+}
+
+.pswp__counter {
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--xs);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   29. Header controls — three identical squares, equal gaps
+   ───────────────────────────────────────────────────────────── */
+
+.fl-header__actions {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	flex: none;
+}
+
+.fl-header__actions > * {
+	margin: 0;
+}
+
+.fl-header .fl-ctl,
+.fl-header .fl-ctl--cart,
+.fl-header .fl-search .wp-block-search__button,
+.fl-header .wc-block-customer-account__link,
+.fl-header__actions .wc-block-mini-cart__button {
+	box-sizing: border-box;
+	display: grid;
+	place-items: center;
+	width: 38px;
+	height: 38px;
+	min-width: 38px;
+	padding: 0;
+	border-radius: 12px;
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	background: var(--fl-on-dark-su);
+	color: var(--wp--preset--color--white);
+	box-shadow: none;
+}
+
+.fl-header__actions .wc-block-mini-cart__button {
+	position: relative;
+}
+
+.fl-header__actions .wc-block-mini-cart__quantity-badge {
+	display: grid;
+	place-items: center;
+	width: 100%;
+	height: 100%;
+	gap: 0;
+}
+
+/* No coloured bubble: the count is a small numeral in the corner, and it is
+   not rendered at all when the cart is empty. */
+.fl-header__actions .wc-block-mini-cart__badge {
+	position: absolute;
+	top: 2px;
+	right: 4px;
+	min-width: 0;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-radius: 0;
+	background: none;
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: 10px;
+	line-height: 1;
+	color: var(--wp--preset--color--blue-300);
+}
+
+.fl-header__actions .wc-block-mini-cart__badge:empty {
+	display: none;
+}
+
+.fl-header .fl-search .wp-block-search__inside-wrapper {
+	border: 0;
+	padding: 0;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   30. WooCommerce notices — a plain bar with a rule, not a soft card
+   ───────────────────────────────────────────────────────────── */
+
+.wc-block-components-notice-banner,
+.woocommerce-message,
+.woocommerce-info,
+.woocommerce-error {
+	display: flex;
+	align-items: center;
+	gap: var(--wp--preset--spacing--space-3);
+	margin: 0 0 var(--wp--preset--spacing--space-5);
+	padding: var(--wp--preset--spacing--space-4) var(--wp--preset--spacing--space-5);
+	border: 0;
+	border-left: 2px solid var(--wp--preset--color--gray-300);
+	border-radius: 0;
+	background: var(--wp--preset--color--white);
+	box-shadow: none;
+	font-family: var(--wp--preset--font-family--body);
+	font-size: 14px;
+	line-height: var(--wp--custom--leading--normal);
+	color: var(--wp--preset--color--gray-800);
+	list-style: none;
+}
+
+.wc-block-components-notice-banner.is-success,
+.woocommerce-message {
+	border-left-color: var(--wp--preset--color--success-700);
+}
+
+.wc-block-components-notice-banner.is-info,
+.woocommerce-info {
+	border-left-color: var(--wp--preset--color--blue-500);
+}
+
+.wc-block-components-notice-banner.is-error,
+.woocommerce-error {
+	border-left-color: var(--wp--preset--color--danger-600);
+}
+
+.wc-block-components-notice-banner > svg {
+	flex: none;
+	width: 20px;
+	height: 20px;
+	margin: 0;
+	padding: 0;
+	background: none;
+	border-radius: 0;
+	fill: currentColor;
+}
+
+.wc-block-components-notice-banner.is-success > svg {
+	fill: var(--wp--preset--color--success-700);
+}
+
+.wc-block-components-notice-banner.is-error > svg {
+	fill: var(--wp--preset--color--danger-600);
+}
+
+.wc-block-components-notice-banner__content {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: var(--wp--preset--spacing--space-2) var(--wp--preset--spacing--space-4);
+	width: 100%;
+	padding: 0;
+}
+
+/* The "Vis handlekurv" link inherits .wp-element-button from theme.json, which
+   is what produced the stray empty box under the notice. It is a text link. */
+.wc-block-components-notice-banner__content .button.wc-forward,
+.woocommerce-message .button.wc-forward,
+.woocommerce-info .button.wc-forward {
+	display: inline;
+	width: auto;
+	min-height: 0;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-radius: 0;
+	background: none;
+	box-shadow: none;
+	font-family: var(--wp--preset--font-family--display);
+	font-size: var(--wp--preset--font-size--sm);
+	font-weight: 600;
+	letter-spacing: var(--wp--custom--tracking--label);
+	text-transform: uppercase;
+	color: var(--wp--preset--color--blue-600);
+	text-decoration: none;
+}
+
+.wc-block-components-notice-banner__content .button.wc-forward:hover {
+	background: none;
+	color: var(--wp--preset--color--blue-500);
+	text-decoration: underline;
+	box-shadow: none;
+}
+
+.wc-block-components-notice-banner__content .button.wc-forward::after,
+.wc-block-components-notice-banner__content .button.wc-forward::before {
+	content: none;
+}
+
+.woocommerce-notices-wrapper:empty {
+	display: none;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   31. Cart and checkout (Cart/Checkout blocks) — styling only
+   No markup changes, no hooks, no reordering of payment methods.
+   ───────────────────────────────────────────────────────────── */
+
+.wp-block-woocommerce-cart,
+.wp-block-woocommerce-checkout {
+	font-family: var(--wp--preset--font-family--body);
+	color: var(--wp--preset--color--gray-800);
+}
+
+.wc-block-components-title,
+.wp-block-woocommerce-checkout .wc-block-components-title,
+.wp-block-woocommerce-cart .wc-block-components-title {
+	font-family: var(--wp--preset--font-family--display);
+	font-weight: 700;
+	letter-spacing: var(--wp--custom--tracking--tight);
+	color: var(--wp--preset--color--navy-900);
+}
+
+.wc-block-components-checkout-step__heading,
+.wc-block-cart__main-title {
+	font-family: var(--wp--preset--font-family--display);
+	font-weight: 700;
+	letter-spacing: var(--wp--custom--tracking--tight);
+	color: var(--wp--preset--color--navy-900);
+}
+
+.wc-block-components-checkout-step__description,
+.wc-block-components-checkout-step__heading-content {
+	font-size: var(--wp--preset--font-size--sm);
+	color: var(--wp--preset--color--gray-600);
+}
+
+/* Text inputs to the same control style as the selects above. */
+.wc-block-components-text-input input[type="text"],
+.wc-block-components-text-input input[type="email"],
+.wc-block-components-text-input input[type="tel"],
+.wc-block-components-text-input input[type="number"],
+.wc-block-components-address-form input[type="text"],
+.wc-block-components-textarea {
+	box-sizing: border-box;
+	height: 48px;
+	padding: 0 14px;
+	border: 1px solid var(--wp--preset--color--gray-300);
+	border-radius: var(--wp--custom--radius--md);
+	background: var(--wp--preset--color--white);
+	box-shadow: none;
+	font-family: var(--wp--preset--font-family--body);
+	font-size: 14px;
+	color: var(--wp--preset--color--gray-800);
+}
+
+.wc-block-components-textarea {
+	height: auto;
+	padding: 12px 14px;
+}
+
+.wc-block-components-text-input input:focus,
+.wc-block-components-textarea:focus {
+	border-color: var(--wp--preset--color--blue-500);
+	outline: none;
+	box-shadow: 0 0 0 3px rgba(71, 112, 219, 0.18);
+}
+
+.wc-block-components-text-input label,
+.wc-block-components-checkout-step label {
+	font-family: var(--wp--preset--font-family--body);
+	font-size: 14px;
+	color: var(--wp--preset--color--gray-600);
+}
+
+/* Option groups: one light border around the set, hairline rows inside —
+   not a heavy rounded rectangle per option. */
+.wc-block-components-radio-control {
+	border: 1px solid var(--wp--preset--color--gray-200);
+	border-radius: var(--wp--custom--radius--md);
+	overflow: hidden;
+	background: var(--wp--preset--color--white);
+}
+
+.wc-block-components-radio-control-accordion-option,
+.wc-block-components-radio-control__option {
+	margin: 0;
+	border: 0;
+	border-radius: 0;
+	background: none;
+	box-shadow: none;
+}
+
+.wc-block-components-radio-control-accordion-option + .wc-block-components-radio-control-accordion-option,
+.wc-block-components-radio-control__option + .wc-block-components-radio-control__option {
+	border-top: 1px solid var(--wp--preset--color--gray-200);
+}
+
+.wc-block-components-radio-control__label {
+	font-family: var(--wp--preset--font-family--body);
+	font-size: 15px;
+	color: var(--wp--preset--color--navy-900);
+}
+
+.wc-block-components-radio-control__secondary-label,
+.wc-block-components-radio-control__description {
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--xs);
+	color: var(--wp--preset--color--gray-600);
+}
+
+/* Order summary aligned to the card treatment used elsewhere. */
+.wp-block-woocommerce-checkout-order-summary-block,
+.wc-block-components-sidebar .wc-block-components-panel,
+.wp-block-woocommerce-cart-order-summary-block {
+	border: 1px solid var(--wp--preset--color--gray-200);
+	border-radius: var(--wp--custom--radius--lg);
+	background: var(--wp--preset--color--white);
+	box-shadow: var(--wp--preset--shadow--xs);
+}
+
+.wc-block-components-totals-item__label {
+	font-size: 14px;
+	color: var(--wp--preset--color--gray-600);
+}
+
+.wc-block-components-totals-item__value,
+.wc-block-components-formatted-money-amount {
+	font-family: var(--wp--preset--font-family--mono);
+	font-variant-numeric: tabular-nums;
+	color: var(--wp--preset--color--navy-900);
+}
+
+/* The total gets the product page's price treatment. */
+.wc-block-components-totals-footer-item .wc-block-components-totals-item__value {
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--2-xl);
+	font-weight: 600;
+	letter-spacing: -0.01em;
+	color: var(--wp--preset--color--navy-900);
+}
+
+.wc-block-components-totals-footer-item .wc-block-components-totals-item__label {
+	font-family: var(--wp--preset--font-family--display);
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: var(--wp--custom--tracking--label);
+	text-transform: uppercase;
+	color: var(--wp--preset--color--gray-600);
+}
+
+.wc-block-components-product-name {
+	font-family: var(--wp--preset--font-family--display);
+	font-weight: 600;
+	color: var(--wp--preset--color--navy-900);
+	text-decoration: none;
+}
+
+.wc-block-components-product-metadata {
+	font-size: var(--wp--preset--font-size--xs);
+	color: var(--wp--preset--color--gray-600);
+}
+
+/* Checkout header: same shell as the site header, logo instead of site title. */
+.fl-header--checkout .fl-header__inner {
+	justify-content: space-between;
+}
+
+.fl-header--checkout .wc-block-components-cart-link,
+.fl-header--checkout .wp-block-woocommerce-cart-link a {
+	display: grid;
+	place-items: center;
+	width: 38px;
+	height: 38px;
+	border-radius: 12px;
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	background: var(--fl-on-dark-su);
+	color: var(--wp--preset--color--white);
+}
+
+.fl-header--checkout .wc-block-components-cart-link svg,
+.fl-header--checkout .wp-block-woocommerce-cart-link svg {
+	width: 19px;
+	height: 19px;
+	fill: currentColor;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   32. Variation row rhythm
+   WooCommerce pads .variations th/td 24px at the bottom, which detaches each
+   label from its own control. The label sits one step above its control; the
+   24px belongs between rows, where tr + tr already puts it.
+   ───────────────────────────────────────────────────────────── */
+
+.fl-card.fl-product__panel table.variations tr th.label,
+.fl-card.fl-product__panel table.variations tr td.value {
+	padding-bottom: 0;
+}
+
+.fl-card.fl-product__panel table.variations tr th.label label {
+	margin-bottom: var(--wp--preset--spacing--space-2);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   33. Notice + header corrections
+   ───────────────────────────────────────────────────────────── */
+
+/* WooCommerce tints the success/info/error banners. §16: a notice is a plain
+   bar with a rule, not a soft coloured card. The repeated class raises
+   specificity over the plugin rule without resorting to !important. */
+.wc-block-components-notice-banner.wc-block-components-notice-banner,
+.wc-block-components-notice-banner.wc-block-components-notice-banner.is-success,
+.wc-block-components-notice-banner.wc-block-components-notice-banner.is-info,
+.wc-block-components-notice-banner.wc-block-components-notice-banner.is-error {
+	background-color: var(--wp--preset--color--white);
+	border-radius: 0;
+}
+
+.wc-block-components-notice-banner.wc-block-components-notice-banner > .wc-block-components-notice-banner__content {
+	background-color: transparent;
+	padding: 0;
+}
+
+/* The theme's own .woocommerce a.button rule sets height:48px, which is what
+   produced the empty box under the notice. This link is a text link. */
+.wc-block-components-notice-banner__content .button.wc-forward,
+.woocommerce .wc-block-components-notice-banner__content a.button.wc-forward,
+.woocommerce-message a.button.wc-forward,
+.woocommerce-info a.button.wc-forward {
+	height: auto;
+	min-height: 0;
+	line-height: inherit;
+}
+
+/* Three header controls, one rhythm: the gap between the pair and the account
+   button was inheriting the header's 28px, not the actions row's 10px. */
+.fl-header__inner {
+	gap: 10px;
+}
+
+.fl-header__inner .wp-block-site-logo,
+.fl-header__inner .fl-header__logo {
+	margin-right: 18px;
+}
+
+@media (max-width: 1199px) {
+	.fl-header__inner {
+		gap: 10px;
+	}
+}
+
+/* WooCommerce moves focus to the notice (tabindex="-1") so screen readers
+   announce it. That is programmatic, not keyboard navigation, so the global
+   focus ring would read as a blue border around the bar. */
+.wc-block-components-notice-banner.wc-block-components-notice-banner:focus,
+.wc-block-components-notice-banner.wc-block-components-notice-banner:focus-visible {
+	outline: none;
+	box-shadow: none;
+}
+
+/* The status icon is a glyph, not a filled badge. */
+.wc-block-components-notice-banner.wc-block-components-notice-banner > svg {
+	width: 20px;
+	height: 20px;
+	margin: 0;
+	padding: 0;
+	border-radius: 0;
+	background: none;
+	background-color: transparent;
+	box-shadow: none;
+	flex: none;
+}
+
+.wc-block-components-notice-banner.wc-block-components-notice-banner.is-success > svg {
+	fill: var(--wp--preset--color--success-700);
+}
+
+.wc-block-components-notice-banner.wc-block-components-notice-banner.is-info > svg {
+	fill: var(--wp--preset--color--blue-600);
+}
+
+.wc-block-components-notice-banner.wc-block-components-notice-banner.is-error > svg {
+	fill: var(--wp--preset--color--danger-600);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   34. Product card: the primary action spans the card
+   WooCommerce sets the width on
+   ".wp-block-button.wc-block-components-product-button .wp-block-button__link"
+   (0,3,0), which outranks a two-class selector. Matched here with the theme's
+   scope added so no !important is needed.
+   ───────────────────────────────────────────────────────────── */
+
+.fl-tiers .wp-block-button.wc-block-components-product-button,
+.fl-tiers .wc-block-components-product-button {
+	display: block;
+	width: 100%;
+	max-width: none;
+	margin: 0;
+}
+
+.fl-tiers .wp-block-button.wc-block-components-product-button .wp-block-button__link,
+.fl-tiers .wp-block-button.wc-block-components-product-button .wc-block-components-product-button__button,
+.fl-tiers .wc-block-components-product-button .wc-block-components-product-button__button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	max-width: none;
+	flex: none;
+	text-align: center;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   35. Checkout: remaining control + surface corrections
+   ───────────────────────────────────────────────────────────── */
+
+/* Woo's text inputs carry no class of their own, so they are matched by type
+   within the checkout/cart blocks rather than by a wrapper class. */
+.wp-block-woocommerce-checkout input[type="text"],
+.wp-block-woocommerce-checkout input[type="email"],
+.wp-block-woocommerce-checkout input[type="tel"],
+.wp-block-woocommerce-checkout input[type="number"],
+.wp-block-woocommerce-checkout textarea,
+.wp-block-woocommerce-cart input[type="text"],
+.wp-block-woocommerce-cart input[type="email"],
+.wp-block-woocommerce-cart textarea {
+	box-sizing: border-box;
+	min-height: 48px;
+	padding: 0 14px;
+	border: 1px solid var(--wp--preset--color--gray-300);
+	border-radius: var(--wp--custom--radius--md);
+	background: var(--wp--preset--color--white);
+	box-shadow: none;
+	font-family: var(--wp--preset--font-family--body);
+	font-size: 15px;
+	color: var(--wp--preset--color--gray-800);
+}
+
+.wp-block-woocommerce-checkout textarea,
+.wp-block-woocommerce-cart textarea {
+	min-height: 96px;
+	padding: 12px 14px;
+}
+
+.wp-block-woocommerce-checkout input:focus,
+.wp-block-woocommerce-checkout textarea:focus,
+.wp-block-woocommerce-cart input:focus {
+	border-color: var(--wp--preset--color--blue-500);
+	outline: none;
+	box-shadow: 0 0 0 3px rgba(71, 112, 219, 0.18);
+}
+
+.wp-block-woocommerce-checkout .wc-block-components-text-input label,
+.wp-block-woocommerce-checkout .wc-block-components-text-input.is-active label {
+	font-family: var(--wp--preset--font-family--body);
+	color: var(--wp--preset--color--gray-600);
+}
+
+/* Option groups: one hairline around the set, rows separated by a rule —
+   not a stack of heavy rounded rectangles. */
+.wc-block-components-radio-control-accordion-option,
+.wc-block-components-radio-control__option {
+	margin: 0;
+	border: 0;
+	border-radius: 0;
+	background: none;
+	box-shadow: none;
+}
+
+.wc-block-components-radio-control-accordion-option + .wc-block-components-radio-control-accordion-option {
+	border-top: 1px solid var(--wp--preset--color--gray-200);
+}
+
+.wc-block-components-radio-control-accordion-option .wc-block-components-radio-control__option,
+.wc-block-components-radio-control-accordion-option .wc-block-components-radio-control-accordion-option__content {
+	border: 0;
+	border-radius: 0;
+	box-shadow: none;
+}
+
+.wp-block-woocommerce-checkout .wc-block-components-radio-control {
+	border: 1px solid var(--wp--preset--color--gray-200);
+	border-radius: var(--wp--custom--radius--md);
+	overflow: hidden;
+	background: var(--wp--preset--color--white);
+}
+
+/* The order summary matches the card treatment; the panel inside it must not
+   draw a second border on top of that. */
+.wp-block-woocommerce-checkout-order-summary-block .wc-block-components-panel,
+.wp-block-woocommerce-checkout-order-summary-block .wc-block-components-totals-wrapper {
+	border-radius: 0;
+	box-shadow: none;
+}
+
+.wc-block-components-checkout-place-order-button {
+	min-height: 52px;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   36. Checkout text inputs
+   WooCommerce styles these at
+   ".wc-block-components-form .wc-block-components-text-input input[type=…]"
+   (0,3,1), which outranks the earlier attempts. Same shape, theme scope added.
+   ───────────────────────────────────────────────────────────── */
+
+.wp-block-woocommerce-checkout .wc-block-components-form .wc-block-components-text-input input[type="text"],
+.wp-block-woocommerce-checkout .wc-block-components-form .wc-block-components-text-input input[type="email"],
+.wp-block-woocommerce-checkout .wc-block-components-form .wc-block-components-text-input input[type="tel"],
+.wp-block-woocommerce-checkout .wc-block-components-form .wc-block-components-text-input input[type="number"],
+.wp-block-woocommerce-cart .wc-block-components-form .wc-block-components-text-input input[type="text"],
+.wp-block-woocommerce-cart .wc-block-components-form .wc-block-components-text-input input[type="email"] {
+	box-sizing: border-box;
+	height: 52px;
+	padding: 0 14px;
+	border: 1px solid var(--wp--preset--color--gray-300);
+	border-radius: var(--wp--custom--radius--md);
+	background: var(--wp--preset--color--white);
+	box-shadow: none;
+	font-family: var(--wp--preset--font-family--body);
+	font-size: 15px;
+	color: var(--wp--preset--color--gray-800);
+}
+
+.wp-block-woocommerce-checkout .wc-block-components-form .wc-block-components-text-input input:focus,
+.wp-block-woocommerce-cart .wc-block-components-form .wc-block-components-text-input input:focus {
+	border-color: var(--wp--preset--color--blue-500);
+	outline: none;
+	box-shadow: 0 0 0 3px rgba(71, 112, 219, 0.18);
+}
+
+/* The floating label has to sit inside the taller field. */
+.wp-block-woocommerce-checkout .wc-block-components-text-input label {
+	font-family: var(--wp--preset--font-family--body);
+	font-size: 15px;
+	color: var(--wp--preset--color--gray-500);
+}
+
+.wp-block-woocommerce-checkout .wc-block-components-text-input.is-active label {
+	font-size: 11px;
+	letter-spacing: var(--wp--custom--tracking--label);
+	text-transform: uppercase;
+	color: var(--wp--preset--color--gray-600);
+}
+
+.wp-block-woocommerce-checkout .wc-block-components-text-input.is-active input {
+	padding-top: 14px;
+}
+
+/* WooCommerce rings the checked option with a 1.5px inset shadow in near-black
+   ("--highlight-checked"). The radio dot already says which row is selected,
+   so the ring is a second treatment doing the same job. The row keeps only the
+   hairline that separates it from its neighbour. */
+.wp-block-woocommerce-checkout .wc-block-components-radio-control--highlight-checked .wc-block-components-radio-control-accordion-option,
+.wp-block-woocommerce-checkout .wc-block-components-radio-control--highlight-checked .wc-block-components-radio-control__option,
+.wp-block-woocommerce-cart .wc-block-components-radio-control--highlight-checked .wc-block-components-radio-control-accordion-option {
+	box-shadow: none;
+	border-radius: 0;
+}
+
+.wp-block-woocommerce-checkout .wc-block-components-radio-control--highlight-checked .wc-block-components-radio-control-accordion-option--checked,
+.wp-block-woocommerce-checkout .wc-block-components-radio-control--highlight-checked .wc-block-components-radio-control__option--checked {
+	background: var(--wp--preset--color--blue-50);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   37. Editor-only panels for the theme's dynamic blocks
+   These blocks render from product data, so the editor shows a small labelled
+   panel with the editable strings instead of a live preview. Loaded through
+   add_editor_style(); nothing here applies on the front end.
+   ───────────────────────────────────────────────────────────── */
+
+.fl-editor-panel {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--wp--preset--spacing--space-2);
+	padding: var(--wp--preset--spacing--space-3);
+	border: 1px dashed var(--wp--preset--color--gray-300);
+	border-radius: var(--wp--custom--radius--sm);
+	background: var(--wp--preset--color--gray-50);
+}
+
+.fl-editor-panel__title {
+	font-family: var(--wp--preset--font-family--display);
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: var(--wp--custom--tracking--label);
+	text-transform: uppercase;
+	color: var(--wp--preset--color--gray-600);
+}
+
+.fl-editor-panel__note {
+	flex-basis: 100%;
+	font-size: var(--wp--preset--font-size--xs);
+	color: var(--wp--preset--color--gray-600);
+}
+
+.fl-editor-field {
+	display: inline-flex;
+	min-width: 90px;
+	padding: 4px 8px;
+	border: 1px solid var(--wp--preset--color--gray-200);
+	border-radius: var(--wp--custom--radius--xs);
+	background: var(--wp--preset--color--white);
+	font-family: var(--wp--preset--font-family--display);
+	font-size: 11px;
+	letter-spacing: var(--wp--custom--tracking--label);
+	text-transform: uppercase;
+	color: var(--wp--preset--color--navy-900);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   38. Cart line items — one price per line, and it is the line total
+   WooCommerce prints the unit price under the product name and the line
+   total in a right-hand column, so a line at quantity 2 shows two different
+   numbers. The Store API has no filter for this (CartItemSchema exposes the
+   product's own price, unfiltered), so the correction is positional: the
+   unit price is dropped and the line total is placed under the name, where
+   the single remaining number is the one that is true at any quantity.
+
+   The row is a table row, so the cells are flattened with display:contents
+   and each part is placed by grid area. Applies to both the cart page and
+   the mini-cart drawer — they share this markup.
+   ───────────────────────────────────────────────────────────── */
+
+/* The row can only be a grid if its table ancestors stop generating anonymous
+   table boxes around it. */
+table.wc-block-cart-items:not(.wc-block-mini-cart-items),
+table.wc-block-cart-items:not(.wc-block-mini-cart-items) > thead,
+table.wc-block-cart-items:not(.wc-block-mini-cart-items) > tbody {
+	display: block;
+	width: 100%;
+}
+
+/* WooCommerce styles these at table.wc-block-cart-items:not(.wc-block-mini-cart-items) .wc-block-cart-items__row
+   .<part> (0,3,1). Each selector below repeats that chain and adds the element
+   name, so the theme wins by one point without !important. */
+table.wc-block-cart-items:not(.wc-block-mini-cart-items) .wc-block-cart-items__row {
+	display: grid;
+	grid-template-columns: 88px minmax(0, 1fr);
+	grid-template-areas:
+		"image name"
+		"image price"
+		"image meta"
+		"image qty";
+	column-gap: 18px;
+	align-items: start;
+}
+
+table.wc-block-cart-items:not(.wc-block-mini-cart-items) .wc-block-cart-items__row td.wc-block-cart-item__image {
+	grid-area: image;
+	padding: 0;
+}
+
+table.wc-block-cart-items:not(.wc-block-mini-cart-items) .wc-block-cart-items__row td.wc-block-cart-item__product,
+table.wc-block-cart-items:not(.wc-block-mini-cart-items) .wc-block-cart-items__row div.wc-block-cart-item__wrap {
+	display: contents;
+}
+
+table.wc-block-cart-items:not(.wc-block-mini-cart-items) .wc-block-cart-items__row a.wc-block-components-product-name {
+	grid-area: name;
+	margin: 0;
+}
+
+/* The unit price. Removed rather than visually hidden: above quantity one it
+   states a number the customer is not being charged. */
+table.wc-block-cart-items:not(.wc-block-mini-cart-items) .wc-block-cart-items__row div.wc-block-cart-item__prices {
+	display: none;
+}
+
+table.wc-block-cart-items:not(.wc-block-mini-cart-items) .wc-block-cart-items__row td.wc-block-cart-item__total {
+	grid-area: price;
+	justify-content: flex-start;
+	padding: 0;
+	margin: 4px 0 0;
+	text-align: left;
+}
+
+/* Woo right-aligns the value inside the cell; under the name it reads left. */
+table.wc-block-cart-items:not(.wc-block-mini-cart-items) .wc-block-cart-items__row div.wc-block-cart-item__total-price-and-sale-badge-wrapper {
+	justify-content: flex-start;
+}
+
+table.wc-block-cart-items:not(.wc-block-mini-cart-items) .wc-block-cart-items__row td.wc-block-cart-item__total .wc-block-formatted-money-amount {
+	font-family: var(--wp--preset--font-family--mono);
+	font-variant-numeric: tabular-nums;
+	font-size: var(--wp--preset--font-size--md);
+	color: var(--wp--preset--color--navy-900);
+}
+
+table.wc-block-cart-items:not(.wc-block-mini-cart-items) .wc-block-cart-items__row div.wc-block-components-product-metadata {
+	grid-area: meta;
+	margin: 8px 0 0;
+}
+
+table.wc-block-cart-items:not(.wc-block-mini-cart-items) .wc-block-cart-items__row div.wc-block-cart-item__quantity {
+	grid-area: qty;
+	margin: 12px 0 0;
+}
+
+/* The table head still labels a column that no longer carries a value. */
+table.wc-block-cart-items:not(.wc-block-mini-cart-items) .wc-block-cart-items__header-total {
+	display: none;
+}
+
+/* The drawer lays its row out differently and does not survive being made a
+   grid. There the duplicate is removed without moving anything: the unit
+   price goes, and WooCommerce's own line total stays beside the name. */
+table.wc-block-mini-cart-items .wc-block-cart-items__row div.wc-block-cart-item__prices {
+	display: none;
+}
+
+table.wc-block-mini-cart-items .wc-block-cart-items__row td.wc-block-cart-item__total .wc-block-formatted-money-amount {
+	font-family: var(--wp--preset--font-family--mono);
+	font-variant-numeric: tabular-nums;
+	color: var(--wp--preset--color--navy-900);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   39. Cart totals panel
+   One bordered surface with the same radius on all four corners, real
+   padding, and hairline rules between rows. The coupon panel loses its own
+   border so the panel does not read as boxes inside a box.
+   ───────────────────────────────────────────────────────────── */
+
+.wp-block-woocommerce-cart-order-summary-block,
+.wp-block-woocommerce-checkout-order-summary-block {
+	overflow: hidden;
+	border: 1px solid var(--wp--preset--color--gray-200);
+	border-radius: var(--wp--custom--radius--md);
+	background: var(--wp--preset--color--white);
+	box-shadow: none;
+}
+
+/* The coupon panel is a row in the surface, not a surface of its own. */
+.wc-block-components-sidebar .wc-block-components-panel,
+.wp-block-woocommerce-cart-order-summary-block .wc-block-components-panel {
+	border: 0;
+	border-radius: 0;
+	background: none;
+	box-shadow: none;
+}
+
+.wc-block-cart__totals-title,
+.wp-block-woocommerce-cart-order-summary-heading-block {
+	margin: 0;
+	padding: 16px 18px;
+	border-bottom: 1px solid var(--wp--preset--color--gray-200);
+	font-family: var(--wp--preset--font-family--display);
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: var(--wp--custom--tracking--label);
+	text-transform: uppercase;
+	color: var(--wp--preset--color--gray-600);
+}
+
+/* Rows: padding on every side, separated by a rule rather than by gaps. */
+.wp-block-woocommerce-cart-order-summary-block .wc-block-components-totals-wrapper,
+.wp-block-woocommerce-checkout-order-summary-block .wc-block-components-totals-wrapper {
+	margin: 0;
+	padding: 14px 18px;
+	border-top: 0;
+	border-bottom: 1px solid var(--wp--preset--color--gray-200);
+}
+
+.wp-block-woocommerce-cart-order-summary-block .wc-block-components-totals-wrapper:last-child,
+.wp-block-woocommerce-checkout-order-summary-block .wc-block-components-totals-wrapper:last-child {
+	border-bottom: 0;
+}
+
+/* Extension slots render nothing of their own; they must not draw a row. */
+.wc-block-components-totals-wrapper:empty,
+.wp-block-woocommerce-cart-order-summary-block .wc-block-components-totals-wrapper.slot-wrapper,
+.wp-block-woocommerce-checkout-order-summary-block .wc-block-components-totals-wrapper.slot-wrapper {
+	padding: 0;
+	border-bottom: 0;
+}
+
+.wc-block-components-totals-item {
+	margin: 0;
+	padding: 0;
+}
+
+.wc-block-components-totals-item__label,
+.wc-block-components-totals-item__value {
+	padding: 0;
+}
+
+.wc-block-components-totals-item__description:empty {
+	display: none;
+}
+
+.wc-block-components-totals-item__description {
+	margin: 4px 0 0;
+	font-size: var(--wp--preset--font-size--xs);
+	color: var(--wp--preset--color--gray-600);
+}
+
+/* The discount control: a flat row that matches the theme's other controls,
+   not a native-looking dropdown. */
+.wc-block-components-totals-coupon .wc-block-components-panel__button {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	background: none;
+	border: 0;
+	border-radius: 0;
+	box-shadow: none;
+	font-family: var(--wp--preset--font-family--display);
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: var(--wp--custom--tracking--label);
+	text-transform: uppercase;
+	color: var(--wp--preset--color--navy-900);
+	cursor: pointer;
+}
+
+.wc-block-components-totals-coupon .wc-block-components-panel__button svg {
+	width: 16px;
+	height: 16px;
+	margin: 0;
+	fill: currentColor;
+	transition: transform var(--wp--custom--duration--fast) var(--wp--custom--easing--out);
+}
+
+.wc-block-components-totals-coupon .wc-block-components-panel__button[aria-expanded="true"] svg {
+	transform: rotate(180deg);
+}
+
+.wc-block-components-totals-coupon__content {
+	padding: 14px 0 0;
+}
+
+.wc-block-components-totals-coupon__form {
+	display: flex;
+	gap: 10px;
+	align-items: flex-start;
+}
+
+.wc-block-components-totals-coupon__form .wc-block-components-text-input {
+	flex: 1;
+	margin: 0;
+}
+
+.wc-block-components-totals-coupon__form .wc-block-components-text-input input[type="text"] {
+	box-sizing: border-box;
+	width: 100%;
+	height: 44px;
+	padding: 0 14px;
+	border: 1px solid var(--wp--preset--color--gray-300);
+	border-radius: var(--wp--custom--radius--sm);
+	background: var(--wp--preset--color--white);
+	box-shadow: none;
+	font-family: var(--wp--preset--font-family--body);
+	font-size: 14px;
+	color: var(--wp--preset--color--gray-800);
+}
+
+.wc-block-components-totals-coupon__button {
+	height: 44px;
+	flex: none;
+	border-radius: var(--wp--custom--radius--sm);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   40. Mini-cart button: an active state while its drawer is open
+   ───────────────────────────────────────────────────────────── */
+
+/* WooCommerce keeps the drawer in the DOM at all times and marks the closed
+   state with --is-hidden, so the open state is the absence of that class. */
+body:has(.wc-block-components-drawer__screen-overlay:not(.wc-block-components-drawer__screen-overlay--is-hidden)) .fl-header .wc-block-mini-cart__button {
+	background: rgba(255, 255, 255, 0.14);
+	border-color: rgba(255, 255, 255, 0.28);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   41. Header at narrow widths: controls right, menu as an overlay panel
+   ───────────────────────────────────────────────────────────── */
+
+@media (max-width: 1199px) {
+	/* Logo left, the four controls right, at every width. The Navigation block
+	   is reduced to its menu button here, so it takes the auto margin and pulls
+	   search, cart and account to the right edge with it. */
+	.fl-header__inner {
+		gap: 10px;
+	}
+
+	.fl-header__nav {
+		margin-left: auto;
+	}
+
+	/* The logo gives way first. With flex:none the row could not shrink below
+	   368px, which clipped the account button on 360px phones. */
+	.fl-header__logo {
+		flex: 0 1 auto;
+		min-width: 0;
+	}
+
+	/* The menu opens as a panel from the right edge, above the page, the same
+	   side and scrim as the cart drawer so the two read as one system. */
+	.fl-header__nav .wp-block-navigation__responsive-container.is-menu-open {
+		position: fixed;
+		inset: 0 0 0 auto;
+		z-index: 100000;
+		width: min(380px, 100vw);
+		height: 100vh;
+		height: 100dvh;
+		padding: 0;
+		overflow-y: auto;
+		background: var(--wp--preset--color--navy-900);
+		border-left: 1px solid var(--fl-on-dark-bo);
+		box-shadow: 0 0 0 100vmax rgba(5, 10, 30, 0.55);
+		animation: fl-menu-in var(--wp--custom--duration--base) var(--wp--custom--easing--out) both;
+	}
+
+	.fl-header__nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-dialog {
+		position: relative;
+		min-height: 100%;
+		padding: 64px 0 24px;
+	}
+
+	/* Close: the same 38px square as every other header control. */
+	.fl-header__nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-close {
+		position: absolute;
+		top: 14px;
+		right: var(--fl-gutter, 16px);
+		display: grid;
+		place-items: center;
+		width: 38px;
+		height: 38px;
+		padding: 0;
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		border-radius: 12px;
+		background: var(--fl-on-dark-su);
+		color: var(--wp--preset--color--white);
+	}
+
+	.fl-header__nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-close svg {
+		width: 20px;
+		height: 20px;
+		fill: currentColor;
+	}
+
+	.fl-header__nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content {
+		display: block;
+		padding: 0;
+	}
+
+	/* A flat list: one rule between items, no pills, no cards. Core puts its
+	   block gap between items and 32px of indent on submenus at
+	   (0,4,0); these selectors repeat that chain so the theme wins. */
+	.fl-header .fl-header__nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation__container {
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		gap: 0;
+		width: 100%;
+	}
+
+	.fl-header .fl-header__nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation-item {
+		display: block;
+		width: 100%;
+		border-top: 1px solid var(--fl-on-dark-bo);
+	}
+
+	.fl-header .fl-header__nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation-item__content {
+		display: block;
+		padding: 14px var(--fl-gutter, 16px);
+		font-size: var(--wp--preset--font-size--sm);
+		color: var(--wp--preset--color--white);
+	}
+
+	/* Submenus are listed open underneath their parent, indented one step. */
+	.fl-header .fl-header__nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation__submenu-container {
+		position: static;
+		display: block;
+		width: 100%;
+		min-width: 0;
+		padding: 0 0 8px;
+		border: 0;
+		border-radius: 0;
+		background: none;
+		box-shadow: none;
+		opacity: 1;
+		visibility: visible;
+	}
+
+	.fl-header .fl-header__nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation__submenu-container .wp-block-navigation-item {
+		border-top: 0;
+	}
+
+	.fl-header .fl-header__nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation__submenu-container .wp-block-navigation-item__content {
+		padding: 8px var(--fl-gutter, 16px) 8px calc(var(--fl-gutter, 16px) + 14px);
+		font-family: var(--wp--preset--font-family--body);
+		font-size: 15px;
+		letter-spacing: 0;
+		text-transform: none;
+		color: var(--fl-on-dark-mu);
+	}
+
+	.fl-header .fl-header__nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation__submenu-icon {
+		display: none;
+	}
+}
+
+@media (max-width: 480px) {
+	/* On a phone a panel narrower than the screen only leaves a sliver. */
+	.fl-header__nav .wp-block-navigation__responsive-container.is-menu-open {
+		width: 100vw;
+		border-left: 0;
+	}
+}
+
+@keyframes fl-menu-in {
+	from { transform: translateX(100%); }
+	to { transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.fl-header__nav .wp-block-navigation__responsive-container.is-menu-open {
+		animation: none;
+	}
+}
+
+/* ─────────────────────────────────────────────────────────────
+   42. Checkout order summary — same surface as the cart totals panel
+   WooCommerce styles the summary title as a full-bleed flat row: 16px of top
+   margin, its own rules above and below, and no side padding. Inside the
+   bordered panel from §39 that read as an empty strip, a doubled rule, and
+   text touching the border (desktop included, minus the rules). On narrow
+   screens WooCommerce also renders a second copy of the summary before the
+   order button, with 36px of bottom padding and a bordered inner box.
+   ───────────────────────────────────────────────────────────── */
+
+/* The title row: collapsible toggle on mobile, static heading on desktop. */
+.wp-block-woocommerce-checkout-order-summary-block .wc-block-components-checkout-order-summary__title {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	margin: 0;
+	padding: 16px 18px;
+	border-top: 0;
+	border-bottom: 0;
+}
+
+/* WooCommerce sets the title text at (0,3,0) to 22px with a bottom margin;
+   the .wc-block-checkout prefix outranks it by one class. */
+.wc-block-checkout .wp-block-woocommerce-checkout-order-summary-block .wc-block-components-checkout-order-summary__title .wc-block-components-checkout-order-summary__title-text,
+.wc-block-checkout .wp-block-woocommerce-checkout-order-summary-block.checkout-order-summary-block-fill-wrapper .wc-block-components-title {
+	margin: 0;
+	font-family: var(--wp--preset--font-family--display);
+	font-size: 11px;
+	font-weight: 600;
+	line-height: 1.4;
+	letter-spacing: var(--wp--custom--tracking--label);
+	text-transform: uppercase;
+	color: var(--wp--preset--color--gray-600);
+}
+
+.wp-block-woocommerce-checkout-order-summary-block .wc-block-components-checkout-order-summary__title-price {
+	margin-left: auto;
+	font-family: var(--wp--preset--font-family--mono);
+	font-variant-numeric: tabular-nums;
+	color: var(--wp--preset--color--navy-900);
+}
+
+/* The rule between title and contents. When the mobile toggle is collapsed the
+   contents are display:none, so no rule is drawn against the panel border. */
+.wp-block-woocommerce-checkout-order-summary-block .wc-block-components-checkout-order-summary__content {
+	border-top: 1px solid var(--wp--preset--color--gray-200);
+}
+
+/* The second copy before the order button. */
+.wp-block-woocommerce-checkout-order-summary-block.checkout-order-summary-block-fill-wrapper {
+	padding: 0;
+}
+
+.checkout-order-summary-block-fill-wrapper > .wc-block-components-checkout-step__heading {
+	margin: 0;
+	padding: 16px 18px;
+	border-bottom: 1px solid var(--wp--preset--color--gray-200);
+}
+
+.checkout-order-summary-block-fill-wrapper .checkout-order-summary-block-fill {
+	margin: 0;
+	border: 0;
+	border-radius: 0;
+}
+
+/* In both copies WooCommerce adds 16px of side padding to the item list and to
+   each totals row, on top of the row padding from §39. One indent only, so
+   the title, the items and every total start on the same line. */
+.wc-block-checkout .wp-block-woocommerce-checkout-order-summary-block .wc-block-components-order-summary.wc-block-components-order-summary,
+.wc-block-checkout .wp-block-woocommerce-checkout-order-summary-block .wc-block-components-totals-wrapper .wc-block-components-totals-coupon,
+.wc-block-checkout .wp-block-woocommerce-checkout-order-summary-block .wc-block-components-totals-wrapper .wc-block-components-totals-item {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   43. Checkout order summary items — one price per line, the line total
+   The same correction as §38 for the cart. WooCommerce prints the unit price
+   under the name and the line total in a right-hand column, so a line at
+   quantity 2 showed two different numbers. The unit price is removed and the
+   line total sits under the name. The row is a flex row here, not a table:
+   the description is flattened with display:contents and each part placed by
+   grid area. WooCommerce styles these at (0,2,0); the .wc-block-checkout
+   prefix outranks it. Applies to both copies of the summary.
+   ───────────────────────────────────────────────────────────── */
+
+.wc-block-checkout .wc-block-components-order-summary .wc-block-components-order-summary-item {
+	display: grid;
+	grid-template-columns: 48px minmax(0, 1fr);
+	grid-template-areas:
+		"image name"
+		"image price"
+		"image meta";
+	column-gap: 24px;
+	align-items: start;
+	padding-bottom: 12px;
+}
+
+.wc-block-checkout .wc-block-components-order-summary .wc-block-components-order-summary-item__image {
+	grid-area: image;
+	margin-top: 4px;
+}
+
+.wc-block-checkout .wc-block-components-order-summary .wc-block-components-order-summary-item__description {
+	display: contents;
+}
+
+.wc-block-checkout .wc-block-components-order-summary .wc-block-components-order-summary-item__description .wc-block-components-product-name {
+	grid-area: name;
+	margin: 0;
+	padding-top: 4px;
+}
+
+/* The unit price. Removed rather than visually hidden: above quantity one it
+   states a number the customer is not being charged. */
+.wc-block-checkout .wc-block-components-order-summary .wc-block-components-order-summary-item__description .wc-block-cart-item__prices {
+	display: none;
+}
+
+.wc-block-checkout .wc-block-components-order-summary .wc-block-components-order-summary-item__total-price {
+	grid-area: price;
+	margin: 4px 0 0;
+	padding: 0;
+	text-align: left;
+}
+
+/* The wrapper is a column flex box aligned to the end; in a column the
+   horizontal position is align-items, not justify-content. */
+.wc-block-checkout .wc-block-components-order-summary .wc-block-components-order-summary-item__total-price .wc-block-cart-item__total-price-and-sale-badge-wrapper {
+	align-items: flex-start;
+}
+
+.wc-block-checkout .wc-block-components-order-summary .wc-block-components-order-summary-item__total-price .wc-block-formatted-money-amount {
+	font-family: var(--wp--preset--font-family--mono);
+	font-variant-numeric: tabular-nums;
+	font-size: var(--wp--preset--font-size--md);
+	color: var(--wp--preset--color--navy-900);
+}
+
+.wc-block-checkout .wc-block-components-order-summary .wc-block-components-order-summary-item__description .wc-block-components-product-metadata {
+	grid-area: meta;
+	margin: 6px 0 0;
+}

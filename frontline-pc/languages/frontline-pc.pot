@@ -1,0 +1,356 @@
+# Copyright (C) 2026 Frontline PC AS
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Frontline PC 1.0.0\n"
+"POT-Creation-Date: 2026-09-13 10:54+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: nb_NO\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: frontline-pc\n"
+
+#: blocks/product-installment/index.js:13 blocks/product-installment/render.php:74 functions.php:635
+msgid "fra"
+msgstr ""
+
+#: blocks/product-installment/index.js:14 blocks/product-installment/render.php:75
+msgid "/mnd"
+msgstr ""
+
+#: blocks/product-installment/index.js:22
+msgid "Delbetaling"
+msgstr ""
+
+#: blocks/product-installment/index.js:42
+msgid "Vises bare når en ekte månedspris er koblet til."
+msgstr ""
+
+#: blocks/product-installment/render.php:71
+msgid "inkl. mva"
+msgstr ""
+
+#: blocks/product-installment/render.php:72
+msgid "eks. mva"
+msgstr ""
+
+#: blocks/product-installment/render.php:79
+msgid "%1$s %2$s%3$s %4$s"
+msgstr ""
+
+#: blocks/product-price/index.js:18
+msgid "Pris"
+msgstr ""
+
+#: blocks/product-price/index.js:20
+msgid "Hentes fra produktet. Endres under Produkter."
+msgstr ""
+
+#: blocks/product-specs/index.js:21
+msgid "Spesifikasjoner"
+msgstr ""
+
+#: blocks/product-specs/index.js:23
+msgid "Rader og etiketter hentes fra produktets attributter. Endres under Produkter → Attributter."
+msgstr ""
+
+#: blocks/product-specs/render.php:86
+msgid "SKU"
+msgstr ""
+
+#: blocks/product-stock/index.js:16 blocks/product-stock/render.php:38
+msgid "På lager"
+msgstr ""
+
+#: blocks/product-stock/index.js:17 blocks/product-stock/render.php:41
+msgid "På restordre"
+msgstr ""
+
+#: blocks/product-stock/index.js:18 blocks/product-stock/render.php:44
+msgid "Utsolgt"
+msgstr ""
+
+#: blocks/product-stock/index.js:26
+msgid "Lagerstatus"
+msgstr ""
+
+#: functions.php:120
+msgid "Frontline PC"
+msgstr ""
+
+#: functions.php:121
+msgid "Sections from the Frontline PC front page design."
+msgstr ""
+
+#: functions.php:166
+msgid "Frontline PC logo"
+msgstr ""
+
+#: functions.php:655
+msgid "Din pris"
+msgstr ""
+
+#: patterns/announcement-bar.php:14 patterns/usp-strip.php:16
+msgid "Fri frakt over 1 500,–"
+msgstr ""
+
+#: patterns/announcement-bar.php:15
+msgid "Bygget og testet i Norge"
+msgstr ""
+
+#: patterns/announcement-bar.php:16 patterns/usp-strip.php:18
+msgid "Levering 3–5 dager"
+msgstr ""
+
+#: patterns/error-404.php:18
+msgid "Feil 404"
+msgstr ""
+
+#: patterns/error-404.php:22
+msgid "Denne siden finnes ikke"
+msgstr ""
+
+#: patterns/error-404.php:26
+msgid "Lenken kan være utdatert, eller så har maskinen du lette etter fått nytt navn. Prøv et søk, eller se hele utvalget."
+msgstr ""
+
+#: patterns/error-404.php:29 patterns/error-404.php:29 patterns/header.php:16 patterns/header.php:19
+msgid "Søk"
+msgstr ""
+
+#: patterns/error-404.php:29 patterns/header.php:18
+msgid "Søk etter maskiner"
+msgstr ""
+
+#: patterns/error-404.php:32
+msgid "Se alle maskiner"
+msgstr ""
+
+#: patterns/footer.php:17
+msgid "Frontline Fighter"
+msgstr ""
+
+#: patterns/footer.php:18
+msgid "Frontline Ghost"
+msgstr ""
+
+#: patterns/footer.php:19
+msgid "Frontline Titan"
+msgstr ""
+
+#: patterns/footer.php:20
+msgid "Frontline Elite"
+msgstr ""
+
+#: patterns/footer.php:24
+msgid "Garanti & service"
+msgstr ""
+
+#: patterns/footer.php:25
+msgid "Om oss"
+msgstr ""
+
+#: patterns/footer.php:26
+msgid "3D Printing lokalt"
+msgstr ""
+
+#: patterns/footer.php:27
+msgid "Kontakt oss"
+msgstr ""
+
+#: patterns/footer.php:34
+msgid "© %s Frontline PC AS"
+msgstr ""
+
+#: patterns/footer.php:49
+msgid "Frontline PC bygger driftssikre gaming-maskiner med høy ytelse. Håndbygget i Norge siden 2014."
+msgstr ""
+
+#: patterns/footer.php:57
+msgid "Butikk"
+msgstr ""
+
+#: patterns/footer.php:65
+msgid "Alle PC-er"
+msgstr ""
+
+#: patterns/footer.php:74
+msgid "Kundeservice"
+msgstr ""
+
+#: patterns/footer.php:90
+msgid "Betaling"
+msgstr ""
+
+#: patterns/footer.php:112
+msgid "Alle priser inkl. mva."
+msgstr ""
+
+#: patterns/header.php:44
+msgid "Hopp til innhold"
+msgstr ""
+
+#: patterns/hero.php:16
+msgid "Byggetid"
+msgstr ""
+
+#: patterns/hero.php:16
+msgid "3–5 dg"
+msgstr ""
+
+#: patterns/hero.php:17
+msgid "Stresstest"
+msgstr ""
+
+#: patterns/hero.php:17
+msgid "24 t"
+msgstr ""
+
+#: patterns/hero.php:18
+msgid "Garanti"
+msgstr ""
+
+#: patterns/hero.php:18
+msgid "3 år"
+msgstr ""
+
+#: patterns/hero.php:41
+msgid "Real Gaming"
+msgstr ""
+
+#: patterns/hero.php:47
+msgid "Velg din klasse."
+msgstr ""
+
+#: patterns/hero.php:47
+msgid "Så tar maskinen resten."
+msgstr ""
+
+#: patterns/hero.php:51
+msgid "Tre ferdigbygde gaming-PCer — håndbygget i Norge, stresstestet i 24 timer og sendt ut klar til kamp. Ingen flaskehalser, ingen unnskyldninger."
+msgstr ""
+
+#: patterns/hero.php:57
+msgid "Se maskinene"
+msgstr ""
+
+#: patterns/hero.php:58
+msgid "3 års garanti"
+msgstr ""
+
+#: patterns/hero.php:69
+msgid "Frontline gaming-PC sett forfra"
+msgstr ""
+
+#: patterns/no-results.php:14
+msgid "Ingen treff. Prøv et annet søkeord, eller bla gjennom kategoriene."
+msgstr ""
+
+#: patterns/process-steps.php:14
+msgid "Du velger klasse"
+msgstr ""
+
+#: patterns/process-steps.php:14
+msgid "Fighter, Ghost, Titan eller Prism. Er du usikker, svarer vi innen en time."
+msgstr ""
+
+#: patterns/process-steps.php:15
+msgid "Vi bygger for hånd"
+msgstr ""
+
+#: patterns/process-steps.php:15
+msgid "Kabelføring, montering og BIOS-oppsett gjøres av én tekniker i Norge."
+msgstr ""
+
+#: patterns/process-steps.php:16
+msgid "24 timer stresstest"
+msgstr ""
+
+#: patterns/process-steps.php:16
+msgid "Full last på GPU, CPU og minne. Temperaturlogg følger med i esken."
+msgstr ""
+
+#: patterns/process-steps.php:17
+msgid "Levert klar til kamp"
+msgstr ""
+
+#: patterns/process-steps.php:17
+msgid "Windows installert, drivere oppdatert. Slå på og spill — 3–5 dager."
+msgstr ""
+
+#: patterns/process-steps.php:30
+msgid "Slik bygger vi"
+msgstr ""
+
+#: patterns/process-steps.php:34
+msgid "Fire steg fra bestilling til første kamp"
+msgstr ""
+
+#: patterns/product-tiers.php:23
+msgid "Tre prisklasser"
+msgstr ""
+
+#: patterns/product-tiers.php:27
+msgid "Fighter. Ghost. Titan."
+msgstr ""
+
+#: patterns/product-tiers.php:31
+msgid "Samme byggekvalitet i alle tre. Forskjellen er hvor høyt du sikter — 1080p, 1440p eller 4K uten kompromiss."
+msgstr ""
+
+#: patterns/product-tiers.php:37
+msgid "Sammenlign alle spesifikasjoner"
+msgstr ""
+
+#: patterns/product-tiers.php:54
+msgid "Ingen maskiner er merket som utvalgte akkurat nå. Merk tre produkter som «utvalgt» i WooCommerce for å fylle denne seksjonen."
+msgstr ""
+
+#: patterns/support-newsletter.php:48
+msgid "Usikker på hvilken klasse?"
+msgstr ""
+
+#: patterns/support-newsletter.php:52
+msgid "Send oss spillene dine og skjermen du bruker. Vi svarer med én anbefaling — ikke et prisark."
+msgstr ""
+
+#: patterns/support-newsletter.php:57
+msgid "Chat med oss"
+msgstr ""
+
+#: patterns/support-newsletter.php:69
+msgid "Nyhetsbrev"
+msgstr ""
+
+#: patterns/support-newsletter.php:73
+msgid "Nye bygg, lagerslipp og kampanjer — én e-post i måneden. Ingen støy."
+msgstr ""
+
+#: patterns/support-newsletter.php:89
+msgid "E-postadresse"
+msgstr ""
+
+#: patterns/support-newsletter.php:91
+msgid "din@epost.no"
+msgstr ""
+
+#: patterns/support-newsletter.php:92
+msgid "Meld meg på"
+msgstr ""
+
+#: patterns/support-newsletter.php:110
+msgid "Vi deler aldri e-posten din."
+msgstr ""
+
+#: patterns/usp-strip.php:14
+msgid "Bygget i Norge"
+msgstr ""
+
+#: patterns/usp-strip.php:15
+msgid "Norsk garanti & service"
+msgstr ""
+
+#: patterns/usp-strip.php:17
+msgid "Delbetaling: Klarna & Vipps"
+msgstr ""

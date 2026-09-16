@@ -1,0 +1,92 @@
+<!-- wp:template-part {"slug":"header","tagName":"div"} /-->
+
+<!-- wp:group {"tagName":"main","className":"fl-shell","anchor":"fl-main","layout":{"type":"default"}} -->
+<main id="fl-main" class="wp-block-group fl-shell">
+	<!-- wp:group {"className":"fl-wrap fl-page__head","layout":{"type":"default"}} -->
+	<div class="wp-block-group fl-wrap fl-page__head">
+		<!-- wp:woocommerce/breadcrumbs /-->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:woocommerce/store-notices /-->
+
+	<!-- wp:group {"className":"fl-wrap fl-product","layout":{"type":"default"}} -->
+	<div class="wp-block-group fl-wrap fl-product">
+		<!-- wp:columns {"className":"fl-product__top"} -->
+		<div class="wp-block-columns fl-product__top">
+			<!-- wp:column {"width":"55%","className":"fl-product__gallery"} -->
+			<div class="wp-block-column fl-product__gallery" style="flex-basis:55%">
+				<!-- wp:woocommerce/product-image-gallery /-->
+			</div>
+			<!-- /wp:column -->
+
+			<!-- wp:column {"width":"45%","className":"fl-product__buy"} -->
+			<div class="wp-block-column fl-product__buy" style="flex-basis:45%">
+				<!-- wp:group {"className":"fl-card fl-product__panel","layout":{"type":"default"}} -->
+				<div class="wp-block-group fl-card fl-product__panel">
+					<!-- wp:frontline-pc/product-stock /-->
+					<!-- wp:post-terms {"term":"product_cat","className":"fl-tier-cat"} /-->
+					<!-- wp:post-title {"level":1} /-->
+					<!-- wp:frontline-pc/product-specs {"rows":["prosessor","grafikkort","minne-ram","lagringskapasitet","kjoler","kabinett","stromforsyning","operativsystem"]} /-->
+					<!-- wp:frontline-pc/product-price /-->
+					<!-- wp:frontline-pc/product-installment /-->
+					<!-- wp:woocommerce/add-to-cart-form /-->
+				</div>
+				<!-- /wp:group -->
+			</div>
+			<!-- /wp:column -->
+		</div>
+		<!-- /wp:columns -->
+
+		<!-- wp:woocommerce/product-details {"className":"fl-product__details"} /-->
+
+		<!-- wp:post-excerpt {"className":"fl-fineprint","excerptLength":100} /-->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:group {"className":"fl-wrap fl-tiers","layout":{"type":"default"}} -->
+	<div class="wp-block-group fl-wrap fl-tiers">
+		<!-- wp:woocommerce/related-products -->
+			<!-- wp:woocommerce/product-collection {"queryId":1,"query":{"perPage":3,"pages":1,"offset":0,"postType":"product","order":"asc","orderBy":"menu_order","inherit":false,"isProductCollectionBlock":true,"woocommerceStockStatus":["instock","outofstock","onbackorder"],"woocommerceAttributes":[],"woocommerceHandPickedProducts":[]},"tagName":"div","displayLayout":{"type":"flex","columns":3,"shrinkColumns":true},"collection":"woocommerce/product-collection/related"} -->
+			<div class="wp-block-woocommerce-product-collection">
+				<!-- wp:woocommerce/product-template -->
+					<!-- wp:woocommerce/product-image {"isDescendentOfQueryLoop":true,"showSaleBadge":true,"imageSizing":"single","saleBadgeAlign":"left","scale":"contain","aspectRatio":"4/3"} /-->
+
+					<!-- wp:group {"className":"fl-tiers__body","layout":{"type":"default"}} -->
+					<div class="wp-block-group fl-tiers__body">
+						<!-- wp:post-terms {"term":"product_cat","className":"fl-tier-cat"} /-->
+
+						<!-- wp:post-title {"level":3,"isLink":true,"__woocommerceNamespace":"woocommerce/product-collection/product-title"} /-->
+
+						<!-- wp:frontline-pc/product-specs /-->
+
+						<!-- wp:group {"className":"fl-tiers__price-row","layout":{"type":"default"}} -->
+						<div class="wp-block-group fl-tiers__price-row">
+							<!-- wp:group {"className":"fl-tiers__price-col","layout":{"type":"default"}} -->
+							<div class="wp-block-group fl-tiers__price-col">
+								<!-- wp:woocommerce/product-price {"isDescendentOfQueryLoop":true} /-->
+								<!-- wp:frontline-pc/product-installment /-->
+							</div>
+							<!-- /wp:group -->
+
+							<!-- wp:frontline-pc/product-stock /-->
+						</div>
+						<!-- /wp:group -->
+
+						<!-- wp:group {"className":"fl-tiers__cta","layout":{"type":"default"}} -->
+						<div class="wp-block-group fl-tiers__cta">
+							<!-- wp:woocommerce/product-button {"isDescendentOfQueryLoop":true} /-->
+						</div>
+						<!-- /wp:group -->
+					</div>
+					<!-- /wp:group -->
+				<!-- /wp:woocommerce/product-template -->
+			</div>
+			<!-- /wp:woocommerce/product-collection -->
+		<!-- /wp:woocommerce/related-products -->
+	</div>
+	<!-- /wp:group -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"div"} /-->

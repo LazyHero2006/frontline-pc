@@ -1,0 +1,13 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "frontline-pc/product-price",
+	"title": "Product price",
+	"category": "woo-commerce",
+	"description": "The product's price, read from WooCommerce. Used on the single product template, where WooCommerce's own price block requires an ancestor the theme does not use.",
+	"textdomain": "frontline-pc",
+	"usesContext": [ "postId", "postType" ],
+	"supports": { "html": false, "reusable": false, "inserter": false },
+	"editorScript": "frontline-pc-product-price-editor",
+	"render": "file:./render.php"
+}
