@@ -1,1 +1,0 @@
-Rollback test for deploy-live.sh --commit. Safe to ignore; removed by the rollback.
