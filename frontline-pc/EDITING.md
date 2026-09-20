@@ -21,7 +21,7 @@ redigerer en hvilken som helst annen side.
 | Knappene «Se maskinene» og «3 års garanti» | Sider → Forside → klikk på knappen (tekst og lenke) |
 | Hovedbildet av PC-en | Sider → Forside → klikk bildet → **Erstatt** |
 | Tallene Byggetid / Stresstest / Garanti | Sider → Forside → klikk på tallet eller etiketten |
-| Linja «Bygget i Norge», «Fri frakt …», «Levering 3–5 dager» | Sider → Forside → klikk på teksten |
+| Linja «Bygget i Norge», «Fri frakt …», «Levering 5–7 dager» | Sider → Forside → klikk på teksten |
 | «Tre prisklasser» og «Fighter. Ghost. Titan.» | Sider → Forside → klikk på teksten |
 | Lenka «Sammenlign alle spesifikasjoner» | Sider → Forside → klikk på lenka |
 | De fire stegene under «Slik bygger vi» | Sider → Forside → klikk på overskrift eller tekst |
@@ -46,7 +46,7 @@ redigerer en hvilken som helst annen side.
 | Teksten i bunnen om Frontline PC | Utseende → Redigering → Deler av mal → **Footer** |
 | Lenkene under Butikk og Kundeservice | Utseende → Redigering → Deler av mal → **Footer** |
 | Betalingsmerkene (Vipps, Klarna, Visa, Mastercard) | Utseende → Redigering → Deler av mal → **Footer** |
-| «© 2026 Frontline PC AS» og «Alle priser inkl. mva.» | Utseende → Redigering → Deler av mal → **Footer** |
+| «© 2026 Frontline PC Illevold» og «Alle priser inkl. mva.» | Utseende → Redigering → Deler av mal → **Footer** |
 
 ---
 
@@ -87,6 +87,7 @@ Disse endres et annet sted, ikke i editoren:
 | «(elementer: 1)» ved siden av den overskriften | Loco Translate → WooCommerce. To kildestrenger: `(%d item)` og `(%d items)`. Skriv «(%d vare)» og «(%d varer)» |
 | Priser med eller uten desimaler | WooCommerce → Innstillinger → Generelt |
 | Fri frakt-grensen | WooCommerce → Innstillinger → Frakt → Norge |
+| Vipps-logoens alt-tekst i kassen leser «[object Object]» | Feil i Vipps-utvidelsen, ikke i temaet. `woo-vipps/payment/Blocks/Payment/js/wc-payment-method-vipps.js` linje 35 sender et React-element til `alt` og `title` i stedet for en tekst (samme feil i `wc-payment-method-vipps-card.js` linje 34). Kan ikke rettes fra temaet: eneste krok er JavaScript-filteret `woo_vipps_checkout_label`, og temaet laster ingen skript på frontend. Meld det til utvikleren av Vipps-utvidelsen |
 
 ---
 

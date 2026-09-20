@@ -1398,7 +1398,15 @@ body {
 .woocommerce input.button,
 .woocommerce .checkout-button,
 .woocommerce #place_order {
-	height: 48px;
+	/* min-height, not height: a label that wraps to two lines — "Velg
+	   alternativ" in a narrow card — was clipped by the fixed box. */
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 48px;
+	height: auto;
+	padding-block: 10px;
+	text-align: center;
 	padding-inline: var(--wp--preset--spacing--space-6);
 	border: 0;
 	border-radius: var(--wp--custom--radius--md);
@@ -3737,6 +3745,8 @@ form[id^="wpforms-form-"] textarea::placeholder {
 }
 
 /* Labels and the sub-labels WPForms puts under name fields. */
+/* Labels are shown again (they were hidden in the form settings), so a
+   customer who has typed past a placeholder can still see what a field is. */
 .wpforms-container .wpforms-field-label,
 #commentform label {
 	display: block;
@@ -3757,8 +3767,54 @@ form[id^="wpforms-form-"] textarea::placeholder {
 	color: var(--wp--preset--color--danger-600);
 }
 
+/* The fields sit on one grid and the container owns the rhythm, so the gap
+   between fields no longer exceeds the padding inside them. WPForms' own
+   column classes decide the width; its stylesheet is off, so the widths are
+   defined here. */
+.wpforms-container .wpforms-field-container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--wp--preset--spacing--space-4);
+}
+
 .wpforms-container .wpforms-field {
-	margin-bottom: var(--wp--preset--spacing--space-5);
+	flex: 1 1 100%;
+	min-width: 0;
+	margin: 0;
+	padding: 0;
+}
+
+/* WPForms ships a layout stylesheet even with its skin disabled, and it floats
+   the column classes with a 20px left margin at (0,3,0), loaded after the
+   theme. With that margin the pair cannot fit on one line and both fields grow
+   to full width. Naming the container puts these at (0,4,0); the container's
+   gap provides the separation instead. */
+.wpforms-container .wpforms-field-container .wpforms-field.wpforms-one-half,
+.wpforms-container .wpforms-field-container .wpforms-field.wpforms-one-third,
+.wpforms-container .wpforms-field-container .wpforms-field.wpforms-two-thirds,
+.wpforms-container .wpforms-field-container .wpforms-field.wpforms-one-fourth,
+.wpforms-container .wpforms-field-container .wpforms-field.wpforms-three-fourths,
+.wpforms-container .wpforms-field-container .wpforms-field.wpforms-five-sixths,
+.wpforms-container .wpforms-field-container .wpforms-field.wpforms-first {
+	float: none;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.wpforms-container .wpforms-field-container .wpforms-field.wpforms-one-half {
+	flex: 1 1 calc(50% - (var(--wp--preset--spacing--space-4) / 2));
+}
+
+.wpforms-container .wpforms-field-container .wpforms-field.wpforms-one-third {
+	flex: 1 1 calc(33.333% - var(--wp--preset--spacing--space-4));
+}
+
+.wpforms-container .wpforms-field-container .wpforms-field.wpforms-two-thirds {
+	flex: 1 1 calc(66.666% - (var(--wp--preset--spacing--space-4) / 2));
+}
+
+.wpforms-container .wpforms-submit-container {
+	margin-top: var(--wp--preset--spacing--space-5);
 	padding: 0;
 }
 
@@ -3827,6 +3883,7 @@ form[id^="wpforms-form-"] button[type="submit"]:active {
 	display: flex;
 	flex-wrap: wrap;
 	gap: var(--wp--preset--spacing--space-4);
+	width: 100%;
 }
 
 .wpforms-container .wpforms-field-row .wpforms-one-half {
@@ -3838,11 +3895,11 @@ form[id^="wpforms-form-"] button[type="submit"]:active {
 /* WPForms' column classes keep their share of the width at any size; on a
    phone a half-width field leaves the value half-readable. */
 @media (max-width: 600px) {
-	.wpforms-container .wpforms-one-half,
-	.wpforms-container .wpforms-one-third,
-	.wpforms-container .wpforms-two-thirds,
-	.wpforms-container .wpforms-one-fourth,
-	.wpforms-container .wpforms-three-fourths {
+	.wpforms-container .wpforms-field-container .wpforms-field.wpforms-one-half,
+	.wpforms-container .wpforms-field-container .wpforms-field.wpforms-one-third,
+	.wpforms-container .wpforms-field-container .wpforms-field.wpforms-two-thirds,
+	.wpforms-container .wpforms-field-container .wpforms-field.wpforms-one-fourth,
+	.wpforms-container .wpforms-field-container .wpforms-field.wpforms-three-fourths {
 		flex-basis: 100%;
 		width: 100%;
 		margin-left: 0;

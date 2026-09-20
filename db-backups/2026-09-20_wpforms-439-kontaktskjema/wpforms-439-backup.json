@@ -1,0 +1,49 @@
+{
+    "post": {
+        "ID": "439",
+        "post_author": "1",
+        "post_date": "2022-05-06 12:00:01",
+        "post_date_gmt": "2022-05-06 12:00:01",
+        "post_content": "{\"fields\":{\"6\":{\"id\":\"6\",\"type\":\"name\",\"label\":\"Navn\",\"format\":\"first-last\",\"description\":\"\",\"required\":\"1\",\"size\":\"large\",\"simple_placeholder\":\"Your Name *\",\"simple_default\":\"\",\"first_placeholder\":\"Fornavn *\",\"first_default\":\"\",\"middle_placeholder\":\"\",\"middle_default\":\"\",\"last_placeholder\":\"Etternavn *\",\"last_default\":\"\",\"css\":\"\",\"label_hide\":\"1\",\"sublabel_hide\":\"1\"},\"1\":{\"id\":\"1\",\"type\":\"email\",\"label\":\"E-post\",\"description\":\"\",\"required\":\"1\",\"size\":\"large\",\"placeholder\":\"E-post*\",\"confirmation_placeholder\":\"\",\"default_value\":false,\"filter_type\":\"\",\"allowlist\":\"\",\"denylist\":\"\",\"css\":\"wpforms-one-half wpforms-first\",\"label_hide\":\"1\"},\"9\":{\"id\":\"9\",\"type\":\"text\",\"label\":\"Telefon\",\"description\":\"\",\"required\":\"1\",\"size\":\"large\",\"placeholder\":\"Telefon *\",\"limit_count\":\"1\",\"limit_mode\":\"characters\",\"default_value\":\"\",\"input_mask\":\"\",\"css\":\"wpforms-first\",\"label_hide\":\"1\"},\"7\":{\"id\":\"7\",\"type\":\"text\",\"label\":\"Emne\",\"description\":\"\",\"required\":\"1\",\"size\":\"large\",\"placeholder\":\"Emne *\",\"limit_count\":\"1\",\"limit_mode\":\"characters\",\"default_value\":\"\",\"input_mask\":\"\",\"css\":\"wpforms-first\",\"label_hide\":\"1\"},\"2\":{\"id\":\"2\",\"type\":\"textarea\",\"label\":\"Melding\",\"description\":\"\",\"required\":\"1\",\"size\":\"large\",\"placeholder\":\"Melding *\",\"limit_count\":\"1\",\"limit_mode\":\"characters\",\"default_value\":\"\",\"css\":\"\",\"label_hide\":\"1\"}},\"id\":\"439\",\"field_id\":10,\"settings\":{\"themes\":{\"wpformsTheme\":\"default\",\"isCustomTheme\":\"\",\"themeName\":\"\",\"fieldSize\":\"medium\",\"fieldBorderStyle\":\"solid\",\"fieldBorderSize\":\"1\",\"fieldBorderRadius\":\"3\",\"fieldBackgroundColor\":\"#ffffff\",\"fieldBorderColor\":\"rgba(0, 0, 0, 0.25)\",\"fieldTextColor\":\"rgba(0, 0, 0, 0.7)\",\"labelSize\":\"medium\",\"labelColor\":\"rgba(0, 0, 0, 0.85)\",\"labelSublabelColor\":\"rgba(0, 0, 0, 0.55)\",\"labelErrorColor\":\"#d63637\",\"buttonSize\":\"medium\",\"buttonBorderStyle\":\"none\",\"buttonBorderSize\":\"1\",\"buttonBorderRadius\":\"3\",\"buttonBackgroundColor\":\"#066aab\",\"buttonBorderColor\":\"#066aab\",\"buttonTextColor\":\"#ffffff\",\"containerPadding\":\"0\",\"containerBorderStyle\":\"none\",\"containerBorderWidth\":\"1\",\"containerBorderRadius\":\"3\",\"containerBorderColor\":\"#000000\",\"containerShadowSize\":\"none\",\"backgroundColor\":\"rgba(0, 0, 0, 0)\",\"backgroundImage\":\"none\",\"backgroundSize\":\"cover\",\"backgroundUrl\":\"url()\",\"fieldMenuColor\":\"#ffffff\",\"pageBreakColor\":\"#066aab\",\"customCss\":\"\",\"copyPasteJsonValue\":\"{\\\"themeName\\\":\\\"\\\",\\\"isCustomTheme\\\":\\\"\\\",\\\"wpformsTheme\\\":\\\"default\\\",\\\"customCss\\\":\\\"\\\",\\\"containerPadding\\\":\\\"0\\\",\\\"containerBorderStyle\\\":\\\"none\\\",\\\"containerBorderWidth\\\":\\\"1\\\",\\\"containerBorderRadius\\\":\\\"3\\\",\\\"containerShadowSize\\\":\\\"none\\\",\\\"containerBorderColor\\\":\\\"#000000\\\",\\\"fieldSize\\\":\\\"medium\\\",\\\"fieldBorderStyle\\\":\\\"solid\\\",\\\"fieldBorderRadius\\\":\\\"3\\\",\\\"fieldBorderSize\\\":\\\"1\\\",\\\"fieldBackgroundColor\\\":\\\"#ffffff\\\",\\\"fieldBorderColor\\\":\\\"rgba(0, 0, 0, 0.25)\\\",\\\"fieldTextColor\\\":\\\"rgba(0, 0, 0, 0.7)\\\",\\\"fieldMenuColor\\\":\\\"#ffffff\\\",\\\"pageBreakColor\\\":\\\"#066aab\\\",\\\"labelSize\\\":\\\"medium\\\",\\\"labelColor\\\":\\\"rgba(0, 0, 0, 0.85)\\\",\\\"labelSublabelColor\\\":\\\"rgba(0, 0, 0, 0.55)\\\",\\\"labelErrorColor\\\":\\\"#d63637\\\",\\\"buttonSize\\\":\\\"medium\\\",\\\"buttonBorderStyle\\\":\\\"none\\\",\\\"buttonBorderSize\\\":\\\"1\\\",\\\"buttonBorderRadius\\\":\\\"3\\\",\\\"buttonBackgroundColor\\\":\\\"#066aab\\\",\\\"buttonBorderColor\\\":\\\"#066aab\\\",\\\"buttonTextColor\\\":\\\"#ffffff\\\",\\\"backgroundColor\\\":\\\"rgba(0, 0, 0, 0)\\\",\\\"backgroundPosition\\\":\\\"center center\\\",\\\"backgroundUrl\\\":\\\"url()\\\",\\\"backgroundRepeat\\\":\\\"no-repeat\\\",\\\"backgroundSize\\\":\\\"cover\\\",\\\"backgroundSizeMode\\\":\\\"cover\\\",\\\"backgroundWidth\\\":\\\"100\\\",\\\"backgroundHeight\\\":\\\"100\\\",\\\"backgroundImage\\\":\\\"none\\\"}\"},\"form_title\":\"Kontakt skjema\",\"form_desc\":\"\",\"submit_text\":\"Send melding\",\"submit_text_processing\":\"Sender...\",\"form_class\":\"\",\"submit_class\":\"\",\"ajax_submit\":\"1\",\"notification_enable\":\"1\",\"notifications\":{\"1\":{\"email\":\"{admin_email}\",\"subject\":\"Ny innsending: Kontakt Skjema\",\"sender_name\":\"KUNDESENDT\",\"sender_address\":\"{admin_email}\",\"replyto\":\"{field_id=\\\"1\\\"}\",\"message\":\"{all_fields}\",\"template\":\"\"}},\"confirmations\":{\"1\":{\"type\":\"message\",\"message\":\"<p>Takk for at du tok kontakt! Vi svarer deg s\\u00e5 fort vi kan!<\\/p>\",\"message_scroll\":\"1\",\"page\":\"12\",\"page_url_parameters\":\"\",\"redirect\":\"\"}},\"antispam\":\"1\",\"anti_spam\":{\"time_limit\":{\"duration\":\"2\"},\"filtering_store_spam\":\"1\"},\"form_tags\":[],\"store_spam_entries\":\"0\"},\"search_terms\":\"\",\"providers\":{\"constant-contact-v3\":[]},\"meta\":{\"template\":\"4dbf022985a4fe4bda4a80365011a3a0\"}}",
+        "post_title": "Kontakt skjema",
+        "post_excerpt": "",
+        "post_status": "publish",
+        "comment_status": "closed",
+        "ping_status": "closed",
+        "post_password": "",
+        "post_name": "contact-form",
+        "to_ping": "",
+        "pinged": "",
+        "post_modified": "2026-01-31 12:59:12",
+        "post_modified_gmt": "2026-01-31 12:59:12",
+        "post_content_filtered": "",
+        "post_parent": "0",
+        "guid": "https://startersites.io/blocksy/gadgets/?post_type=wpforms&#038;p=439",
+        "menu_order": "0",
+        "post_type": "wpforms",
+        "post_mime_type": "",
+        "comment_count": "0"
+    },
+    "meta": [
+        {
+            "meta_key": "blocksy_demos_imported_post",
+            "meta_value": "1"
+        },
+        {
+            "meta_key": "stackable_optimized_css",
+            "meta_value": ""
+        },
+        {
+            "meta_key": "stackable_optimized_css_raw",
+            "meta_value": "a:0:{}"
+        },
+        {
+            "meta_key": "wpforms_entries_count",
+            "meta_value": "40"
+        },
+        {
+            "meta_key": "wpforms_entries_count_previous_week",
+            "meta_value": "a:3:{i:0;i:37;i:1;i:0;i:2;i:0;}"
+        }
+    ]
+}
