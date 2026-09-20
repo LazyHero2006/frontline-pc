@@ -3835,6 +3835,20 @@ form[id^="wpforms-form-"] button[type="submit"]:active {
 	margin: 0;
 }
 
+/* WPForms' column classes keep their share of the width at any size; on a
+   phone a half-width field leaves the value half-readable. */
+@media (max-width: 600px) {
+	.wpforms-container .wpforms-one-half,
+	.wpforms-container .wpforms-one-third,
+	.wpforms-container .wpforms-two-thirds,
+	.wpforms-container .wpforms-one-fourth,
+	.wpforms-container .wpforms-three-fourths {
+		flex-basis: 100%;
+		width: 100%;
+		margin-left: 0;
+	}
+}
+
 /* ─────────────────────────────────────────────────────────────
    45. Product card price in the classic [products] grid
    WooCommerce sizes the card price at .857em, which put it below the 16px
