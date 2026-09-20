@@ -3646,3 +3646,339 @@ body:has(.wc-block-components-drawer__screen-overlay:not(.wc-block-components-dr
 	grid-area: meta;
 	margin: 6px 0 0;
 }
+
+/* ─────────────────────────────────────────────────────────────
+   44. Forms — one treatment for every control on the site
+   WPForms ships with its own styling switched off (Settings → General →
+   Include Form Styling: "No styling"), so its fields arrive as browser
+   defaults. Rather than styling each form separately, every text-like control
+   in page content is collected here and given the checkout treatment from §31:
+   48px tall, one hairline border, the body font, and the theme's focus ring.
+
+   The WPForms selectors are doubled up: the class-based one for the normal
+   render, and form[id^="wpforms-form-"] for pages where the markup arrives
+   without plugin classes.
+   ───────────────────────────────────────────────────────────── */
+
+.wpforms-container input[type="text"],
+.wpforms-container input[type="email"],
+.wpforms-container input[type="tel"],
+.wpforms-container input[type="url"],
+.wpforms-container input[type="number"],
+.wpforms-container input[type="password"],
+.wpforms-container input[type="date"],
+.wpforms-container select,
+.wpforms-container textarea,
+form[id^="wpforms-form-"] input[type="text"],
+form[id^="wpforms-form-"] input[type="email"],
+form[id^="wpforms-form-"] input[type="tel"],
+form[id^="wpforms-form-"] input[type="url"],
+form[id^="wpforms-form-"] input[type="number"],
+form[id^="wpforms-form-"] select,
+form[id^="wpforms-form-"] textarea,
+#commentform input[type="text"],
+#commentform input[type="email"],
+#commentform input[type="url"],
+#commentform textarea,
+.post-password-form input[type="password"],
+.woocommerce form .input-text,
+.woocommerce-page form .input-text,
+.woocommerce form select,
+.woocommerce-page form select {
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 100%;
+	height: 48px;
+	padding: 0 14px;
+	border: 1px solid var(--wp--preset--color--gray-300);
+	border-radius: var(--wp--custom--radius--md);
+	background: var(--wp--preset--color--white);
+	box-shadow: none;
+	font-family: var(--wp--preset--font-family--body);
+	font-size: 15px;
+	line-height: 1.4;
+	color: var(--wp--preset--color--gray-800);
+	transition: border-color var(--wp--custom--duration--fast) var(--wp--custom--easing--out);
+}
+
+/* A textarea is a box, not a line. */
+.wpforms-container textarea,
+form[id^="wpforms-form-"] textarea,
+#commentform textarea,
+.woocommerce form textarea,
+.woocommerce-page form textarea {
+	height: auto;
+	min-height: 150px;
+	padding: 12px 14px;
+	resize: vertical;
+}
+
+.wpforms-container input:focus,
+.wpforms-container select:focus,
+.wpforms-container textarea:focus,
+form[id^="wpforms-form-"] input:focus,
+form[id^="wpforms-form-"] select:focus,
+form[id^="wpforms-form-"] textarea:focus,
+#commentform input:focus,
+#commentform textarea:focus,
+.post-password-form input[type="password"]:focus,
+.woocommerce form .input-text:focus,
+.woocommerce-page form .input-text:focus {
+	border-color: var(--wp--preset--color--blue-500);
+	outline: none;
+	box-shadow: 0 0 0 3px rgba(71, 112, 219, 0.18);
+}
+
+.wpforms-container input::placeholder,
+.wpforms-container textarea::placeholder,
+form[id^="wpforms-form-"] input::placeholder,
+form[id^="wpforms-form-"] textarea::placeholder {
+	color: var(--wp--preset--color--gray-500);
+}
+
+/* Labels and the sub-labels WPForms puts under name fields. */
+.wpforms-container .wpforms-field-label,
+#commentform label {
+	display: block;
+	margin-bottom: 6px;
+	font-family: var(--wp--preset--font-family--body);
+	font-size: 14px;
+	font-weight: 500;
+	color: var(--wp--preset--color--gray-700);
+}
+
+.wpforms-container .wpforms-field-sublabel {
+	margin-top: 4px;
+	font-size: var(--wp--preset--font-size--xs);
+	color: var(--wp--preset--color--gray-500);
+}
+
+.wpforms-container .wpforms-required-label {
+	color: var(--wp--preset--color--danger-600);
+}
+
+.wpforms-container .wpforms-field {
+	margin-bottom: var(--wp--preset--spacing--space-5);
+	padding: 0;
+}
+
+/* Validation messages, which also arrive unstyled. */
+.wpforms-container .wpforms-error,
+.wpforms-container label.wpforms-error {
+	margin-top: 6px;
+	font-size: var(--wp--preset--font-size--xs);
+	color: var(--wp--preset--color--danger-600);
+}
+
+.wpforms-container input.wpforms-error,
+.wpforms-container textarea.wpforms-error {
+	border-color: var(--wp--preset--color--danger-500);
+}
+
+/* The submit: a real primary button, matching .fl-btn--accent. */
+.wpforms-container button[type="submit"],
+form[id^="wpforms-form-"] button[type="submit"],
+#commentform input[type="submit"],
+.post-password-form input[type="submit"] {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 9px;
+	width: auto;
+	min-height: 52px;
+	padding-inline: var(--wp--preset--spacing--space-6);
+	border: 1px solid transparent;
+	border-radius: var(--wp--custom--radius--md);
+	background: var(--wp--preset--color--blue-500);
+	color: var(--wp--preset--color--white);
+	box-shadow: var(--wp--preset--shadow--glow-accent);
+	font-family: var(--wp--preset--font-family--display);
+	font-size: var(--wp--preset--font-size--sm);
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition:
+		background var(--wp--custom--duration--base) var(--wp--custom--easing--out),
+		box-shadow var(--wp--custom--duration--base) var(--wp--custom--easing--out),
+		transform var(--wp--custom--duration--fast) var(--wp--custom--easing--out);
+}
+
+.wpforms-container button[type="submit"]:hover,
+form[id^="wpforms-form-"] button[type="submit"]:hover,
+#commentform input[type="submit"]:hover,
+.post-password-form input[type="submit"]:hover {
+	background: var(--wp--preset--color--blue-600);
+	box-shadow: var(--wp--preset--shadow--glow-accent-strong);
+}
+
+.wpforms-container button[type="submit"]:active,
+form[id^="wpforms-form-"] button[type="submit"]:active {
+	transform: scale(0.97);
+}
+
+.wpforms-container button[type="submit"][disabled] {
+	opacity: 0.6;
+	cursor: default;
+}
+
+/* WPForms' two-column name row, which has no styling of its own here. */
+.wpforms-container .wpforms-field-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--wp--preset--spacing--space-4);
+}
+
+.wpforms-container .wpforms-field-row .wpforms-one-half {
+	flex: 1 1 200px;
+	width: auto;
+	margin: 0;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   45. Product card price in the classic [products] grid
+   WooCommerce sizes the card price at .857em, which put it below the 16px
+   card title, and the "fra" prefix at 0.5em of that — under 7px. The price is
+   the second thing a customer reads, so it takes the card's largest type, and
+   the prefix becomes a legible label rather than a whisper.
+   ───────────────────────────────────────────────────────────── */
+
+.woocommerce ul.products li.product .price,
+.woocommerce-page ul.products li.product .price {
+	display: flex;
+	align-items: baseline;
+	flex-wrap: wrap;
+	gap: 6px;
+	margin: 6px 0 0;
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--xl);
+	font-weight: 600;
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	color: var(--wp--preset--color--navy-900);
+}
+
+.woocommerce ul.products li.product .price .woocommerce-Price-amount,
+.woocommerce-page ul.products li.product .price .woocommerce-Price-amount {
+	font-size: inherit;
+	font-weight: inherit;
+	color: inherit;
+}
+
+/* Struck-through original on a sale price stays quiet. */
+.woocommerce ul.products li.product .price del,
+.woocommerce-page ul.products li.product .price del {
+	font-size: var(--wp--preset--font-size--sm);
+	font-weight: 400;
+	color: var(--wp--preset--color--gray-500);
+}
+
+.woocommerce ul.products li.product .price ins,
+.woocommerce-page ul.products li.product .price ins {
+	text-decoration: none;
+}
+
+/* "fra": a label at the same size as the theme's other labels, not a
+   fraction of the price. Sized absolutely so it cannot inherit its way
+   back down to 7px. */
+.woocommerce ul.products li.product .price .fl-price-from,
+.woocommerce-page ul.products li.product .price .fl-price-from,
+.fl-tiers .fl-price-from {
+	font-size: 11px;
+	line-height: 1.2;
+	vertical-align: baseline;
+	margin-right: 0;
+	color: var(--wp--preset--color--gray-600);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   46. Payment methods — logo, then name, left aligned
+   WooCommerce Blocks lays each gateway label out as a flex row, but the
+   gateways fill it differently: Klarna puts its name in a bare text node
+   after the logo, the card gateway puts its icon in a trailing span, and
+   woo-vipps wraps its name in a span that floats right — so the Vipps name
+   ended up at the far edge. One row shape for all three.
+   ───────────────────────────────────────────────────────────── */
+
+.wc-block-components-radio-control__label > span,
+.wc-block-components-payment-method-label {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 10px;
+	float: none;
+	width: 100%;
+}
+
+/* Any span inside the label — the Vipps name, the card icon holder — sits in
+   the row instead of floating out of it. */
+.wc-block-components-radio-control__label > span > span,
+.wc-block-components-payment-method-label > span {
+	float: none;
+	margin: 0;
+	display: flex;
+	align-items: center;
+}
+
+/* The logo comes first whether the gateway prints it before or after the name. */
+.wc-block-components-radio-control__label img,
+.wc-block-components-payment-method-label img {
+	order: -1;
+	flex: none;
+	margin: 0;
+	max-height: 24px;
+	width: auto;
+}
+
+.wc-block-components-radio-control__label > span > span:has(> img),
+.wc-block-components-payment-method-label > span:has(> img) {
+	order: -1;
+	flex: none;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   47. Checkout header cart icon
+   The cart link holds two children: the icon and an empty text span. With
+   place-items:center that empty span takes a second grid row and pushes the
+   glyph 4.5px above centre.
+   ───────────────────────────────────────────────────────────── */
+
+.fl-header--checkout .wp-block-woocommerce-cart-link a .wc-block-cart-link__text:empty {
+	display: none;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   48. Express payment buttons, flush with the add-to-cart row
+   Stripe insets its element by 4px and Klarna's #kec-pay-button carries an
+   8px left offset, so the three express buttons sat at three different
+   widths. The add-to-cart row itself was inset too: whitespace between the
+   quantity box and the button creates empty flex items, so the row's gap was
+   applied before the first and after the last. With the gap carried by the
+   quantity box instead, the row spans its full width and the express buttons
+   line up with it.
+   ───────────────────────────────────────────────────────────── */
+
+.fl-product__panel form.cart:not(.variations_form) {
+	gap: 0;
+}
+
+.fl-product__panel form.cart:not(.variations_form) .quantity {
+	margin-right: var(--wp--preset--spacing--space-3);
+}
+
+.fl-product__panel #wc-stripe-express-checkout-element,
+.fl-product__panel #kec-pay-button,
+#wc-stripe-express-checkout-element,
+#kec-pay-button {
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 100%;
+	margin-inline: 0;
+	padding-inline: 0;
+}
+
+.fl-product__panel #kec-pay-button > *,
+#kec-pay-button > * {
+	width: 100%;
+	margin-inline: 0;
+}
