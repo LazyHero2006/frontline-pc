@@ -3982,3 +3982,11 @@ form[id^="wpforms-form-"] button[type="submit"]:active {
 	width: 100%;
 	margin-inline: 0;
 }
+
+/* WooCommerce's order-attribution element is an inline custom element holding
+   16 hidden inputs. It renders an 8px inline box between the express buttons,
+   which offset Klarna's button by exactly that much. Hiding it costs nothing:
+   hidden inputs are still submitted when their container is display:none. */
+wc-order-attribution-inputs {
+	display: none;
+}
