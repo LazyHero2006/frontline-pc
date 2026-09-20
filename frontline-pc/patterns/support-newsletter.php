@@ -54,7 +54,7 @@ $frontline_pc_newsletter_action = (string) apply_filters( 'frontline_pc_newslett
 
 			<!-- wp:html -->
 			<div class="fl-support__ctas">
-				<a class="fl-btn fl-btn--md fl-btn--accent" href="<?php echo esc_url( home_url( '/contact-us/' ) ); ?>"><?php frontline_pc_the_icon( 'message-square' ); ?><?php echo esc_html__( 'Chat med oss', 'frontline-pc' ); ?></a>
+				<a class="fl-btn fl-btn--md fl-btn--accent" href="<?php echo esc_url( home_url( '/kontakt-oss/' ) ); ?>"><?php frontline_pc_the_icon( 'message-square' ); ?><?php echo esc_html__( 'Chat med oss', 'frontline-pc' ); ?></a>
 				<?php if ( '' !== $frontline_pc_phone ) : ?>
 				<a class="fl-btn fl-btn--md fl-btn--dark-outline" href="<?php echo esc_url( 'tel:' . $frontline_pc_phone ); ?>"><?php frontline_pc_the_icon( 'phone' ); ?><?php echo esc_html( $frontline_pc_phone ); ?></a>
 				<?php endif; ?>

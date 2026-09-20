@@ -24,7 +24,7 @@ $frontline_pc_service_links = array(
 	array( __( 'Garanti & service', 'frontline-pc' ), '/pc-service/' ),
 	array( __( 'Om oss', 'frontline-pc' ), '/om-oss/' ),
 	array( __( '3D Printing lokalt', 'frontline-pc' ), '/3d-printing-lokalt/' ),
-	array( __( 'Kontakt oss', 'frontline-pc' ), '/contact-us/' ),
+	array( __( 'Kontakt oss', 'frontline-pc' ), '/kontakt-oss/' ),
 );
 
 $frontline_pc_payments = array( 'Vipps', 'Klarna', 'Visa', 'Mastercard' );

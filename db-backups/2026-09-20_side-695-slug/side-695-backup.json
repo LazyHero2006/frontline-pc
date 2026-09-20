@@ -1,0 +1,97 @@
+{
+    "post": {
+        "ID": "695",
+        "post_author": "1",
+        "post_date": "2022-09-09 12:30:43",
+        "post_date_gmt": "2022-09-09 12:30:43",
+        "post_content": "<h2>Kontakt oss</h2>\t\t\t\t\t\t\t\n\t\t\t\t<svg aria-hidden=\"true\" viewBox=\"0 0 384 512\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z\"></path></svg>\t\t\t\t\n\t\t\t\t\t\t\t\t\t<h5>\n\t\t\t\t\t\t\tAdresse\t\t\t\t\t\t\n\t\t\t\t\t</h5>\n\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\tLomnesveien 89<br>2485 Rendalen\t\t\t\t\t</p>\n\t\t\t\t<svg aria-hidden=\"true\" viewBox=\"0 0 512 512\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M493.4 24.6l-104-24c-11.3-2.6-22.9 3.3-27.5 13.9l-48 112c-4.2 9.8-1.4 21.3 6.9 28l60.6 49.6c-36 76.7-98.9 140.5-177.2 177.2l-49.6-60.6c-6.8-8.3-18.2-11.1-28-6.9l-112 48C3.9 366.5-2 378.1.6 389.4l24 104C27.1 504.2 36.7 512 48 512c256.1 0 464-207.5 464-464 0-11.2-7.7-20.9-18.6-23.4z\"></path></svg>\t\t\t\t\n\t\t\t\t\t\t\t\t\t<h5>\n\t\t\t\t\t\t\tTelefonnummer\t\t\t\t\t\t\n\t\t\t\t\t</h5>\n\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t+47 966 32 956\t\t\t\t\t</p>\n\t\t\t\t<svg aria-hidden=\"true\" viewBox=\"0 0 512 512\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M512 464c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V200.724a48 48 0 0 1 18.387-37.776c24.913-19.529 45.501-35.365 164.2-121.511C199.412 29.17 232.797-.347 256 .003c23.198-.354 56.596 29.172 73.413 41.433 118.687 86.137 139.303 101.995 164.2 121.512A48 48 0 0 1 512 200.724V464zm-65.666-196.605c-2.563-3.728-7.7-4.595-11.339-1.907-22.845 16.873-55.462 40.705-105.582 77.079-16.825 12.266-50.21 41.781-73.413 41.43-23.211.344-56.559-29.143-73.413-41.43-50.114-36.37-82.734-60.204-105.582-77.079-3.639-2.688-8.776-1.821-11.339 1.907l-9.072 13.196a7.998 7.998 0 0 0 1.839 10.967c22.887 16.899 55.454 40.69 105.303 76.868 20.274 14.781 56.524 47.813 92.264 47.573 35.724.242 71.961-32.771 92.263-47.573 49.85-36.179 82.418-59.97 105.303-76.868a7.998 7.998 0 0 0 1.839-10.967l-9.071-13.196z\"></path></svg>\t\t\t\t\n\t\t\t\t\t\t\t\t\t<h5>\n\t\t\t\t\t\t\tE-post\t\t\t\t\t\t\n\t\t\t\t\t</h5>\n\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\tsupport@frontlinepc.no\t\t\t\t\t</p>\n\t\t\t<iframe loading=\"lazy\"\n\t\t\t\t\tsrc=\"https://maps.google.com/maps?q=Frontline%20PC&#038;t=m&#038;z=10&#038;output=embed&#038;iwloc=near\"\n\t\t\t\t\ttitle=\"Frontline PC\"\n\t\t\t\t\taria-label=\"Frontline PC\"\n\t\t\t></iframe>\n\t\t\t\t\t\t\t<h3>Send oss en melding!</h3>\t\t<form id=\"wpforms-form-439\" data-formid=\"439\" method=\"post\" enctype=\"multipart/form-data\" action=\"/wp-admin/admin-ajax.php\" data-token=\"f758bf00b4e6b7a6d2c9ca8fe748ca1c\" data-token-time=\"1775213245\"><noscript>Please enable JavaScript in your browser to complete this form.</noscript>Please enable JavaScript in your browser to complete this form.<fieldset><legend aria-hidden=\"false\">Navn *</legend><input type=\"text\" id=\"wpforms-439-field_6\" name=\"wpforms[fields][6][first]\" placeholder=\"Fornavn *\" aria-errormessage=\"wpforms-439-field_6-error\" required><label for=\"wpforms-439-field_6\">First</label><input type=\"text\" id=\"wpforms-439-field_6-last\" name=\"wpforms[fields][6][last]\" placeholder=\"Etternavn *\" aria-errormessage=\"wpforms-439-field_6-last-error\" required><label for=\"wpforms-439-field_6-last\">Last</label></fieldset><label for=\"wpforms-439-field_1\" aria-hidden=\"false\">E-post *</label><input type=\"email\" id=\"wpforms-439-field_1\" name=\"wpforms[fields][1]\" placeholder=\"E-post*\" spellcheck=\"false\" aria-errormessage=\"wpforms-439-field_1-error\" required><label for=\"wpforms-439-field_9\" aria-hidden=\"false\">Telefon *</label><input type=\"text\" id=\"wpforms-439-field_9\" name=\"wpforms[fields][9]\" placeholder=\"Telefon *\" aria-errormessage=\"wpforms-439-field_9-error\" required><label for=\"wpforms-439-field_7\" aria-hidden=\"false\">Emne *</label><input type=\"text\" id=\"wpforms-439-field_7\" name=\"wpforms[fields][7]\" placeholder=\"Emne *\" aria-errormessage=\"wpforms-439-field_7-error\" required><label for=\"wpforms-439-field_2\" aria-hidden=\"false\">Melding *</label><textarea id=\"wpforms-439-field_2\" name=\"wpforms[fields][2]\" placeholder=\"Melding *\" aria-errormessage=\"wpforms-439-field_2-error\" required></textarea><!-- .wpforms-field-container --><input type=\"hidden\" name=\"wpforms[id]\" value=\"439\">\t\t\t<input\n\t\t\t\ttype=\"hidden\"\n\t\t\t\tname=\"wpforms[nonce]\"\n\t\t\t\tvalue=\"762a58f458\"\n\t\t\t/>\n\t\t\t<input type=\"hidden\" name=\"page_title\" value=\"{page_title}\"><input type=\"hidden\" name=\"page_url\" value=\"http://page_url\"><input type=\"hidden\" name=\"url_referer\" value=\"http://url_referer\"><button type=\"submit\" name=\"wpforms[submit]\" id=\"wpforms-submit-439\" data-alt-text=\"Sender...\" data-submit-text=\"Send melding\" aria-live=\"assertive\" value=\"wpforms-submit\">Send melding</button><img src=\"https://frontlinepc.no/wp-content/plugins/wpforms-lite/assets/images/submit-spin.svg\" style=\"display: none;\" width=\"26\" height=\"26\" alt=\"Loading\"></form>  <!-- .wpforms-container -->\t\t\t<h3>Populære produkter</h3>\t\t\t\t\t\t\t\t\t\t<a href=\"#\">\n\t\t\t\t\t\t\t\t\tSe alle\n\t\t\t\t\t</a>\n\t\t\t\t\t\t[products limit=\"6\" columns=\"3\"]",
+        "post_title": "Kontakt oss",
+        "post_excerpt": "",
+        "post_status": "publish",
+        "comment_status": "closed",
+        "ping_status": "closed",
+        "post_password": "",
+        "post_name": "contact-us",
+        "to_ping": "",
+        "pinged": "",
+        "post_modified": "2026-04-03 10:47:25",
+        "post_modified_gmt": "2026-04-03 10:47:25",
+        "post_content_filtered": "",
+        "post_parent": "0",
+        "guid": "https://startersites.io/elementor/gadgets/?page_id=695",
+        "menu_order": "0",
+        "post_type": "page",
+        "post_mime_type": "",
+        "comment_count": "0"
+    },
+    "meta": [
+        {
+            "meta_key": "blocksy_demos_imported_post",
+            "meta_value": "1"
+        },
+        {
+            "meta_key": "stackable_optimized_css",
+            "meta_value": ""
+        },
+        {
+            "meta_key": "stackable_optimized_css_raw",
+            "meta_value": "a:0:{}"
+        },
+        {
+            "meta_key": "blocksy_post_meta_options",
+            "meta_value": "a:51:{s:16:\"page_title_panel\";s:0:\"\";s:16:\"has_hero_section\";s:8:\"disabled\";s:32:\"67f343b01890118b1501e96eef8e7b78\";s:0:\"\";s:12:\"hero_section\";s:6:\"type-1\";s:13:\"hero_elements\";a:4:{i:0;a:4:{s:2:\"id\";"
+        },
+        {
+            "meta_key": "_elementor_edit_mode",
+            "meta_value": "builder"
+        },
+        {
+            "meta_key": "_elementor_template_type",
+            "meta_value": "wp-page"
+        },
+        {
+            "meta_key": "_elementor_version",
+            "meta_value": "3.33.2"
+        },
+        {
+            "meta_key": "_wp_page_template",
+            "meta_value": "default"
+        },
+        {
+            "meta_key": "_elementor_data",
+            "meta_value": "[{\"id\":\"46591f7\",\"elType\":\"container\",\"settings\":{\"flex_direction\":\"column\",\"flex_gap\":{\"unit\":\"px\",\"size\":0,\"sizes\":[],\"column\":\"0\",\"row\":\"0\",\"isLinked\":true},\"background_background\":\"classic\",\"paddi"
+        },
+        {
+            "meta_key": "_edit_lock",
+            "meta_value": "1775213243:1"
+        },
+        {
+            "meta_key": "_eael_post_view_count",
+            "meta_value": "549"
+        },
+        {
+            "meta_key": "_elementor_page_settings",
+            "meta_value": "a:1:{s:18:\"eael_ext_toc_title\";s:17:\"Table of Contents\";}"
+        },
+        {
+            "meta_key": "_eael_custom_js",
+            "meta_value": ""
+        },
+        {
+            "meta_key": "_elementor_migrations_state_d2a1",
+            "meta_value": "4.2.4:7648e729aae38c0825752571ace57347"
+        },
+        {
+            "meta_key": "_elementor_css",
+            "meta_value": "a:6:{s:4:\"time\";i:1789585617;s:5:\"fonts\";a:0:{}s:5:\"icons\";a:2:{i:0;s:8:\"fa-solid\";i:3;s:0:\"\";}s:20:\"dynamic_elements_ids\";a:0:{}s:6:\"status\";s:4:\"file\";i:0;s:0:\"\";}"
+        },
+        {
+            "meta_key": "_elementor_page_assets",
+            "meta_value": "a:2:{s:6:\"styles\";a:3:{i:0;s:14:\"widget-heading\";i:1;s:15:\"widget-icon-box\";i:2;s:18:\"widget-google_maps\";}s:7:\"scripts\";a:2:{i:0;s:18:\"elementor-frontend\";i:1;s:17:\"wpforms-elementor\";}}"
+        },
+        {
+            "meta_key": "_elementor_element_cache",
+            "meta_value": "{\"timeout\":1789964145,\"value\":{\"content\":\"<div class=\\\"elementor-element elementor-element-46591f7 e-flex e-con-boxed wpr-particle-no wpr-jarallax-no wpr-parallax-no wpr-sticky-section-no wpr-column-s"
+        }
+    ]
+}

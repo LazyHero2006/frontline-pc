@@ -879,6 +879,79 @@ function frontline_pc_front_page_fallback( $block_content ) {
 add_filter( 'render_block_core/post-content', 'frontline_pc_front_page_fallback' );
 
 /**
+ * Keep old page URLs working after a page is renamed.
+ *
+ * Core's wp_old_slug_redirect() only looks for posts: it queries the post type
+ * from the request and falls back to "post", so a renamed *page* 404s even
+ * though WordPress recorded the previous slug in _wp_old_slug. The shop owner
+ * renames pages from wp-admin, and an old link in a newsletter, an ad or a
+ * search result should not die because of it.
+ *
+ * Pages only, published only, and only when the request has already 404ed, so
+ * this never competes with a live URL.
+ *
+ * @since 1.0.0
+ * @return void
+ */
+function frontline_pc_page_old_slug_redirect() {
+	if ( ! is_404() || is_admin() ) {
+		return;
+	}
+
+	$requested = (string) get_query_var( 'name' );
+
+	if ( '' === $requested ) {
+		$requested = (string) get_query_var( 'pagename' );
+	}
+
+	if ( '' === $requested ) {
+		return;
+	}
+
+	// A page request can carry a full path; only the last segment is the slug.
+	$slug = basename( untrailingslashit( $requested ) );
+
+	if ( '' === $slug ) {
+		return;
+	}
+
+	$cache_key = 'frontline_pc_old_slug_' . md5( $slug );
+	$page_id   = get_transient( $cache_key );
+
+	if ( false === $page_id ) {
+		global $wpdb;
+
+		// No core API queries _wp_old_slug for pages, so this is a direct read.
+		$page_id = (int) $wpdb->get_var( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- No core API covers this; the result is cached in the transient below.
+			$wpdb->prepare(
+				"SELECT p.ID FROM {$wpdb->posts} p
+				 INNER JOIN {$wpdb->postmeta} m ON m.post_id = p.ID
+				 WHERE m.meta_key = '_wp_old_slug' AND m.meta_value = %s
+				 AND p.post_type = 'page' AND p.post_status = 'publish'
+				 ORDER BY p.ID DESC LIMIT 1",
+				$slug
+			)
+		);
+
+		set_transient( $cache_key, $page_id, HOUR_IN_SECONDS );
+	}
+
+	if ( ! $page_id ) {
+		return;
+	}
+
+	$url = get_permalink( (int) $page_id );
+
+	if ( ! $url ) {
+		return;
+	}
+
+	wp_safe_redirect( $url, 301 );
+	exit;
+}
+add_action( 'template_redirect', 'frontline_pc_page_old_slug_redirect' );
+
+/**
  * Keep Elementor's editor away from a block-built front page.
  *
  * Elementor stays active for the existing content pages, so a block-built
