@@ -60,6 +60,11 @@ msgid "SKU"
 msgstr ""
 
 #: blocks/product-stock/index.js:16 blocks/product-stock/render.php:38
+msgid "Bygges på bestilling"
+msgstr ""
+
+
+#: blocks/product-stock/index.js:16 blocks/product-stock/render.php:38
 msgid "På lager"
 msgstr ""
 

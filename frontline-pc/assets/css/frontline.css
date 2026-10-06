@@ -966,7 +966,8 @@ body {
 	display: flex;
 	align-items: flex-end;
 	justify-content: space-between;
-	gap: 12px;
+	flex-wrap: wrap;
+	gap: 6px 12px;
 	margin-top: 20px;
 }
 
@@ -2192,6 +2193,9 @@ body {
 
 .fl-stock {
 	display: inline-block;
+	/* "Bygges på bestilling" is long enough to break mid-phrase in a card
+	   column; the price row wraps instead, so the label stays one piece. */
+	white-space: nowrap;
 	font-family: var(--wp--preset--font-family--display);
 	font-size: 11px;
 	font-weight: 600;
@@ -2203,7 +2207,10 @@ body {
 	border-radius: 0;
 }
 
-.fl-stock--in {
+/* Built to order is an available state, so it reads like in-stock rather than
+   like a warning: the machine can be bought today, it is assembled afterwards. */
+.fl-stock--in,
+.fl-stock--order {
 	color: var(--wp--preset--color--success-700);
 }
 

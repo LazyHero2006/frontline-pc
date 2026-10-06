@@ -13,6 +13,7 @@
 	var __ = i18n.__;
 
 	var FIELDS = [
+		[ 'builtToOrderLabel', __( 'Bygges på bestilling', 'frontline-pc' ) ],
 		[ 'inStockLabel', __( 'På lager', 'frontline-pc' ) ],
 		[ 'backorderLabel', __( 'På restordre', 'frontline-pc' ) ],
 		[ 'outOfStockLabel', __( 'Utsolgt', 'frontline-pc' ) ]

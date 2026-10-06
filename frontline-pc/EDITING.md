@@ -58,7 +58,9 @@ redigerer en hvilken som helst annen side.
 | Spesifikasjonene på produktkortet (Grafikkort, Prosessor …) | Produkter → produktet → fanen **Attributter** |
 | Navnet på en spesifikasjonsrad for alle produkter | Produkter → Attributter |
 | Hvilke tre maskiner som vises på forsiden | Produkter → merk nøyaktig tre som **Utvalgt** (stjerna) |
-| «På lager» / «Utsolgt»-teksten | Utseende → Redigering → Maler → Produkt → klikk merket |
+| «Bygges på bestilling» / «På lager» / «Utsolgt»-teksten | Utseende → Redigering → Maler → Produkt → klikk merket. Feltene står i samme rekkefølge som statusene |
+| Hvilke produkter som sier «Bygges på bestilling» | Produkter → produktet → kategorien **Alle PC-er**. Produkter i den kategorien bygges på bestilling; alt annet (tilbehør) sier «På lager» |
+| At et produkt skal si «Utsolgt» | Produkter → produktet → fanen **Lager** → sett lagerstatus til «Ikke på lager». Gjelder uansett kategori |
 | Teksten «fra … /mnd» | Utseende → Redigering → Maler → Produkt → klikk teksten |
 | Rekkefølgen i butikken | Produkter → dra, eller Utseende → Redigering → Maler → Produktarkiv |
 

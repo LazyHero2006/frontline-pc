@@ -18,6 +18,10 @@
 	"render": "file:./render.php",
 	"editorScript": "frontline-pc-product-stock-editor",
 	"attributes": {
+		"builtToOrderLabel": {
+			"type": "string",
+			"default": ""
+		},
 		"inStockLabel": {
 			"type": "string",
 			"default": ""
