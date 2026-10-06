@@ -13,7 +13,7 @@
 $frontline_pc_promises = array(
 	__( 'Fri frakt over 1 500,–', 'frontline-pc' ),
 	__( 'Bygget og testet i Norge', 'frontline-pc' ),
-	__( 'Levering 3–5 dager', 'frontline-pc' ),
+	__( 'Byggetid 5–7 dager', 'frontline-pc' ),
 );
 
 $frontline_pc_promises = array_values( array_filter( array_map( 'trim', $frontline_pc_promises ) ) );

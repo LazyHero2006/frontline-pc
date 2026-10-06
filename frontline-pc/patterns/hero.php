@@ -13,7 +13,7 @@
 $frontline_pc_hero_image = get_template_directory_uri() . '/assets/images/hero-elite.webp';
 
 $frontline_pc_stats = array(
-	array( __( 'Byggetid', 'frontline-pc' ), __( '3–5 dg', 'frontline-pc' ) ),
+	array( __( 'Byggetid', 'frontline-pc' ), __( '5–7 dg', 'frontline-pc' ) ),
 	array( __( 'Stresstest', 'frontline-pc' ), __( '24 t', 'frontline-pc' ) ),
 	array( __( 'Garanti', 'frontline-pc' ), __( '3 år', 'frontline-pc' ) ),
 );

@@ -15,7 +15,7 @@ $frontline_pc_usps = array(
 	array( 'shield-check', __( 'Norsk garanti & service', 'frontline-pc' ) ),
 	array( 'truck', __( 'Fri frakt over 1 500,–', 'frontline-pc' ) ),
 	array( 'credit-card', __( 'Delbetaling: Klarna & Vipps', 'frontline-pc' ) ),
-	array( 'package-check', __( 'Levering 3–5 dager', 'frontline-pc' ) ),
+	array( 'package-check', __( 'Byggetid 5–7 dager', 'frontline-pc' ) ),
 );
 
 ?>

@@ -105,7 +105,7 @@ msgid "Bygget og testet i Norge"
 msgstr ""
 
 #: patterns/announcement-bar.php:16 patterns/usp-strip.php:18
-msgid "Levering 3–5 dager"
+msgid "Byggetid 5–7 dager"
 msgstr ""
 
 #: patterns/error-404.php:18
@@ -201,7 +201,7 @@ msgid "Byggetid"
 msgstr ""
 
 #: patterns/hero.php:16
-msgid "3–5 dg"
+msgid "5–7 dg"
 msgstr ""
 
 #: patterns/hero.php:17

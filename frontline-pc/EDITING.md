@@ -21,7 +21,7 @@ redigerer en hvilken som helst annen side.
 | Knappene «Se maskinene» og «3 års garanti» | Sider → Forside → klikk på knappen (tekst og lenke) |
 | Hovedbildet av PC-en | Sider → Forside → klikk bildet → **Erstatt** |
 | Tallene Byggetid / Stresstest / Garanti | Sider → Forside → klikk på tallet eller etiketten |
-| Linja «Bygget i Norge», «Fri frakt …», «Levering 5–7 dager» | Sider → Forside → klikk på teksten |
+| Linja «Bygget i Norge», «Fri frakt …», «Byggetid 5–7 dager» | Sider → Forside → klikk på teksten |
 | «Tre prisklasser» og «Fighter. Ghost. Titan.» | Sider → Forside → klikk på teksten |
 | Lenka «Sammenlign alle spesifikasjoner» | Sider → Forside → klikk på lenka |
 | De fire stegene under «Slik bygger vi» | Sider → Forside → klikk på overskrift eller tekst |
